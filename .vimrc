@@ -64,4 +64,5 @@ filetype plugin on
 :set nu
 highlight RED ctermbg=red guibg=red
 :let m=matchadd("RED","TODO")
-
+:nmap <up> ddkP
+:nmap <down> ddp
