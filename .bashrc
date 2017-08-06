@@ -114,3 +114,6 @@ fi
 alias ls="ls --color=auto -a" 
 figlet $(shuf -n 1 /usr/share/dict/words)
 export PATH=$PATH:/sbin
+alias got="ps -aux | grep "
+alias get="ps -aux | grep --color=auto firefox | awk '{print $2}' "
+
