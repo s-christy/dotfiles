@@ -1,0 +1,97 @@
+iwconfig
+
+wlo1      IEEE 802.11  ESSID:"Network"  
+          Mode:Managed  Frequency:2.442 GHz  Access Point: A2:63:91:25:81:67   
+          Bit Rate=72.2 Mb/s   Tx-Power=22 dBm   
+          Retry short limit:7   RTS thr:off   Fragment thr:off
+          Power Management:on
+          Link Quality=53/70  Signal level=-57 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:1   Missed beacon:0
+
+nmcli
+
+wlo1: connected to Network
+	"Intel Wireless 3165 (Dual Band Wireless AC 3165)"
+	wifi (iwlwifi), B8:81:98:51:75:5C, hw
+	ip4 default
+	inet4 192.168.1.23/24
+	inet6 fe80::bd90:9bfa:c408:e458/64
+
+enp1s0: unmanaged
+	"Realtek RTL8101/2/6E PCI Express Fast/Gigabit Ethernet controller"
+	ethernet (r8169), EC:8E:B5:A3:5C:02, hw, mtu 1500
+
+lo: unmanaged
+	loopback (unknown), 00:00:00:00:00:00, sw, mtu 65536
+
+DNS configuration:
+	servers: 192.168.1.1
+	interface: wlo1
+
+Use "nmcli device show" to get complete information about known devices and
+"nmcli connection show" to get an overview on active connection profiles.
+
+Consult nmcli(1) and nmcli-examples(5) manual pages for complete usage details.
+
+nmcli device show
+
+GENERAL.DEVICE:                         wlo1
+GENERAL.TYPE:                           wifi
+GENERAL.HWADDR:                         B8:81:98:51:75:5C
+GENERAL.MTU:                            0
+GENERAL.STATE:                          100 (connected)
+GENERAL.CONNECTION:                     Network
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/6
+IP4.ADDRESS[1]:                         192.168.1.23/24
+IP4.GATEWAY:                            192.168.1.1
+IP4.DNS[1]:                             192.168.1.1
+IP6.ADDRESS[1]:                         fe80::bd90:9bfa:c408:e458/64
+IP6.GATEWAY:                            --
+
+GENERAL.DEVICE:                         enp1s0
+GENERAL.TYPE:                           ethernet
+GENERAL.HWADDR:                         EC:8E:B5:A3:5C:02
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.CONNECTION:                     --
+GENERAL.CON-PATH:                       --
+WIRED-PROPERTIES.CARRIER:               off
+IP4.ADDRESS[1]:                         192.168.1.35/24
+IP4.GATEWAY:                            192.168.1.1
+IP4.ROUTE[1]:                           dst = 169.254.0.0/16, nh = 0.0.0.0, mt = 1000
+IP6.ADDRESS[1]:                         fe80::ee8e:b5ff:fea3:5c02/64
+IP6.GATEWAY:                            --
+
+GENERAL.DEVICE:                         lo
+GENERAL.TYPE:                           loopback
+GENERAL.HWADDR:                         00:00:00:00:00:00
+GENERAL.MTU:                            65536
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.CONNECTION:                     --
+GENERAL.CON-PATH:                       --
+IP4.ADDRESS[1]:                         127.0.0.1/8
+IP4.GATEWAY:                            --
+IP6.ADDRESS[1]:                         ::1/128
+IP6.GATEWAY:                            --
+
+nmcli connection show
+
+NAME      UUID                                  TYPE             DEVICE 
+Network   21931e14-0cda-46b2-91c2-120447e287bd  802-11-wireless  wlo1   
+SAndroid  62d7a99d-8ef7-404c-b18b-df31ebb3b7bc  802-11-wireless  --     
+
+cat /etc/network/interfaces
+
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug enp1s0
+iface enp1s0 inet dhcp
