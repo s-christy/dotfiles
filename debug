@@ -95,3 +95,7 @@ iface lo inet loopback
 # The primary network interface
 allow-hotplug enp1s0
 iface enp1s0 inet dhcp
+
+lspci | grep Wireless
+
+05:00.0 Network controller: Intel Corporation Wireless 3165 (rev 81)
