@@ -111,7 +111,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-alias ls="ls --color=auto -a" 
+alias ls="ls --color=auto -a "
 figlet $(shuf -n 1 /usr/share/dict/words)
 export PATH=$PATH:/sbin
 alias got="ps -aux | grep "
@@ -119,4 +119,4 @@ alias get="ps -aux | grep --color=auto firefox | awk '{print $2}' "
 alias x="xdg-open "
 alias s="systemctl suspend"
 alias 84="ping 8.8.4.4 "
-
+alias traceroute="traceroute --resolve-hostnames "
