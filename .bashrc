@@ -118,3 +118,5 @@ alias got="ps -aux | grep "
 alias get="ps -aux | grep --color=auto firefox | awk '{print $2}' "
 alias x="xdg-open "
 alias s="systemctl suspend"
+alias 84="ping 8.8.4.4 "
+
