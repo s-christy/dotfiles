@@ -1,0 +1,3 @@
+sudo chmod -R 777 DIRECTORY will recursively set permissions to 777 for DIRECTORY
+sudo chown sam -R ~/DIRECTORY will make you the owner of the directory and of everything inside of it
+git add -A adds all changed files
