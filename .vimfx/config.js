@@ -17,6 +17,7 @@ Object.entries(MAPPINGS).forEach(([command, value]) => {
         ? value
         : [value, 'mode.normal']
     vimfx.set(`${mode}.${command}`, shortcuts)
+    //vimfx.notify("Ignore mode off") this doesn't work
 })
 
 // ctrl-shift-j opens developer console in firefox
