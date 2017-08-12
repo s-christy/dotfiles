@@ -114,6 +114,7 @@ fi
 alias ls="ls --color=auto -a "
 figlet $(shuf -n 1 /usr/share/dict/words)
 export PATH=$PATH:/sbin
+export PATH=$PATH:/usr/sbin
 alias got="ps -aux | grep "
 alias get="ps -aux | grep --color=auto firefox | awk '{print $2}' "
 alias x="xdg-open "
@@ -123,3 +124,5 @@ alias traceroute="traceroute --resolve-hostnames "
 alias duh="du --max-depth=1 -h "
 
 PATH=$PATH:~/s-christy/dotfiles/bin/
+xset b off
+
