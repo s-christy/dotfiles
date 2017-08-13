@@ -11,7 +11,7 @@ ln -sf s-christy/dotfiles/.b*
 vi /etc/apt/sources.list
 add contrib non-free to the end of each line
 apt update
-apt install firmware-iwlwifi firmware-linux-nonfree net-tools network-manager figlet firmware-linux upower lynx i3 xorg iceweasel dmenu ranger nemo pulseaudio pavucontrol banshee default-jre mplayer software-properties-common gedit neofetch
+apt install firmware-iwlwifi firmware-linux-nonfree net-tools network-manager figlet firmware-linux upower lynx i3 xorg iceweasel dmenu ranger nemo pulseaudio pavucontrol banshee default-jre mplayer software-properties-common gedit neofetch gnome-terminal
 note: vlc-nox is a version of vlc that can run without x. vlc should be sufficient
 systemctl reboot
 create .xinitrc and add exec i3
