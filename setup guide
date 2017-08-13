@@ -11,7 +11,7 @@ ln -sf s-christy/dotfiles/.b*
 vi /etc/apt/sources.list
 add contrib non-free to the end of each line
 apt update
-apt install firmware-iwlwifi firmware-linux-nonfree net-tools network-manager figlet firmware-linux upower lynx i3 xorg iceweasel dmenu ranger nemo pulseaudio pavucontrol banshee default-jre mplayer software-properties-common gedit neofetch gnome-terminal
+apt install firmware-iwlwifi firmware-linux-nonfree net-tools network-manager figlet firmware-linux upower lynx i3 xorg iceweasel dmenu ranger nemo pulseaudio pavucontrol banshee default-jre mplayer software-properties-common gedit neofetch gnome-terminal xinput
 note: vlc-nox is a version of vlc that can run without x. vlc should be sufficient
 systemctl reboot
 create .xinitrc and add exec i3
@@ -19,6 +19,7 @@ startx
 use pavucontrol to do sound stuff
 mplayer for videos
 edit /etc/motd
+to change brightness, edit /sys/class/backlight/radeon_b10/brightness. 255 is max, 0 is min
 
 
 steam:
@@ -42,3 +43,11 @@ to start an arbitrary desktop, find the command in /usr/share/xsessions/whatever
 for example:
 exec cinnamon-session-cinnamon
 to start cinnamon desktop with startx
+
+consider switching to smplayer
+
+xinput list
+xinput list-props "ETPS/2 Elantech Touchpad"
+xinput list-props "DEVICE NAME" PROP_ID VALUE
+
+
