@@ -19,6 +19,9 @@ startx
 use pavucontrol to do sound stuff
 mplayer for videos
 edit /etc/motd
+check autoscrolling in firefox settings
+add adblock and vimfx to firefox
+go to about:config and change config_file_directory to ~/config.js
 
 
 steam:
@@ -42,3 +45,5 @@ to start an arbitrary desktop, find the command in /usr/share/xsessions/whatever
 for example:
 exec cinnamon-session-cinnamon
 to start cinnamon desktop with startx
+
+
