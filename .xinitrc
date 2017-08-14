@@ -1,5 +1,5 @@
 exec i3
 exec --no-startup-id pulseaudio
-xset s off
-xset -dpms
+# xset s off
+# xset -dpms
 

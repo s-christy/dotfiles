@@ -123,6 +123,6 @@ alias 84="ping 8.8.4.4 "
 alias traceroute="traceroute --resolve-hostnames "
 alias duh="du --max-depth=1 -h "
 
-PATH=$PATH:~/s-christy/dotfiles/bin/
-xset b off
+# PATH=$PATH:~/s-christy/dotfiles/bin/
+# xset b off
 
