@@ -129,3 +129,4 @@ alias dmesg="sudo dmesg -H "
 
 xinput --set-prop "ETPS/2 Elantech Touchpad" 294 0
 
+

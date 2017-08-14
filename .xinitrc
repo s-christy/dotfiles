@@ -3,3 +3,4 @@ exec --no-startup-id pulseaudio
 # xset s off
 # xset -dpms
 exec ~./fehbg
+

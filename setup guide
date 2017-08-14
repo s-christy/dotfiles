@@ -55,6 +55,7 @@ setup wallpaper
 feh --bg-scale ~/Downloads/html-background-image-HD1-1.jpg
 after that, add exec ~/.fehbg to your i3 config file
 
-xset -q gives info on standby times and other important info
+xset -q gives info on standby times and other important info 
+
 
 
