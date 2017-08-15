@@ -124,8 +124,8 @@ alias traceroute="traceroute --resolve-hostnames "
 alias duh="du --max-depth=1 -h "
 alias dmesg="sudo dmesg -H "
 
-# PATH=$PATH:~/s-christy/dotfiles/bin/
-# xset b off
+PATH=$PATH:~/s-christy/dotfiles/bin/
+xset b off
 
 xinput --set-prop "ETPS/2 Elantech Touchpad" 294 0
 
