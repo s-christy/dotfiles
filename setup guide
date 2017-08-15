@@ -57,5 +57,5 @@ after that, add exec ~/.fehbg to your i3 config file
 
 xset -q gives info on standby times and other important info 
 
-
-
+sudo apt install python-pip
+sudo python3 -m pip install torrench
