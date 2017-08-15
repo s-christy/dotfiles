@@ -111,7 +111,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-alias ls="ls --color=auto -a "
+alias ls="ls --color=auto -A "
 figlet $(shuf -n 1 /usr/share/dict/words)
 export PATH=$PATH:/sbin
 export PATH=$PATH:/usr/sbin
