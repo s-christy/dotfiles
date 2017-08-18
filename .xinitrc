@@ -4,4 +4,7 @@ exec --no-startup-id pulseaudio
 # xset -dpms
 
 #make standby time 1 hour
-xset s 3600 3600
+#xset s 3600 3600
+
+#disable energy star features
+xset -dpms
