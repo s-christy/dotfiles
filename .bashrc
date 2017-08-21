@@ -123,6 +123,7 @@ alias 84="ping 8.8.4.4 "
 alias traceroute="traceroute --resolve-hostnames "
 alias duh="du --max-depth=1 -h "
 alias dmesg="sudo dmesg -H "
+alias watch="watch -n 0 "
 
 PATH=$PATH:~/s-christy/dotfiles/bin/
 xset b off
