@@ -14,6 +14,7 @@ apt update
 apt install firmware-iwlwifi firmware-linux-nonfree net-tools network-manager figlet firmware-linux upower lynx i3 xorg iceweasel dmenu ranger nemo pulseaudio pavucontrol banshee default-jre mplayer software-properties-common gedit neofetch gnome-terminal xinput feh
 apt install imagemagick (for the convert utility)
 apt install wireless-tools (for iwconfig)
+apt install shutter (for screenshotting)
 note: vlc-nox is a version of vlc that can run without x. vlc should be sufficient
 systemctl reboot
 create .xinitrc and add exec i3
