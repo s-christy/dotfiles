@@ -75,3 +75,4 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 :map J 5j
 :map K 5k
 
+:map <F4> :set wrap!<CR><Esc>
