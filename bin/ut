@@ -10,3 +10,10 @@ secs=$((($future-$now)-$days*24*60*60-$hours*3600-$mins*60))
 
 echo $days days $hours hours $mins minutes $secs seconds until $diff
 
+#figlet one only works for future times
+#figlet $days days $hours hours $mins minutes $secs seconds until $diff
+
+
+
+
+
