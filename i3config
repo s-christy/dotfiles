@@ -156,3 +156,5 @@ bar {
 }
 
 exec ~/.fehbg
+
+bindsym $mod+Shift+i exec iceweasel
