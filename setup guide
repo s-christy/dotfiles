@@ -15,6 +15,7 @@ apt install firmware-iwlwifi firmware-linux-nonfree net-tools network-manager fi
 apt install imagemagick (for the convert utility)
 apt install wireless-tools (for iwconfig)
 apt install shutter (for screenshotting)
+mutt for email
 note: vlc-nox is a version of vlc that can run without x. vlc should be sufficient
 systemctl reboot
 create .xinitrc and add exec i3
