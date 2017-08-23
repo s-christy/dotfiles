@@ -126,6 +126,7 @@ alias dmesg="sudo dmesg -H "
 alias watch="watch -n 0 "
 alias push="git push "
 alias pull="git pull "
+alias commit="git commit -am "
 
 PATH=$PATH:~/s-christy/dotfiles/bin/
 xset b off
