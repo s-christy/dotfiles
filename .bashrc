@@ -127,6 +127,7 @@ alias watch="watch -n 0 "
 alias push="git push "
 alias pull="git pull "
 alias commit="git commit -am "
+alias status="git status "
 
 PATH=$PATH:~/s-christy/dotfiles/bin/
 xset b off
