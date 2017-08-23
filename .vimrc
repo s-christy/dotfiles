@@ -76,3 +76,6 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 :map K 5k
 
 :map <F4> :set wrap!<CR><Esc>
+:map <F6> :r ~/s-christy/dotfiles/filler\ text<CR><Esc>
+
+
