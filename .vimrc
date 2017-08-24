@@ -81,4 +81,7 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 :map <Space><Space> <Esc>/<++><CR>xxxxi
 :map ;+ <Esc>i<++>
 
+"you can use :tab help topic instead of :help topic
 
+"fullscreens the help window
+:set helpheight 9999
