@@ -70,3 +70,5 @@ install dwarf fortress
 make sure to install vim-gtk to get clipboard support
 use vim --version|grep clipboard and look for +clipboard and +xterm_clipboard
 
+use konsole instead of i3-sensible-terminal
+
