@@ -67,3 +67,6 @@ sudo python3 -m pip install torrench
 
 install dwarf fortress
 
+make sure to install vim-gtk to get clipboard support
+use vim --version|grep clipboard and look for +clipboard and +xterm_clipboard
+
