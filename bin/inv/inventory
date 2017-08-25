@@ -1,0 +1,10 @@
+tail -n 10 ~/s-christy/dotfiles/bin/inv/index
+echo What is the container?
+read -r container
+
+while [ 1 ]
+do
+	read -r item
+	echo "$container.$item">>~/s-christy/dotfiles/bin/inv/index
+done
+

@@ -1,0 +1,2 @@
+#THE DOUBLE QUOTES ARE REQUIRED
+cat ~/s-christy/dotfiles/plumbus | egrep "(Buck|$1)"

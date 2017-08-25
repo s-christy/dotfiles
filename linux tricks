@@ -2,3 +2,5 @@ sudo chmod -R 777 DIRECTORY will recursively set permissions to 777 for DIRECTOR
 sudo chown sam -R ~/DIRECTORY will make you the owner of the directory and of everything inside of it
 git add -A adds all changed files
 wc -l FILE counts the number of lines in the file
+" and ' are different in bash
+ls -R
