@@ -4,3 +4,4 @@ git add -A adds all changed files
 wc -l FILE counts the number of lines in the file
 " and ' are different in bash
 ls -R
+kill -l

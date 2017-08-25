@@ -72,3 +72,9 @@ use vim --version|grep clipboard and look for +clipboard and +xterm_clipboard
 
 use konsole instead of i3-sensible-terminal
 
+pactl list sinks short
+pactl set-sink-mute 12 false
+pactl set-sink-volume 12 +5%
+
+learn xrandr
+

@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -158,3 +158,10 @@ bar {
 exec ~/.fehbg
 
 bindsym $mod+Shift+i exec iceweasel
+
+bindsym XF86AudioRaiseVolume exec —no-startup-id pactl set-sink-volume 16 +5%
+bindsym XF86AudioLowerVolume exec —no-startup-id pactl set-sink-volume 16 -5%
+
+
+
+
