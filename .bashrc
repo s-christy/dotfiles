@@ -130,8 +130,9 @@ alias commit="git commit -am "
 alias status="git status "
 
 PATH=$PATH:~/s-christy/dotfiles/bin/
-xset b off
+xset b off 2> /dev/null
 
-xinput --set-prop "ETPS/2 Elantech Touchpad" 294 0
+xinput --set-prop "ETPS/2 Elantech Touchpad" 294 0 2> /dev/null
+
 
 
