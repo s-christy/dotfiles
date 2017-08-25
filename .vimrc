@@ -60,23 +60,24 @@ endif
 :map <F5> :setlocal spell! spelllang=en_us<CR>
 set nocompatible
 filetype plugin on
-:set rnu
+":set rnu "THIS SLOWS VIM DOWN TOO MUCH
 :set nu
 highlight RED ctermbg=red guibg=red
 :let m=matchadd("RED","TODO")
 :nmap <up> ddkP
 :nmap <down> ddp
 
-nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
-
-:set nowrap
-
 :map J 5j
 :map K 5k
 
+:map <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 :map <F4> :set wrap!<CR><Esc>
 :map <F6> :r ~/s-christy/dotfiles/filler\ text<CR><Esc>
+:map <F7> :set ve=all<CR><Esc>:echo "ve set to all"<CR><Esc>
+:map <F12> :source ~/.vimrc<CR><Esc>:echo "reloaded .vimrc"<CR><Esc>
+
+nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 :map <Space><Space> <Esc>/<++><CR>xxxxi
 :map ;+ <Esc>i<++>
@@ -84,38 +85,37 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 "you can use :tab help topic instead of :help topic
 
 "fullscreens the help window
-:set helpheight=9999
+:set helpheight=120
 
-:map <F12> :source ~/.vimrc<CR><Esc>:echo "reloaded .vimrc"<CR><Esc>
 
-fu! Dir(direction)
-	:set ve=all
-	"echo "a"
-	if a:direction=="Up"
-		:normal i│
-		:normal k
-	endif
-	if a:direction=="Down"
-		:normal i│
-		:normal j
-	endif
-	if a:direction=="Left"
-		:normal i─
-		:normal h
-	endif
-	if a:direction=="Right"
-		:normal i─
-		:normal l
-	endif
-"	:execute "normal! iasdf"
-	:set ve=block
-endfunction
-
-:nmap <Up> :call Dir("Up")<CR><Esc>
-:nmap <Down> :call Dir("Down")<CR><Esc>
-:nmap <Left> :call Dir("Left")<CR><Esc>
-:nmap <Right> :call Dir("Right")<CR><Esc>
-
+"fu! Dir(direction)
+"	:set ve=all
+"	"echo "a"
+"	if a:direction=="Up"
+"		:normal i│
+"		:normal k
+"	endif
+"	if a:direction=="Down"
+"		:normal i│
+"		:normal j
+"	endif
+"	if a:direction=="Left"
+"		:normal i─
+"		:normal h
+"	endif
+"	if a:direction=="Right"
+"		:normal i─
+"		:normal l
+"	endif
+""	:execute "normal! iasdf"
+"	:set ve=block
+"endfunction
+"
+":nmap <Up> :call Dir("Up")<CR><Esc>
+":nmap <Down> :call Dir("Down")<CR><Esc>
+":nmap <Left> :call Dir("Left")<CR><Esc>
+":nmap <Right> :call Dir("Right")<CR><Esc>
+"
 
 
 
