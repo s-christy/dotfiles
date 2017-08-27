@@ -128,6 +128,7 @@ alias push="git push "
 alias pull="git pull "
 alias commit="git commit -am "
 alias status="git status "
+alias wc='printf " l    w   c\n";wc '
 
 PATH=$PATH:~/s-christy/dotfiles/bin/
 xset b off 2> /dev/null
