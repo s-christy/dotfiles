@@ -96,4 +96,5 @@ xzoom.c:30:22: fatal error: X11/Xlib.h: No such file or directory
 may be solved by searching
 apt-file search xlib.h
 
+sudo apt install espeak
 
