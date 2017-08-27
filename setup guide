@@ -78,3 +78,22 @@ pactl set-sink-volume 12 +5%
 
 learn xrandr
 
+to fix screen tearing:
+sudo apt install compton
+create ~/.config/compton.conf
+add the following text:
+
+backend = "glx";
+vsync = "opengl-swc";
+glx-swap-method = 3;
+
+restart compton like this:
+compton --config ~/path/to/config -b
+
+apt install apt-file //apt file searches through the repos to find files
+for instance, the error
+xzoom.c:30:22: fatal error: X11/Xlib.h: No such file or directory
+may be solved by searching
+apt-file search xlib.h
+
+

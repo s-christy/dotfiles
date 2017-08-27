@@ -6,3 +6,5 @@ wc -l FILE counts the number of lines in the file
 ls -R
 kill -l
 vim -r
+man -k SEARCH
+
