@@ -8,4 +8,5 @@ kill -l
 vim -r
 man -k SEARCH
 espeak "WORDS"
+sensors command
 
