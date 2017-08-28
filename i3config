@@ -159,9 +159,11 @@ exec ~/.fehbg
 
 bindsym $mod+Shift+i exec iceweasel
 
-bindsym XF86AudioRaiseVolume exec —no-startup-id pactl set-sink-volume 16 +5%
-bindsym XF86AudioLowerVolume exec —no-startup-id pactl set-sink-volume 16 -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%
 
-
+#pactl list sinks short
+#bindcode 122 exec pactl --set-sink-volume 52 +50%
+#bindcode 123 exec pactl --set-sink-volume 52 -50%
 
 

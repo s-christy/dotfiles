@@ -97,4 +97,5 @@ may be solved by searching
 apt-file search xlib.h
 
 sudo apt install espeak
+sudo apt install xclip
 

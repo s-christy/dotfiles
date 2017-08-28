@@ -129,6 +129,8 @@ alias pull="git pull "
 alias commit="git commit -am "
 alias status="git status "
 alias wc='printf " l    w   c\n";wc '
+alias espeak="espeak -a 50 "
+alias speak="xclip -o | espeak -a 2 "
 
 PATH=$PATH:~/s-christy/dotfiles/bin/
 xset b off 2> /dev/null
