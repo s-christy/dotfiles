@@ -7,4 +7,8 @@ exec --no-startup-id pulseaudio
 #xset s 3600 3600
 
 #disable energy star features
-xset -dpms
+exec xset -dpms
+exec xset s 3600 3600
+exec xset s off
+
+

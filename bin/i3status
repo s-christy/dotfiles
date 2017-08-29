@@ -1,2 +1,12 @@
 #change the i3 status bar in i3config to use this
-echo asdf
+
+
+while true;
+do
+	volume=$(pactl list | grep % | head -n 1 | cut -d / -f 2)
+	disk=$(df|grep sda1)
+	available=$(python -c "print '$disk'.split()[3]")
+	havailable=$(python -c "print int($available)/1024.0/1024.0")
+	echo ♪:$volume | $havailable | $(date)
+	sleep .1
+done
