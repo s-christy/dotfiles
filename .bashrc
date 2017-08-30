@@ -131,6 +131,8 @@ alias status="git status "
 alias wc='printf " l    w   c\n";wc '
 alias espeak="espeak -a 50 "
 alias speak="xclip -o | espeak -a 2 "
+alias grep="grep --color -n "
+alias grepr="grep -r "
 
 PATH=$PATH:~/s-christy/dotfiles/bin/
 xset b off 2> /dev/null
