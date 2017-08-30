@@ -99,3 +99,5 @@ apt-file search xlib.h
 sudo apt install espeak
 sudo apt install xclip
 
+think about using i3lock, remember to -i PNGFILE for an image
+sudo apt install arandr for really really cool screen mapping
