@@ -11,4 +11,6 @@ exec xset -dpms
 exec xset s 3600 3600
 exec xset s off
 
+#Fix screen tearing
+exec compton --config /home/sam/.config/compton.conf
 
