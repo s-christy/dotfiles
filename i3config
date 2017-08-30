@@ -171,6 +171,11 @@ bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume al
 #bindcode 122 exec pactl --set-sink-volume 52 +50%
 #bindcode 123 exec pactl --set-sink-volume 52 -50%
 
+for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+for_window [window_role="gimp-toolbox"] floating disable; move right; resize shrink width 50 px or 30ppt
 
+#these don't seem to do anything
+bindsym --release button2 kill
+bindsym button3 floating toggle
 
-
+bindsym $mod+t split toggle
