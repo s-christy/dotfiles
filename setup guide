@@ -113,3 +113,6 @@ wmctrl
 wmctrl -l to list windows
 you can also use it to control windows in really cool ways
 
+netbootin for usb sticks. I really underestimated this program
+
+
