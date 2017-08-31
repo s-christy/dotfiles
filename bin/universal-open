@@ -1,0 +1,21 @@
+
+did=0
+
+extension=`echo $1 | awk -F'.' '{printf $NF}'`
+
+IFS=$'\n'
+for i in `cat /home/sam/s-christy/dotfiles/bin/default_list`
+do
+	o=`echo $i | cut -d' ' -f 1`
+	if [[ "$extension" == "$o" ]]
+	then
+		did=1
+		`echo $i | cut -d' ' -f 2` $1
+	fi
+done
+
+if [[ $did -eq 0 ]]
+then
+	vi $1
+fi
+

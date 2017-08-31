@@ -111,14 +111,16 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-alias ls="ls --color=auto -A "
 figlet $(shuf -n 1 /usr/share/dict/words)
+#HINT: use which to find the path to the command
+alias lsdef="/bin/ls --color=auto "
+alias ls="ls --color=auto -A "
 export PATH=$PATH:/sbin
 export PATH=$PATH:/usr/sbin
 alias got="ps -aux | grep "
 alias get="ps -aux | grep --color=auto firefox | awk '{print $2}' "
-alias x="xdg-open "
-alias s="systemctl suspend"
+alias x="universal-open " #"xdg-open "
+alias s="systemctl suspend" #consider using i3lock;systemctl suspend
 alias 84="ping 8.8.4.4 "
 #alias traceroute="traceroute --resolve-hostnames "
 alias duh="du --max-depth=1 -h "
@@ -133,6 +135,7 @@ alias espeak="espeak -a 50 "
 alias speak="xclip -o | espeak -a 2 "
 alias grep="grep --color -n "
 alias grepr="grep -r "
+alias get-info="xprop "
 
 PATH=$PATH:~/s-christy/dotfiles/bin/
 xset b off 2> /dev/null

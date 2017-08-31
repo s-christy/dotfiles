@@ -7,10 +7,12 @@ TO DO
 9>go to career fair (YAY!)
 9>get haircut before career fair
 8>answer my mom
+7>use wmctrl in the i3config. Has support for mouse selection and renaming and stuff like that
 7>pick up suit from alterations
 7>hang up suit clothes
 7>get the maintainance charges figured out
 7>finish bulkrename
+5>buy wd40 for chair
 5>use xcomposite to show one window in another window
 5>polish shoes
 5>organize clothes, and pick 14 shirts that you like
@@ -20,6 +22,7 @@ TO DO
 5>get paid by Lief
 5>clean my room
 5>buy a steamer
+5>re-record voicemail
 
 IN PROGRESS
 
@@ -40,3 +43,13 @@ COMPLETED
 IMPOSSIBLE/WON'T BE COMPLETED
 
 5>clean home folder
+
+
+
+
+sam@debian:~$ find out if xbacklight works on my laptop^C
+sam@debian:~$ use font awesome https://www.youtube.com/watch?v=8-S0cWnLBKg^C
+sam@debian:~$ find a cool gtk theme^C
+sam@debian:~$ read compton man page^C
+sam@debian:~$ 
+

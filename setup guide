@@ -101,3 +101,15 @@ sudo apt install xclip
 
 think about using i3lock, remember to -i PNGFILE for an image
 sudo apt install arandr for really really cool screen mapping
+
+evince for pdf viewing
+
+xprop
+
+lxappearance for visual tweaking
+learn how to use compton
+
+wmctrl
+wmctrl -l to list windows
+you can also use it to control windows in really cool ways
+
