@@ -143,4 +143,6 @@ xset b off 2> /dev/null
 xinput --set-prop "ETPS/2 Elantech Touchpad" 294 0 2> /dev/null
 
 
+cd ~
+
 
