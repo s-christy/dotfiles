@@ -12,4 +12,5 @@ sensors command
 import can capture a screenshot from a window'
 xprop
 ls -R
+pkill NAME
 

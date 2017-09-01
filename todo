@@ -3,6 +3,7 @@ select in line, :sort! to sort in reverse
 
 TO DO
 
+5>install font awesome
 9>fix windows partition
 9>fix the SI project
 9>make sure I'm good to graduate
@@ -53,5 +54,4 @@ sam@debian:~$ find out if xbacklight works on my laptop^C
 sam@debian:~$ use font awesome https://www.youtube.com/watch?v=8-S0cWnLBKg^C
 sam@debian:~$ find a cool gtk theme^C
 sam@debian:~$ read compton man page^C
-sam@debian:~$ 
 

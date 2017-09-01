@@ -136,6 +136,7 @@ alias speak="xclip -o | espeak -a 2 "
 alias grep="grep --color -n "
 alias grepr="grep -r "
 alias get-info="xprop "
+alias x.="xdg-open . "
 
 PATH=$PATH:~/s-christy/dotfiles/bin/
 xset b off 2> /dev/null
