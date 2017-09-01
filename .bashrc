@@ -138,7 +138,7 @@ alias grepr="grep -r "
 alias get-info="xprop "
 alias x.="xdg-open . "
 
-PATH=$PATH:~/s-christy/dotfiles/bin/
+PATH=$PATH:/home/sam/s-christy/dotfiles/bin/
 xset b off 2> /dev/null
 
 xinput --set-prop "ETPS/2 Elantech Touchpad" 294 0 2> /dev/null
