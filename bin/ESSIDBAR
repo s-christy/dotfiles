@@ -1,3 +1,8 @@
 
 iwconfig wlp8s0 | grep ESSID | cut -d '"' -f 2
-iwconfig wlo1 | grep ESSID | cut -d '"' -f 2
+test=`iwconfig wlo1 | grep ESSID | cut -d '"' -f 2`
+if [[ $test == *any* ]]; then
+	echo "NO SIGNAL"
+else
+	echo $test
+fi
