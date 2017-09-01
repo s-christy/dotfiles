@@ -13,4 +13,5 @@ import can capture a screenshot from a window'
 xprop
 ls -R
 pkill NAME
+ps -aux --sort=-pcpu | head
 
