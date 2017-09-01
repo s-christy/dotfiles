@@ -1,5 +1,5 @@
 
-#read -r diff
+
 diff=$1
 now=$(date +%s)
 future=$(date --date=$diff +%s)
@@ -8,11 +8,15 @@ hours=$((($future-$now)/3600-$days*24))
 mins=$((($future-$now)/60-$days*24*60-$hours*60))
 secs=$((($future-$now)-$days*24*60*60-$hours*3600-$mins*60))
 
+if [ $days -eq "0" ]; then
+if [ $hours -eq "0" ]; then
+echo $mins minutes $secs seconds until $diff
+else
+echo $hours hours $mins minutes $secs seconds until $diff
+fi
+else
 echo $days days $hours hours $mins minutes $secs seconds until $diff
-
-#figlet one only works for future times
-#figlet $days days $hours hours $mins minutes $secs seconds until $diff
-
+fi
 
 
 
