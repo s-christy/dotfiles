@@ -1,0 +1,5 @@
+disk=$(df|grep sdc1)
+available=$(python -c "print '$disk'.split()[3]")
+havailable=$(python -c "print int($available)/1024.0/1024.0")
+echo $havailable
+

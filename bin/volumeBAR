@@ -1,0 +1,1 @@
+pactl list | grep % | grep 'Volume: front' | grep ' -' | head -n 1 | cut -d / -f 2 | cut -d' ' -f 3
