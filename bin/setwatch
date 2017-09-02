@@ -1,0 +1,2 @@
+#vi ~/untilTime
+echo $1 > ~/untilTime
