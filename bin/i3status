@@ -6,7 +6,7 @@ echo '[]'
 while :;
 do
 
-	until="$(ut 17:00)"
+	until="$(ut $(cat untilTime))"
 	if [[ $until == -* ]]; then
 		untilcolor=#ff0000
 		#echo test2
