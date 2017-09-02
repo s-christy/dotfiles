@@ -21,7 +21,7 @@ do
 	{\"name\":\"ESSID\",	\"color\":\"#ffffff\",		\"full_text\":\"$(ESSIDBAR)\"},\
 	{\"name\":\"space\",	\"color\":\"#ffffff\",		\"full_text\":\"$(diskSpaceBAR)\"},\
 	{\"name\":\"volume\",	\"color\":\"#ffffff\",		\"full_text\":\"$(volumeBAR)\"},\
-	{\"name\":\"time\",	\"color\":\"#ffffff\",		\"full_text\":\"$(date)\"}\
+	{\"name\":\"time\",	\"color\":\"#ffffff\",		\"full_text\":\"$(date|sed 's/  / /')\"}\
 	]"
 
 
