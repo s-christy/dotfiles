@@ -25,7 +25,14 @@ startx
 use pavucontrol to do sound stuff
 mplayer for videos
 edit /etc/motd
+
 to change brightness, edit /sys/class/backlight/radeon_b10/brightness. 255 is max, 0 is min
+if backlight no longer works, make an /etc/X11/xorg.conf with the following info in it
+Section "Device"
+        Identifier      "Card0"
+        Driver          "intel"
+        Option          "Backlight"     "/sys/class/backlight/radeon_bl0/"
+EndSection
 
 
 steam:
@@ -116,5 +123,6 @@ you can also use it to control windows in really cool ways
 netbootin for usb sticks. I really underestimated this program
 
 install upower for laptop battery
+
 
 
