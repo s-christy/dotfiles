@@ -124,5 +124,7 @@ netbootin for usb sticks. I really underestimated this program
 
 install upower for laptop battery
 
+grub splash image is in /usr/share/images/grub
+
 
 
