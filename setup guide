@@ -126,5 +126,7 @@ install upower for laptop battery
 
 grub splash image is in /usr/share/images/grub
 
-
+git password caching
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=3600'
 
