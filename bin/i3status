@@ -6,7 +6,8 @@ echo '[]'
 while :;
 do
 
-	until="$(ut $(cat untilTime))"
+	isrunning="$(isrunningBAR compton)"
+	until="$(ut $(cat ~/untilTime))"
 	if [[ $until == -* ]]; then
 		untilcolor=#ff0000
 		#echo test2
@@ -17,9 +18,10 @@ do
 
 	echo ",[\
 	{\"name\":\"until\",	\"color\":\"$untilcolor\",	\"full_text\":\"$until\"},\
+	{\"name\":\"compton\",	\"color\":\"#ffffff\",		\"full_text\":\"compton is $isrunning\"},\
 	{\"name\":\"power\",	\"color\":\"#ffffff\",		\"full_text\":\"$(powerBAR)\"},\
 	{\"name\":\"ESSID\",	\"color\":\"#ffffff\",		\"full_text\":\"$(ESSIDBAR)\"},\
-	{\"name\":\"space\",	\"color\":\"#ffffff\",		\"full_text\":\"$(diskSpaceBAR)\"},\
+	{\"name\":\"space\",	\"color\":\"#ffffff\",		\"full_text\":\"$(diskSpaceBAR) GiB\"},\
 	{\"name\":\"volume\",	\"color\":\"#ffffff\",		\"full_text\":\"$(volumeBAR)\"},\
 	{\"name\":\"time\",	\"color\":\"#ffffff\",		\"full_text\":\"$(date|sed 's/  / /')\"}\
 	]"

@@ -3,6 +3,7 @@ select in line, :sort! to sort in reverse
 
 TO DO
 
+5>add something that detects is the input is a directory to universal-open
 5>show whether compton is running on i3bar
 5>get android file transfer working
 5>get photoshop for sarah

@@ -1,0 +1,3 @@
+
+if [[ $(ps -aux | grep $1 | wc -l) -gt 1 ]]; then echo RUNNING; else echo STOPPED; fi
+
