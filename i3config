@@ -164,6 +164,7 @@ bindsym $mod+r mode "resize"
 bar {
         #status_command i3status
         status_command ~/s-christy/dotfiles/bin/i3status
+        #status_command ~/s-christy/dotfiles/bin/i3statusBAR
         position bottom
 }
 

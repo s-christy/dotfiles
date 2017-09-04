@@ -137,6 +137,7 @@ alias grep="grep --color -n "
 alias grepr="grep -r "
 alias get-info="xprop "
 alias x.="xdg-open . "
+alias i3lock="i3lock -c 000000 "
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin/
 xset b off 2> /dev/null
