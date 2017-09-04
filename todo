@@ -3,6 +3,13 @@ select in line, :sort! to sort in reverse
 
 TO DO
 
+5>get shelf
+5>walk around campus
+7>228 hw1 due the 14th?
+7>332 hw1 due the 7th?
+7>apply for jobs with the companies that are coming to the career fair
+7>sign up for the ISUCDC
+5>the problem with the bar is probably because it is running as a child to the wrong process. Consider changing the process into a cat XYZ program with the main script running as a child process of the user
 5>add something that detects is the input is a directory to universal-open
 5>show whether compton is running on i3bar
 5>get android file transfer working

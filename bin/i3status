@@ -22,7 +22,7 @@ do
 	{\"name\":\"power\",	\"color\":\"#aa00aa\",		\"full_text\":\"$(powerBAR)\"},\
 	{\"name\":\"ESSID\",	\"color\":\"#aa00aa\",		\"full_text\":\"$(ESSIDBAR)\"},\
 	{\"name\":\"space\",	\"color\":\"#aa00aa\",		\"full_text\":\"$(diskSpaceBAR) GiB\"},\
-	{\"name\":\"volume\",	\"color\":\"#aa00aa\",		\"full_text\":\"$(volumeBAR)\"},\
+	{\"name\":\"volume\",	\"color\":\"#00ff00\",		\"full_text\":\"$(volumeBAR)\"},\
 	{\"name\":\"time\",	\"color\":\"#ffffff\",		\"full_text\":\"$(date|sed 's/  / /')\"}\
 	]"
 
