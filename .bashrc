@@ -75,7 +75,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    alias ls='ls --color '
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -138,6 +138,8 @@ alias grepr="grep -r "
 alias get-info="xprop "
 alias x.="xdg-open . "
 alias i3lock="i3lock -c 000000 "
+alias pcsx2="PCSX2 " #what the motherfucking fuck
+alias lock="i3lock ; s "
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin/
 xset b off 2> /dev/null

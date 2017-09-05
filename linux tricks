@@ -17,3 +17,5 @@ ps -aux --sort=-pcpu | head
 replace substring:
 date | sed 's/  / /'
 convert tmp.png -paint 1 tmp2.png
+less -S turns text wrap off
+
