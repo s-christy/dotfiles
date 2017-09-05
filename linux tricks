@@ -18,4 +18,5 @@ replace substring:
 date | sed 's/  / /'
 convert tmp.png -paint 1 tmp2.png
 less -S turns text wrap off
-
+apt-cache search vlc
+sam@debian:~$ cat .bash_history |awk '{print $2}' |sort|uniq -c|sort -nr | head
