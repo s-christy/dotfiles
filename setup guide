@@ -130,3 +130,8 @@ git password caching
 git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=3600'
 
+visualizer
+git clone https://github.com/dpayne/cli-visualizer
+./install.sh
+run with the command vis
+
