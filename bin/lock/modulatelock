@@ -1,1 +1,0 @@
-rm *.png;scrot;convert *.png -modulate 20 out.png;i3lock -i out.png

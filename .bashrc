@@ -139,7 +139,8 @@ alias get-info="xprop "
 alias x.="xdg-open . "
 alias i3lock="i3lock -c 000000 "
 alias pcsx2="PCSX2 " #what the motherfucking fuck
-alias lock="i3lock ; s "
+#alias lock="i3lock ; s "
+alias folder="nautilus $(pwd) "
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin/
 xset b off 2> /dev/null

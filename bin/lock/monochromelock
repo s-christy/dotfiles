@@ -1,1 +1,0 @@
-rm *.png;scrot;convert *.png -monochrome out.png;i3lock -i out.png

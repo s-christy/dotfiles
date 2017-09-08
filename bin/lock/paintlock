@@ -1,1 +1,0 @@
-rm *.png;scrot;convert *.png -paint 5 out.png;i3lock -i out.png
