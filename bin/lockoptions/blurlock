@@ -1,0 +1,2 @@
+cd /home/sam/s-christy/dotfiles/bin/lockoptions
+scrot in.png;convert *.png -blur 5x5 out.png;i3lock -i out.png

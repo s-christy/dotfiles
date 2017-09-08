@@ -1,0 +1,3 @@
+/home/sam/s-christy/dotfiles/bin/lockoptions/blurlock
+systemctl suspend
+rm /home/sam/s-christy/dotfiles/bin/lockoptions/*.png
