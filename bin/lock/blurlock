@@ -1,0 +1,1 @@
+rm *.png;scrot;convert *.png -blur 5x5 out.png;i3lock -i out.png

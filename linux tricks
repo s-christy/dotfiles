@@ -20,3 +20,9 @@ convert tmp.png -paint 1 tmp2.png
 less -S turns text wrap off
 apt-cache search vlc
 sam@debian:~$ cat .bash_history |awk '{print $2}' |sort|uniq -c|sort -nr | head
+sam@debian:~$ cat /usr/share/dict/words | egrep ^..[rk] | wc -w
+10483
+sam@debian:~$ cat /usr/share/dict/words | egrep ^[rk] | wc -w
+5278
+youtube-dl can download entire channels
+uptime shows the load in the last 1 minute, 5 minutes, and 15 minutes
