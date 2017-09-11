@@ -70,6 +70,8 @@ highlight RED ctermbg=red guibg=red
 :map J 5j
 :map K 5k
 
+set nowrap
+
 :map <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 :map <F4> :set wrap!<CR><Esc>
 :map <F6> :r ~/s-christy/dotfiles/filler\ text<CR><Esc>
@@ -117,7 +119,8 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 ":nmap <Right> :call Dir("Right")<CR><Esc>
 "
 
-
+"fuck you java
+imap ;print System.out.println("");
 
 
 

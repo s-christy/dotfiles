@@ -3,6 +3,7 @@
 diff=$1
 now=$(date +%s)
 future=$(date --date=$diff +%s)
+#future=1505000000
 days=$((($future-$now)/(3600*24)))
 hours=$((($future-$now)/3600-$days*24))
 mins=$((($future-$now)/60-$days*24*60-$hours*60))

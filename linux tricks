@@ -26,3 +26,7 @@ sam@debian:~$ cat /usr/share/dict/words | egrep ^[rk] | wc -w
 5278
 youtube-dl can download entire channels
 uptime shows the load in the last 1 minute, 5 minutes, and 15 minutes
+https://unix.stackexchange.com/questions/177777/drawing-an-histogram-from-a-bash-command-output
+https://www.usenix.org/system/files/1311_05-08_mickens.pdf
+Unix Philosophy
+feh -w * will open all the image files in the directory in different windows instead of the usual single window
