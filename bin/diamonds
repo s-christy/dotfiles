@@ -1,0 +1,23 @@
+readonly BLOCK="█"
+
+level=0
+level2=20
+while true; do
+	level2=$((20-$level))
+	for i in {1..20}
+	do
+		if [ "$i" == "$level" ] || [ "$i" == "$level2" ]
+		then
+			echo -n $BLOCK
+		else
+			echo -n ' '
+		fi
+	done
+	echo
+	level=$(($level+1))
+	if [ "$level" -gt "20" ]
+	then
+		level=0
+	fi
+	sleep .05
+done
