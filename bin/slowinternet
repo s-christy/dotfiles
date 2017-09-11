@@ -1,0 +1,5 @@
+
+sudo wondershaper enp0s25 512 512
+#to undo, run sudo wondershaper clear enp0s25
+
+
