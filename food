@@ -1,0 +1,8 @@
+#FORMAT RULES:
+#name is first, then amount, then cost in dollars
+
+9/11/17
+jack's pizza	-.5 $2.50/2
+corndog		-2 $6.99*2/16
+
+
