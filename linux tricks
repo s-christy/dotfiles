@@ -33,3 +33,4 @@ feh -w * will open all the image files in the directory in different windows ins
 in i3, press mod+a to select a parent container, then you can move the entire container to another workspace at once
 calendar is a thing
 all the calendar dates are stored in /usr/share/calendar including the lord of the rings dates
+enter replace mode in vim with 'R'
