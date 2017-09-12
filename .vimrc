@@ -122,5 +122,7 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 "fuck you java
 imap ;print System.out.println("");
 
+imap ;paste <ESC>"*p
+
 
 
