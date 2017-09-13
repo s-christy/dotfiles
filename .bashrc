@@ -111,7 +111,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-figlet $(shuf -n 1 /usr/share/dict/words)
+figlet $(shuf -n 10 /usr/share/dict/words|/bin/grep -v "'"|head -n1)
 #HINT: use which to find the path to the command
 alias lsdef="/bin/ls --color=auto "
 alias ls="ls --color=auto -A "

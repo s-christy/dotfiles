@@ -34,3 +34,9 @@ in i3, press mod+a to select a parent container, then you can move the entire co
 calendar is a thing
 all the calendar dates are stored in /usr/share/calendar including the lord of the rings dates
 enter replace mode in vim with 'R'
+
+to mount windows partition (should be on sda1, but you can check with gparted)
+sudo umount /dev/sda1
+mkdir /tmp/MyDrive
+sudo mount -o rw /dev/sda1 /tmp/MyDrive
+
