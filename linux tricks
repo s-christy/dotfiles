@@ -40,3 +40,5 @@ sudo umount /dev/sda1
 mkdir /tmp/MyDrive
 sudo mount -o rw /dev/sda1 /tmp/MyDrive
 
+w3m is the best terminal browser
+
