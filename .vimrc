@@ -57,7 +57,6 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-:map <F5> :setlocal spell! spelllang=en_us<CR>
 set nocompatible
 filetype plugin on
 ":set rnu "THIS SLOWS VIM DOWN TOO MUCH
@@ -77,9 +76,12 @@ set nowrap
 :map <F6> :r ~/s-christy/dotfiles/filler\ text<CR><Esc>
 :map <F7> :set ve=all<CR><Esc>:echo "ve set to all"<CR><Esc>
 :map <F12> :source ~/.vimrc<CR><Esc>:echo "reloaded .vimrc"<CR><Esc>
+:map <F5> :setlocal spell! spelllang=en_us<CR>
 
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
+:noremap <F1> :echo "F3 print time - F4 toggle wrap - F5 spellcheck - F6 insert filler text - F7 set ve - F12 reload .vimrc"<Esc>
 
 :map <Space><Space> <Esc>/<++><CR>xxxxi
 :map ;+ <Esc>i<++>
