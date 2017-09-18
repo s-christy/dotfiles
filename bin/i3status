@@ -18,6 +18,7 @@ do
 
 	echo ",[\
 	{\"name\":\"until\",	\"color\":\"$untilcolor\",	\"full_text\":\"$until\"},\
+	{\"name\":\"ping\",	\"color\":\"#FFFFFF\",		\"full_text\":\"ping $(ping -c1 8.8.4.4 | head -n 2 | tail -n 1 | cut -d' ' -f7| cut -d'=' -f 2 ) ms\"},\
 	{\"name\":\"compton\",	\"color\":\"#aa00aa\",		\"full_text\":\"compton is $isrunning\"},\
 	{\"name\":\"power\",	\"color\":\"#aa00aa\",		\"full_text\":\"$(powerBAR)\"},\
 	{\"name\":\"ESSID\",	\"color\":\"#aa00aa\",		\"full_text\":\"$(ESSIDBAR)\"},\
