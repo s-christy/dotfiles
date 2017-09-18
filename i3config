@@ -168,10 +168,10 @@ bar {
         position bottom
 }
 
-exec ~/.fehbg
+exec --no-startup-id ~/.fehbg
 
-bindsym $mod+Shift+i exec iceweasel
-bindsym $mod+Shift+s exec steam
+bindsym $mod+Shift+i exec --no-startup-id iceweasel
+bindsym $mod+Shift+s exec --no-startup-id steam
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%
@@ -192,9 +192,11 @@ bindsym button3 floating toggle
 
 bindsym $mod+t split toggle
 
-bindsym $mod+Shift+h exec i3lock --color=#00FF00 #change this to use imagemagick effects and scrot
+bindsym $mod+Shift+h exec --no-startup-id i3lock --color=#00FF00 #change this to use imagemagick effects and scrot
 
 exec xset -dpms
 exec xset s off
 
+bindsym $mod+m exec --no-startup-id /home/sam/.screenlayout/mirror.sh
+bindsym $mod+n exec --no-startup-id /home/sam/.screenlayout/unmirror.sh
 
