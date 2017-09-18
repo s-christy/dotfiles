@@ -1,4 +1,4 @@
-readonly BLOCK="█"
+BLOCK="█"
 
 level=0
 level2=20
