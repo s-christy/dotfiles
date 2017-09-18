@@ -42,3 +42,17 @@ sudo mount -o rw /dev/sda1 /tmp/MyDrive
 
 w3m is the best terminal browser
 
+du -h --max-depth=1 -c | grep G
+radare2 to edit ELF files
+http://sushant94.me/2015/05/31/Introduction_to_radare2/
+
+when cleaning up the filesystem, add the folders you don't need to inspect to the exclude
+du -h --max-depth=1 --exclude=.PlayOnLinux/wine
+
+ls | sort -R
+
+in konsole, ctrl-scroll to change font size
+nethogs
+watch ping -c1 8.8.4.4
+
+while true; do ping -c1 8.8.4.4 | head -n 2 | tail -n 1 | cut -d' ' -f7| cut -d'=' -f 2; done
