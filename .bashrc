@@ -143,8 +143,12 @@ alias pcsx2="PCSX2 " #what the motherfucking fuck
 alias folder="nautilus $(pwd) "
 alias ps2="PCSX2 & "
 alias fehw="feh -w "
+alias reversegrep="grep -v "
+alias ksp="/home/sam/.steam/steam/steamapps/common/Kerbal\ Space\ Program/KSP.x86_64 "
+alias axiomverge="/home/sam/.steam/steam/steamapps/common/Axiom\ Verge/AxiomVerge "
+alias steamwin="playonlinux --run 'Steam' "
 
-PATH=$PATH:/home/sam/s-christy/dotfiles/bin/
+PATH=$PATH:/home/sam/s-christy/dotfiles/bin
 xset b off 2> /dev/null
 
 xinput --set-prop "ETPS/2 Elantech Touchpad" 294 0 2> /dev/null
