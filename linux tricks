@@ -56,3 +56,10 @@ nethogs
 watch ping -c1 8.8.4.4
 
 while true; do ping -c1 8.8.4.4 | head -n 2 | tail -n 1 | cut -d' ' -f7| cut -d'=' -f 2; done
+nmap
+
+w3m -dump https://....html to dump formatted text to stdout
+
+with a window with the following title:
+i3-msg '[title="COMMIT_EDITMSG"] floating enable'
+will make it float
