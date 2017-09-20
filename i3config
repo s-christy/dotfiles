@@ -192,7 +192,7 @@ bindsym button3 floating toggle
 
 bindsym $mod+t split toggle
 
-bindsym $mod+Shift+h exec --no-startup-id i3lock --color=#00FF00 #change this to use imagemagick effects and scrot
+bindsym $mod+Shift+h exec --no-startup-id i3lock --color=#000000 #change this to use imagemagick effects and scrot
 
 exec xset -dpms
 exec xset s off
