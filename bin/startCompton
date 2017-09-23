@@ -1,2 +1,2 @@
 
-compton --config ~/compton.conf
+compton --config ~/compton.conf &
