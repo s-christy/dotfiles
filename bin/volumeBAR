@@ -1,3 +1,4 @@
 #pactl list | grep % | grep 'Volume: front' | grep ' -' | head -n 1 | cut -d / -f 2 | cut -d' ' -f 3
 #pactl list | grep % | grep 'Volume: front' | grep -v '16' | head -n 1 | cut -d / -f2
-pactl list | /bin/grep % | /bin/grep 'Volume: front' | head -n1 | cut -d' ' -f5
+#pactl list | /bin/grep % | /bin/grep 'Volume: front' | head -n1 | cut -d' ' -f5
+pactl list | more +/"Sink #0" | /bin/grep "Volume:" | head -n 1 | cut -d'/' -f2 | sed 's/ //g'
