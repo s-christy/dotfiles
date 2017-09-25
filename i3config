@@ -195,8 +195,8 @@ bindsym $mod+t split toggle
 
 bindsym $mod+Shift+h exec --no-startup-id i3lock --color=#000000 #change this to use imagemagick effects and scrot
 
-exec xset -dpms
-exec xset s off
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s off
 
 bindsym $mod+m exec --no-startup-id /home/sam/.screenlayout/mirror.sh
 bindsym $mod+n exec --no-startup-id /home/sam/.screenlayout/unmirror.sh
