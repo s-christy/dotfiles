@@ -135,3 +135,8 @@ git clone https://github.com/dpayne/cli-visualizer
 ./install.sh
 run with the command vis
 
+how to change the backlight: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=833508
+xrandr --output eDP --brightness 1
+
+
+
