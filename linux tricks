@@ -63,3 +63,4 @@ w3m -dump https://....html to dump formatted text to stdout
 with a window with the following title:
 i3-msg '[title="COMMIT_EDITMSG"] floating enable'
 will make it float
+while true; do xdotool key space; done
