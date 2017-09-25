@@ -147,6 +147,7 @@ alias reversegrep="grep -v "
 alias ksp="/home/sam/.steam/steam/steamapps/common/Kerbal\ Space\ Program/KSP.x86_64 "
 alias axiomverge="/home/sam/.steam/steam/steamapps/common/Axiom\ Verge/AxiomVerge "
 alias steamwin="playonlinux --run 'Steam' "
+alias starcraft="wine /home/sam/starcraft/Starcraft\ No\ Install/StarCraft.exe"
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin
 xset b off 2> /dev/null
