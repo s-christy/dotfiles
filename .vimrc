@@ -63,6 +63,8 @@ filetype plugin on
 :set nu
 highlight RED ctermbg=red guibg=red
 :let m=matchadd("RED","TODO")
+:let m=matchadd("RED",'\%81v')
+:let m=matchadd("RED",'\s\+$')
 :nmap <up> ddkP
 :nmap <down> ddp
 
@@ -71,17 +73,20 @@ highlight RED ctermbg=red guibg=red
 
 set nowrap
 
+:map <F2> :set list!<CR>
 :map <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 :map <F4> :set wrap!<CR><Esc>
+:map <F5> :setlocal spell! spelllang=en_us<CR>
 :map <F6> :r ~/s-christy/dotfiles/filler\ text<CR><Esc>
 :map <F7> :set ve=all<CR><Esc>:echo "ve set to all"<CR><Esc>
+:map <F8> :changes<CR>
 :map <F12> :source ~/.vimrc<CR><Esc>:echo "reloaded .vimrc"<CR><Esc>
-:map <F5> :setlocal spell! spelllang=en_us<CR>
+:set listchars+=space:␣
 
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
-:noremap <F1> :echo "F3 print time - F4 toggle wrap - F5 spellcheck - F6 insert filler text - F7 set ve - F12 reload .vimrc"<Esc>
+:noremap <F1> :echo "F2 set list! - F3 print time - F4 toggle wrap - F5 spellcheck - F6 insert filler text - F7 set ve - F8 show changes - F12 reload .vimrc"<Esc>
 
 :map <Space><Space> <Esc>/<++><CR>xxxxi
 :map ;+ <Esc>i<++>
@@ -124,11 +129,11 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 "fuck you java
 imap ;print System.out.println("");
 
-imap ;paste <ESC>"*p
+imap ;pa <ESC>"*p
 
+set hlsearch
 
-
-
+noremap ; :
 
 
 
