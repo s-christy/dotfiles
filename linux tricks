@@ -64,3 +64,20 @@ with a window with the following title:
 i3-msg '[title="COMMIT_EDITMSG"] floating enable'
 will make it float
 while true; do xdotool key space; done
+
+apparently, you can convert html to pdf in linux
+https://www.garron.me/en/go2linux/convert-html-pdf-linux.html
+
+this has an example of svg
+https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
+
+nmcli show connection
+
+capital D and capital T do the same things as d$ and c$
+to see the differences in words between american and british words, install wbritish, navigate to /usr/share/dict and type diff british-english american-english | less
+wamerican-small is also a thing
+https://packages.debian.org/sid/text/wbritish
+
+https://stackoverflow.com/questions/9244481/how-to-get-100-cpu-usage-from-a-c-program
+
+in xdotool, the -- is used to allow negative numbers. Is there a way to use this to my advantage for some programs?
