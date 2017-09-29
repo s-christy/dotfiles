@@ -148,6 +148,7 @@ alias ksp="/home/sam/.steam/steam/steamapps/common/Kerbal\ Space\ Program/KSP.x8
 alias axiomverge="/home/sam/.steam/steam/steamapps/common/Axiom\ Verge/AxiomVerge "
 alias steamwin="playonlinux --run 'Steam' "
 alias starcraft="wine /home/sam/starcraft/Starcraft\ No\ Install/StarCraft.exe"
+alias cmatrix="cmatrix -b -C red "
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin
 xset b off 2> /dev/null
