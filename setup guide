@@ -138,5 +138,6 @@ run with the command vis
 how to change the backlight: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=833508
 xrandr --output eDP --brightness 1
 
+stardict for an offline dictionary (sdcv is the command line equivalent)
 
-
+mtpaint as a mspaint alternative
