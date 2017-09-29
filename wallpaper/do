@@ -1,0 +1,1 @@
+rm montage.png && montage *.png -border 0 -background none -geometry +0+0 -tile x2 montage.png && feh montage.png
