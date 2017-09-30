@@ -86,4 +86,6 @@ systemd-analyze blame is AWESOME
 systemd-analyze critical-chain is also good
 but systemd-analyze plot > tmp/plot.svg is even BETTER
 
+file * gets information about every file in the directory
+
 
