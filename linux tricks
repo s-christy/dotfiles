@@ -81,3 +81,9 @@ https://packages.debian.org/sid/text/wbritish
 https://stackoverflow.com/questions/9244481/how-to-get-100-cpu-usage-from-a-c-program
 
 in xdotool, the -- is used to allow negative numbers. Is there a way to use this to my advantage for some programs?
+
+systemd-analyze blame is AWESOME
+systemd-analyze critical-chain is also good
+but systemd-analyze plot > tmp/plot.svg is even BETTER
+
+
