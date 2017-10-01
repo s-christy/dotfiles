@@ -90,6 +90,7 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 :map <Space><Space> <Esc>/<++><CR>xxxxi
 :map ;+ <Esc>i<++>
+:map ;remtrails :%s/ $//g<CR>
 
 "you can use :tab help topic instead of :help topic
 
