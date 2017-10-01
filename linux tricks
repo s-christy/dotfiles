@@ -88,4 +88,5 @@ but systemd-analyze plot > tmp/plot.svg is even BETTER
 
 file * gets information about every file in the directory
 
-
+in mtpaint, you can enable mouse zoom in preferences
+also the bottom right shows the selection area
