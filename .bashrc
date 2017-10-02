@@ -150,6 +150,7 @@ alias steamwin="playonlinux --run 'Steam' "
 alias starcraft="wine /home/sam/starcraft/Starcraft\ No\ Install/StarCraft.exe"
 alias cmatrix="cmatrix -b -C red "
 alias autogit='git add $(read toadd; echo $toadd); git commit -m "$(read message;echo $message)"'
+alias pause='read -s -r -p "Press any key to continue..." -n 1 dummy'
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin
 xset b off 2> /dev/null
