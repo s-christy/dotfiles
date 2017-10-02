@@ -187,6 +187,10 @@ mode "mouse" {
 	bindsym c exec --no-startup-id xdotool click 2
 	bindsym v exec --no-startup-id xdotool click 3
 
+	bindsym s exec --no-startup-id xdotool mousedown 1
+	bindsym d exec --no-startup-id xdotool mousedown 2
+	bindsym f exec --no-startup-id xdotool mousedown 3
+
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
