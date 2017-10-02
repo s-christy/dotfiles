@@ -193,7 +193,6 @@ mode "mouse" {
 }
 
 mode "wallpaper" {
-
 	bindsym Right exec --no-startup-id "echo $(((`cat /home/sam/s-christy/dotfiles/wallpaper/border`+1))) > /home/sam/s-christy/dotfiles/wallpaper/border; /home/sam/s-christy/dotfiles/wallpaper/do"
 	bindsym Left exec --no-startup-id "echo $(((`cat /home/sam/s-christy/dotfiles/wallpaper/border`-1))) > /home/sam/s-christy/dotfiles/wallpaper/border; /home/sam/s-christy/dotfiles/wallpaper/do"
 
