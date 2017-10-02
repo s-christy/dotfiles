@@ -17,6 +17,7 @@ do
 	fi
 
 	echo ",[\
+	{\"name\":\"message\",	\"color\":\"#FFFFFF\",		\"full_text\":\"$(messageBAR)\"},\
 	{\"name\":\"until\",	\"color\":\"$untilcolor\",	\"full_text\":\"$until\"},\
 	{\"name\":\"ping\",	\"color\":\"#FFFFFF\",		\"full_text\":\"ping $(ping -c1 8.8.4.4 | head -n 2 | tail -n 1 | cut -d' ' -f7| cut -d'=' -f 2 ) ms\"},\
 	{\"name\":\"power\",	\"color\":\"#FFFFFF\",		\"full_text\":\"$(powerBAR)\"},\
