@@ -2,4 +2,7 @@ cd /home/sam/s-christy/dotfiles/wallpaper
 height=`cat height`
 border=`cat border`
 #rm montage.png && montage *.png -border 0 -background none -geometry +0+0 -tile x3 montage.png && feh montage.png && feh --bg-center montage.png
-rm montage.png; montage *.png -border 0 -background none -geometry +$border+$border -tile x$height montage.png && feh --bg-center montage.png
+#rm montage.png; montage *.png -border 0 -texture background.back -geometry +$border+$border -tile x$height montage.png && feh --bg-center montage.png
+rm montage.png; montage *.png -border 0 -background none -geometry +$border+$border -tile x$height montage.png
+#convert -flatten background.back montage.png montage.png
+feh --bg-center montage.png
