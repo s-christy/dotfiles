@@ -1,3 +1,4 @@
 for f in "$@"; do
-  echo "$f"
+  git add "$f"
 done
+git commit -m "`read p;echo $p`"
