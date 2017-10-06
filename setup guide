@@ -141,3 +141,5 @@ xrandr --output eDP --brightness 1
 stardict for an offline dictionary (sdcv is the command line equivalent)
 
 mtpaint as a mspaint alternative
+ranger can view images within the terminal
+
