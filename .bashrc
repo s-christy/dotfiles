@@ -149,9 +149,12 @@ alias axiomverge="/home/sam/.steam/steam/steamapps/common/Axiom\ Verge/AxiomVerg
 alias steamwin="playonlinux --run 'Steam' "
 alias starcraft="wine /home/sam/starcraft/Starcraft\ No\ Install/StarCraft.exe"
 alias cmatrix="cmatrix -b -C red "
-alias autogit='git add $(read -r toadd; echo $toadd); git commit -m "$(read -r message;echo $message)"'
+#OLD alias autogit='git status;git add $(read -r toadd; echo $toadd); git commit -m "$(read -r message;echo $message)"'
+#changed from alias to bin program alias autogit='read toadd; git add "`echo $toadd`"; git commit -m "$(read message;echo $message)"'
 alias pause='read -s -r -p "Press any key to continue..." -n 1 dummy'
 alias feh="feh --force-aliasing"
+alias vimnorc="vim -u NONE"
+
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin
 xset b off 2> /dev/null
