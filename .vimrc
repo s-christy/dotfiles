@@ -63,7 +63,7 @@ filetype plugin on
 :set nu
 highlight RED ctermbg=red guibg=red
 :let m=matchadd("RED","TODO")
-:let m=matchadd("RED",'\%81v')
+":let m=matchadd("RED",'\%81v')
 :let m=matchadd("RED",'\s\+$')
 :nmap <up> ddkP
 :nmap <down> ddp
