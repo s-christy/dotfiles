@@ -232,7 +232,8 @@ exec --no-startup-id ~/.fehbg
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id startCompton
-new_window normal 0 # remember to install the addon in firefox to get rid of scrollbars
+new_window normal 0
+#remember to install the addon in firefox to get rid of scrollbars
 
 #trash
 #for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
