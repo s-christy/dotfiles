@@ -90,3 +90,6 @@ file * gets information about every file in the directory
 
 in mtpaint, you can enable mouse zoom in preferences
 also the bottom right shows the selection area
+
+gnuplot is good
+use shuf -i 1-100 -n100 to generate 100 random numbers from 1 to 100
