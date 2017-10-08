@@ -1,0 +1,6 @@
+current=500
+for i in {1..100}
+do
+	echo $i $current
+	current=$((($current + `shuf -i 0-20 -n1` -10)))
+done
