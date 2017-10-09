@@ -1,0 +1,2 @@
+cd /home/sam/s-christy/dotfiles/wallpaper/
+convert montage.png -background black -alpha remove montage.png; convert -blur 5x5 montage.png montage.png ; feh --bg-center montage.png
