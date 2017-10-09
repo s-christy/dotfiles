@@ -143,3 +143,6 @@ stardict for an offline dictionary (sdcv is the command line equivalent)
 mtpaint as a mspaint alternative
 ranger can view images within the terminal
 
+use this command to allow the microphone to pass through to audio out
+pactl load-module module-loopback latency_msec=1
+
