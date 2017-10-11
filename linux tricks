@@ -93,3 +93,8 @@ also the bottom right shows the selection area
 
 gnuplot is good
 use shuf -i 1-100 -n100 to generate 100 random numbers from 1 to 100
+
+dialog
+
+you can use $mod+left mouse button+drag to move a floating window in i3
+dpkg-query --list | less
