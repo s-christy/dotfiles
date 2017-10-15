@@ -215,7 +215,7 @@ mode "wallpaper" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+i exec --no-startup-id iceweasel
+bindsym $mod+Shift+i exec --no-startup-id firefox
 bindsym $mod+Shift+s exec --no-startup-id steam
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%
