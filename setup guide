@@ -146,6 +146,6 @@ ranger can view images within the terminal
 use this command to allow the microphone to pass through to audio out
 pactl load-module module-loopback latency_msec=1
 
-urxvt
+urxvt (nevermind, konsole ftw)
 
-
+thunar
