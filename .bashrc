@@ -140,7 +140,6 @@ alias x.="xdg-open . "
 alias i3lock="i3lock -c 000000 "
 alias pcsx2="PCSX2 " #what the motherfucking fuck
 #alias lock="i3lock ; s "
-alias folder="nautilus $(pwd) "
 alias ps2="PCSX2 & "
 alias fehw="feh -w "
 alias reversegrep="grep -v "
@@ -154,6 +153,7 @@ alias cmatrix="cmatrix -b -C red "
 alias pause='read -s -r -p "Press any key to continue..." -n 1 dummy'
 alias feh="feh --force-aliasing"
 alias vimnorc="vim -u NONE"
+alias opendir="thunar . "
 
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin
