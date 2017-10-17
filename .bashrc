@@ -154,6 +154,7 @@ alias pause='read -s -r -p "Press any key to continue..." -n 1 dummy'
 alias feh="feh --force-aliasing"
 alias vimnorc="vim -u NONE"
 alias opendir="thunar . "
+alias :x="exit "
 
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin
