@@ -155,6 +155,7 @@ alias feh="feh --force-aliasing"
 alias vimnorc="vim -u NONE"
 alias opendir="thunar . "
 alias :x="exit "
+alias ainstall="sudo apt install "
 
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin
