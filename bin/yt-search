@@ -1,0 +1,8 @@
+#5 has the codes^C
+#9 has the title^C
+#12 has the title^C
+#14 has description info and duration^C
+#16 has author^C
+wget -q -O - https://www.youtube.com/results?search_query=`read p;echo $p` | /bin/grep "yt-lockup-content" | cut -d'=' -f9
+echo $p
+#wget -q -O - https://www.youtube.com/results?search_query=`echo $p` | /bin/grep "yt-lockup-content" | cut -d'=' -f5
