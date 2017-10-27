@@ -99,3 +99,7 @@ dialog
 you can use $mod+left mouse button+drag to move a floating window in i3
 dpkg-query --list | less
 while true; printf sam@debian:;do read -r; done
+
+download zork from http://www.infocom-if.org/downloads/downloads.html
+use frotz to run the zork1.dat file
+
