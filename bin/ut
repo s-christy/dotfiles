@@ -1,4 +1,8 @@
 
+if [[ "$1" == "off" ]]; then
+echo off
+exit 1
+fi
 
 diff=$1
 now=$(date +%s)
@@ -18,7 +22,5 @@ fi
 else
 echo $days days $hours hours $mins minutes $secs seconds until $diff
 fi
-
-
 
 
