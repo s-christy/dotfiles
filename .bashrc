@@ -157,6 +157,7 @@ alias opendir="thunar . "
 alias :x="exit "
 alias :q="exit "
 alias ainstall="sudo apt install "
+alias mcd="read $1;for x in 1..$1; do cd ..;done "
 
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin
