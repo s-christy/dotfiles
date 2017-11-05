@@ -1,38 +1,48 @@
 #change the i3 status bar in i3config to use this
 
-#echo '{ "version": 1 }'
-echo '{ "version": 1, "stop_signal": 10, "cont_signal": 12, "click_events": true }'
+echo '{ "version": 1 }'
+#echo '{ "version": 1, "stop_signal": 10, "cont_signal": 12, "click_events": true }'
 echo '['
 echo '[]'
 while :;
 do
-
-	isrunning="$(isrunningBAR compton)"
 	until="$(ut $(cat ~/untilTime))"
-	if [[ $until == -* ]]; then
-		untilcolor=#ff0000
-		#echo test2
-	else
-		untilcolor=#00ff00
-		#echo test1
-	fi
-
 	echo ",[\
-	{\"name\":\"message\",	\"color\":\"#FFFFFF\",		\"full_text\":\"$(messageBAR)\"},\
-	{\"name\":\"until\",	\"color\":\"$untilcolor\",	\"full_text\":\"$until\"},\
-	{\"name\":\"ping\",	\"color\":\"#FFFFFF\",		\"full_text\":\"ping $(ping -c1 8.8.4.4 | head -n 2 | tail -n 1 | cut -d' ' -f7| cut -d'=' -f 2 ) ms\"},\
-	{\"name\":\"power\",	\"color\":\"#FFFFFF\",		\"full_text\":\"$(powerBAR)\"},\
-	{\"name\":\"ESSID\",	\"color\":\"#FF77FF\",		\"full_text\":\"$(ESSIDBAR)\"},\
-	{\"name\":\"space\",	\"color\":\"#FF77FF\",		\"full_text\":\"$(diskSpaceBAR) GiB\"},\
+	{\"name\":\"until\",	\"color\":\"#ffffff\",		\"full_text\":\"$until\"},\
+	{\"name\":\"rand\",	\"color\":\"#ff00ff\",		\"full_text\":\"$(shuf -i 1000-9999 -n1)\"},\
+	{\"name\":\"space\",	\"color\":\"#ffffff\",		\"full_text\":\"$(diskSpaceBAR) GiB\"},\
 	{\"name\":\"volume\",	\"color\":\"#00ff00\",		\"full_text\":\"$(volumeBAR)\"},\
 	{\"name\":\"time\",	\"color\":\"#ffffff\",		\"full_text\":\"$(date|sed 's/  / /')\"}\
 	]"
-	#{\"name\":\"compton\",	\"color\":\"#aa00aa\",		\"full_text\":\"compton is $isrunning\"},\
-
 
 	sleep .1
-	#read -t.1 k;echo $k >> /home/sam/tmp/testtest2
-	#while read x; do echo $x >> /home/sam/tmp/testtest ; done
+
+#	isrunning="$(isrunningBAR compton)"
+#	until="$(ut $(cat ~/untilTime))"
+#	if [[ $until == -* ]]; then
+#		untilcolor=#ff0000
+#		#echo test2
+#	else
+#		untilcolor=#00ff00
+#		#echo test1
+#	fi
+#
+#	echo ",[\
+#	{\"name\":\"message\",	\"color\":\"#FFFFFF\",		\"full_text\":\"$(messageBAR)\"},\
+#	{\"name\":\"until\",	\"color\":\"$untilcolor\",	\"full_text\":\"$until\"},\
+#	{\"name\":\"ping\",	\"color\":\"#FFFFFF\",		\"full_text\":\"ping $(ping -c1 8.8.4.4 | head -n 2 | tail -n 1 | cut -d' ' -f7| cut -d'=' -f 2 ) ms\"},\
+#	{\"name\":\"power\",	\"color\":\"#FFFFFF\",		\"full_text\":\"$(powerBAR)\"},\
+#	{\"name\":\"ESSID\",	\"color\":\"#FF77FF\",		\"full_text\":\"$(ESSIDBAR)\"},\
+#	{\"name\":\"space\",	\"color\":\"#FF77FF\",		\"full_text\":\"$(diskSpaceBAR) GiB\"},\
+#	{\"name\":\"volume\",	\"color\":\"#00ff00\",		\"full_text\":\"$(volumeBAR)\"},\
+#	{\"name\":\"time\",	\"color\":\"#ffffff\",		\"full_text\":\"$(date|sed 's/  / /')\"}\
+#	]"
+#	#{\"name\":\"compton\",	\"color\":\"#aa00aa\",		\"full_text\":\"compton is $isrunning\"},\
+#
+#
+#	sleep .1
+#	#read -t.1 k;echo $k >> /home/sam/tmp/testtest2
+#	#while read x; do echo $x >> /home/sam/tmp/testtest ; done
 done
 
 #while true;
