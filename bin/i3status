@@ -1,6 +1,7 @@
 #change the i3 status bar in i3config to use this
 
-echo '{ "version": 1 }'
+#echo '{ "version": 1 }'
+echo '{ "version": 1, "stop_signal": 10, "cont_signal": 12, "click_events": true }'
 echo '['
 echo '[]'
 while :;
@@ -30,6 +31,8 @@ do
 
 
 	sleep .1
+	#read -t.1 k;echo $k >> /home/sam/tmp/testtest2
+	#while read x; do echo $x >> /home/sam/tmp/testtest ; done
 done
 
 #while true;
