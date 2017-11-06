@@ -103,3 +103,4 @@ while true; printf sam@debian:;do read -r; done
 download zork from http://www.infocom-if.org/downloads/downloads.html
 use frotz to run the zork1.dat file
 
+composite FILE1.png FILE2.png out.png will combine two images with transparancy
