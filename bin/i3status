@@ -9,6 +9,7 @@ do
 	until="$(ut $(cat ~/untilTime))"
 	echo ",[\
 	{\"name\":\"until\",	\"color\":\"#ffffff\",		\"full_text\":\"$until\"},\
+	{\"name\":\"power\",	\"color\":\"#FFFFFF\",		\"full_text\":\"$(powerBAR)\"},\
 	{\"name\":\"rand\",	\"color\":\"#ff00ff\",		\"full_text\":\"$(shuf -i 1000-9999 -n1)\"},\
 	{\"name\":\"space\",	\"color\":\"#ffffff\",		\"full_text\":\"$(diskSpaceBAR) GiB\"},\
 	{\"name\":\"volume\",	\"color\":\"#00ff00\",		\"full_text\":\"$(volumeBAR)\"},\
