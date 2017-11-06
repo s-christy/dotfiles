@@ -1,5 +1,6 @@
 
 #power=$(upower -i `upower -e | /bin/grep bat|
 power=$(upower -i `upower -e | /bin/grep bat`|/bin/grep percen | tr -d ' ' | cut -d':' -f2)
-echo $power
+time=$(upower -i `upower -e | /bin/grep bat`|/bin/grep time | cut -d':' -f2)
+echo $power $time
 
