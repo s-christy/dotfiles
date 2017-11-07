@@ -226,6 +226,7 @@ bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume al
 bindsym $mod+t split toggle
 bindsym $mod+Shift+h exec --no-startup-id lock
 bindsym Print exec --no-startup-id scrot /home/sam/tmp/out.png
+bindsym $mod+Shift+t move workspace to output right
 bindsym $mod+r mode "resize"
 bindsym $mod+c mode "mouse"
 bindsym $mod+m mode "screen"
@@ -236,6 +237,7 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id startCompton
 new_window normal 0
+
 #remember to install the addon in firefox to get rid of scrollbars
 
 #trash
