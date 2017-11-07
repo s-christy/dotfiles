@@ -168,4 +168,6 @@ xinput --set-prop "ETPS/2 Elantech Touchpad" 294 0 2> /dev/null
 
 cd ~/s-christy/dotfiles
 
+ping 8.8.4.4 -c1
+
 
