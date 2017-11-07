@@ -149,3 +149,6 @@ pactl load-module module-loopback latency_msec=1
 urxvt (nevermind, konsole ftw)
 
 thunar
+
+if you run passwd with sudo, it skips the complexity and length checks
+
