@@ -1,0 +1,8 @@
+(for j in {1..10000}; do a=0; for i in {1..100}; do a=$((($a + `shuf -i 1-100 -n1`))); done; echo $a; done;) > data2
+
+echo "set terminal png size 900,500">script
+echo "set output 'out.png'">>script
+echo "plot [0:10000] [300:700] 'data2' with dots">>script
+
+
+gnuplot script ;feh --force-aliasing out.png
