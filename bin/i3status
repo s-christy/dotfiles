@@ -8,7 +8,7 @@ while :;
 do
 	until="$(ut $(cat ~/untilTime))"
 	echo ",[\
-	{\"name\":\"until\",	\"color\":\"#ffffff\",		\"full_text\":\"$until\"},\
+	{\"name\":\"until\",	\"color\":\"$(colorBAR)\",	\"full_text\":\"$until\"},\
 	{\"name\":\"power\",	\"color\":\"#FFFFFF\",		\"full_text\":\"$(powerBAR)\"},\
 	{\"name\":\"rand\",	\"color\":\"#ff00ff\",		\"full_text\":\"$(shuf -i 1000-9999 -n1)\"},\
 	{\"name\":\"space\",	\"color\":\"#ffffff\",		\"full_text\":\"$(diskSpaceBAR) GiB\"},\
@@ -17,6 +17,7 @@ do
 	]"
 
 	sleep .1
+done
 
 #	isrunning="$(isrunningBAR compton)"
 #	until="$(ut $(cat ~/untilTime))"
@@ -44,7 +45,6 @@ do
 #	sleep .1
 #	#read -t.1 k;echo $k >> /home/sam/tmp/testtest2
 #	#while read x; do echo $x >> /home/sam/tmp/testtest ; done
-done
 
 #while true;
 #do
