@@ -1,0 +1,2 @@
+echo "Days since going vegan:"
+ut 11/9/2017 | sed 's/until/since/g' | sed "s/-//g"
