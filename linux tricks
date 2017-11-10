@@ -116,3 +116,5 @@ for j in {1..10}; do a=0; for i in {1..10}; do a=$((($a + `shuf -i 1-100 -n1`)))
 pick random song
 firefox --private-window `cat music\ list |shuf -n1 | cut -d' ' -f1`
 
+display two text files side by side
+pr -mt f1 f2
