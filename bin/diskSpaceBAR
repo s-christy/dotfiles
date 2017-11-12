@@ -2,5 +2,5 @@ disk=$(df|grep /$)
 available=$(python -c "print '$disk'.split()[3]")
 havailable=$(python -c "print int($available)/1024.0/1024.0")
 round=$(python -c "print round($havailable,4)")
-echo $round
+printf "%3.4f" $round
 
