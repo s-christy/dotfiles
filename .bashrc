@@ -158,6 +158,9 @@ alias :x="exit "
 alias :q="exit "
 alias ainstall="sudo apt install "
 alias mcd="read $1;for x in 1..$1; do cd ..;done "
+alias temp="cd ~/tmp "
+alias downloads="cd ~/Downloads"
+alias fnd="ls | grep"
 
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin
