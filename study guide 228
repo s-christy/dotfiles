@@ -1,0 +1,40 @@
+q1c
+would removing the smallest element from a max heap be O(1)
+
+know the difference between depth first and breadth first
+
+most heap operations are log(n)
+
+pre- vs in- vs post-order traversal
+
+1
+a find operations are n
+b traversal operations are n
+c removing root operations are logn
+d sort operations are nlogn
+e breadth/depth searches are n or V+E
+f dijkstra's algorithm is nlogn or ElogV
+
+2
+a illustrate the heap by filling in the bubbles top to bottom and left to right
+b percolate down by replacing the bad data with the larger of the two children in a max heap
+c when adding data, add it to the very last open node
+
+3
+a add all the numbers to the binary search tree
+b pre-order traversal is DLR
+c in-order traversal is LDR (also sorts it from smallest to largest)
+d post-order traversal is LRD
+e delete(n) replaces n with the next larger number NOT the larger child necessarily
+
+4
+~
+
+5
+a BFS looks at all the neighbors of A, then moves to B and looks at all its neighbors
+b DFS follows the neighbors immediately in alphabetical order
+c label all rows in "vertex" from A-n
+
+
+min heap vs max heap-in a min heap the smallest number is at the top
+know how to do a remove operation
