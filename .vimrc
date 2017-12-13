@@ -80,6 +80,7 @@ set nowrap
 :map <F6> :r ~/s-christy/dotfiles/filler\ text<CR><Esc>
 :map <F7> :set ve=all<CR><Esc>:echo "ve set to all"<CR><Esc>
 :map <F8> :changes<CR>
+:map <F10> ggVGg?
 :map <F12> :source ~/.vimrc<CR><Esc>:echo "reloaded .vimrc"<CR><Esc>
 :set listchars+=space:␣
 
