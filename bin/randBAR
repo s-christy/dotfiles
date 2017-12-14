@@ -1,0 +1,1 @@
+printf "%s" $(shuf -i 0-9 -n4)

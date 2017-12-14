@@ -10,7 +10,7 @@ do
 	echo ",[\
 	{\"name\":\"until\",	\"color\":\"$(colorBAR)\",	\"full_text\":\"$until\"},\
 	{\"name\":\"power\",	\"color\":\"#FFFFFF\",		\"full_text\":\"$(powerBAR)\"},\
-	{\"name\":\"rand\",	\"color\":\"#ff00ff\",		\"full_text\":\"$(shuf -i 1000-9999 -n1)\"},\
+	{\"name\":\"rand\",	\"color\":\"#ff00ff\",		\"full_text\":\"$(randBAR)\"},\
 	{\"name\":\"space\",	\"color\":\"#ffffff\",		\"full_text\":\"$(diskSpaceBAR) GiB\"},\
 	{\"name\":\"volume\",	\"color\":\"#00ff00\",		\"full_text\":\"$(volumeBAR)\"},\
 	{\"name\":\"time\",	\"color\":\"#ffffff\",		\"full_text\":\"$(date|sed 's/  / /')\"}\
