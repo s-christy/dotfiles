@@ -1,91 +1,65 @@
-office.computer.logitech mouse and keyboard set
-office.computer.250GB SSD
-office.computer.ASRock Z97 Extreme6 mobo
-office.computer.32GB Corsair RAM
-office.computer.i7-4790K processor
-office.computer.GTX 970 Graphics Card
-office.computer.550W PSU
-office.basket.Altoids.16GB MicroSD
-office.basket.Altoids.microcontroller
-office.basket.orange tic-tacs x7
-office.basket.prednisone pills
-office.basket.microfiber cloth
-office.basket.color run headband
-office.basket.razor
-office.basket.pencil x2
-office.basket.Panasonic KX-HCM10
-office.basket.hydroxyz hcl pills
-office.basket.red grabber
-office.basket.sphere speakers
-office.basket.usb wireless mouse
-office.basket.sony EVI-D70 camera
-office.basket.alpaca slippers
-office.desk.left drawer.sponge
-office.desk.left drawer.crew military hair lotion
-office.desk.left drawer.retainer
-office.desk.left drawer.stapler
-office.desk.left drawer.infrared thermometer
-office.desk.left drawer.multitool instructions
-office.desk.left drawer.computer screws x2
-office.desk.left drawer.butane 3 oz
-office.desk.left drawer.electric tape x2
-office.desk.left drawer.amazon kindle
-office.desk.left drawer.intuos driver disk
-office.desk.left drawer.wacom intuos
-office.desk.left drawer.wacom intuos stylus
-office.desk.left drawer.Sarah's ipod
-office.desk.left drawer.intuos microusb cable
-office.desk.left drawer.ipod nano cable
-office.desk.middle drawer.circuit board project
-office.desk.middle drawer.johnson and johnson.bandaids
-office.desk.middle drawer.johnson and johnson.wipes
-office.desk.middle drawer.johnson and johnson.gauze
-office.desk.middle drawer.beer soap
-office.desk.middle drawer.twist tie strip
-office.desk.middle drawer.holliday tin
-office.desk.middle drawer.purple microusb cord
-office.desk.middle drawer.male to female usb
-office.desk.middle drawer.mini usb to usb
-office.desk.middle drawer.playing cards
-office.desk.middle drawer.16GB USB sticks x5
-office.desk.middle drawer.cards and envelopes
-office.desk.right drawer.exacto knife set
-office.desk.right drawer.new toothbrush
-office.desk.right drawer.box knife
-office.desk.right drawer.in-ear headphones
-office.desk.right drawer.phillips screwdriver
-office.desk.right drawer.blue aux cord
-office.desk.right drawer.new toothbrush
-office.desk.right drawer.sharpie
-office.desk.right drawer.paracord bracelet
-office.desk.right drawer.red bic lighter
-office.desk.right drawer.Life Gear flashlight out of power
-office.desk.right drawer.red knife
-office.desk.right drawer.bubbles
-office.desk.right drawer.Buick headphones, unopened
-office.desk.right drawer.Memorex DVD RW
-office.desk.top.Earnest
-office.desk.top.ViewSonic monitors x2
-office.desk.top.Dell monitor
-office.desk.top.razor
-office.desk.top.verbatim flash drive
-office.desk.top.silicon power 16 GB flash drive
-office.desk.top.steam controller dongle
-office.desk.top.sanDisk usb flash drive
-office.desk.top.logitech bluetooth dongle
-office.desk.top.Sweet Candied Apples candle
-office.desk.top.razer x3
-office.desk.top.deoderant
-office.desk.top.grape drink powder opened
-office.desk.top.iPoint pencil sharpener
-office.desk.top.DCSS speaker
-office.desk.top.digital clock
-office.desk.top.twist tie dispenser
-office.desk.left drawer.battery case for S6
-office.filing cabinet.laptop
-office.filing cabinet.recipes
-office.filing cabinet.passport
-office.filing cabinet.social security card
+desk.left_drawer.silver box knife
+desk.left_drawer.spare jeep key
+desk.left_drawer.half dollar x2
+desk.left_drawer.CREW texture lotion
+desk.left_drawer.3000 staples
+desk.left_drawer.S6 battery case
+desk.left_drawer.Sarah's Ipod
+desk.left_drawer.Infrared thermometer
+desk.left_drawer.electrical tape x2
+desk.left_drawer.retainer
+desk.left_drawer.sponge
+desk.left_drawer.butane fuel 2.75oz
+desk.left_drawer.Sarah's Ipod to USB cord
+desk.left_drawer.nail clipper
+desk.left_drawer.wacom tablet
+desk.left_drawer.wacom tablet pen
+desk.left_drawer.brads x50
+desk.left_drawer.computer screws x2
+desk.middle_drawer.casino playing cards
+desk.middle_drawer.christmas tin
+desk.middle_drawer.beer soap
+desk.middle_drawer.mini-usb to usb
+desk.middle_drawer.AA batteries x6 #checked out
+desk.middle_drawer.AAA batteries x8 #checked out
+desk.middle_drawer.Johnson&Johnson container of wipes, gauze, bandaids
+desk.middle_drawer.AAA batteries x6
+desk.middle_drawer.breathalyzer #checked out
+desk.middle_drawer.male to female usb cord
+desk.middle_drawer.usb to microusb cord
+desk.middle_drawer.bic lighter
+desk.middle_drawer.envelopes
+desk.middle_drawer.LED fan kit
+desk.middle_drawer.debian usb
+desk.middle_drawer.mint usb
+desk.middle_drawer.ubuntu usb
+desk.middle_drawer.9V batteries x2
+desk.middle_drawer.AA battery
+desk.middle_drawer.violet lazer pen
+desk.middle_drawer.robot clock pendant
+desk.middle_drawer.AAA batteries x2
+desk.middle_drawer.small breathalyzer
+desk.middle_drawer.small breathalyzer nozzles x3
+desk.middle_drawer.fire extinguisher lighter and LED light
+desk.right_drawer.paracord bracelet
+desk.right_drawer.razers x2
+desk.right_drawer.red box knife
+desk.right_drawer.bubble blowing soap
+desk.right_drawer.black sharpie
+desk.right_drawer.blue aux cord
+desk.right_drawer.pink male to female usb cord #checked out
+desk.right_drawer.white headphones
+desk.right_drawer.red bic lighter
+desk.right_drawer.DVD RW disks
+desk.right_drawer.Buick headphones
+desk.right_drawer.black duck tape
+desk.right_drawer.silver duck tape
+desk.right_drawer.LED light
+desk.right_drawer.red pencil sharpener
+desk.right_drawer.phillips screwdriver
+desk.right_drawer.picks x4
+desk.right_drawer.Xacto knife set
+desk.right_drawer.small magnets
 bin 1.nice black shoes
 bin 1.ISU football
 bin 1.Olde Maine growler
@@ -114,69 +88,33 @@ bin 1.420 ft cotton twine
 bin 1.Richland tealight candles x120
 bin 1.large coax cable
 bin 1.Samsung USB DVD reader
-cable bin.DP to DP 6ft
-cable bin.DP to DP 6ft
-cable bin.USB to mini USB
-cable bin.HTC wall-wart
-cable bin.USB to micro USB dongle
-cable bin.male to female USB long
-cable bin.three-proged three-outlet extension cord
-cable bin.USB to micro USB cord
-cable bin.USB to micro USB cord
-cable bin.USB to micro USB cord
-cable bin.USB to micro USB bracelet
-cable bin.USB to micro USB cord
-cable bin.USB to micro USB cord
-cable bin.small USB keyboard
-cable bin.black ethernet cord
-cable bin.1/4 inch jack to 3.5mm jack
-cable bin.3.5mm splitter
-cable bin.18 ft extension cable
-cable bin.blue ethernet cord
-cable bin.USB to mini USB cord
-cable bin.white ethernet cord
-cable bin.2.5A micro USB wall charger
-cable bin.VGA cord #CHECKED OUT 2017-08-28 Mon 10:33 PM FOR USE WITH THE SMALL PROJECTOR
-cable bin.blue in-ear headphones
-cable bin.ASUS laptop charging cable
-cable bin.USB to USB A dongle
-cable bin.black in-ear headphones
-cable bin.USB to mini USB cord
-cable bin.VGA cable
-cable bin.HDMI cord
-cable bin.DVI splitter
-cable bin.black in-ear headphones
-cable bin.female to female component cord dongles x10
-cable bin.male to male component cable
-cable bin.USB to micro USB cable
-cable bin.wall outlet to class 2 power supply
-cable bin.green aux cord
-cable bin.USB corded mouse #CHECKED OUT2017-08-29 Tue 06:47 PM  GAVE TO SARAH TO USE
-cable bin.black headphones
-cable bin.USB to micro USB
-cable bin.black aux cord
-cable bin.USB to mini-b dongle
-cable bin.headphones
-cable bin.gold aux cord
-cable bin.Ipod cord
-cable bin.in-ear headphone replacement rubber condoms
-cable bin.s-video cable
-office.desk.middle drawer.Sunbeam batteries AA x4
-office.desk.middle drawer.Sunbeam batteries AAA x12
-office.desk.middle drawer.Sunbeam batteries 9V x2
-office.desk.middle drawer.Sunbeam batteries unopened AAA x8
-cable bin.DVI to HDMI cord
-cable bin.yellow ethernet cord
-cable bin.blue ethernet cord
-office.desk.middle drawer.Sunbeam batteries unopened AA x8
-office.desk.middle drawer.breathalyzer
-office.desk.middle drawer.purple lighter
-office.desk.right drawer.pick set (4 picks)
-office.desk.right drawer.red pencil sharpener
-office.desk.right drawer.Growley and Squirrel sticker
-office.desk.right drawer.jax sticker
-office.desk.right drawer.razer x4
-office.desk.left drawer.spare Jeep key
-office.desk.left drawer.half dollar
-office.desk.right drawer.2x usb extenders
-office.desk.right drawer.duck tape
+bin 1.twist tie spool
+bin 1.white ethernet cord
+bin 1.hdmi cord #checked out
+bin 1.apple candle
+bin 1.steam controller
+bin 1.fly ribbon
+bin 1.usb to microusb x3
+bin 1.ASUS laptop
+bin 1.ASUS laptop charger
+bin 1.TI-84 plus calculator
+bin 1.usb to usb x4 splitter
+bin 1.green watch
+bin 1.eclipse glasses
+bin 1.usb to usb-C cord
+bin 1.compass whistle
+office.basket.Altoids.16GB MicroSD
+office.basket.Altoids.microcontroller
+office.basket.orange tic-tacs x7
+office.basket.prednisone pills
+office.basket.microfiber cloth
+office.basket.color run headband
+office.basket.razor
+office.basket.pencil x2
+office.basket.Panasonic KX-HCM10
+office.basket.hydroxyz hcl pills
+office.basket.red grabber
+office.basket.sphere speakers
+office.basket.usb wireless mouse
+office.basket.sony EVI-D70 camera
+office.basket.alpaca slippers
