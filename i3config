@@ -218,13 +218,13 @@ mode "wallpaper" {
 
 # this is for when using the laptop. Laptop uses 14.2 NOT 1b.0
 mode "volume" {
-	bindsym Right exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo +10%
-	bindsym Left exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo -10%
-	bindsym Ctrl+Right exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo +1%
-	bindsym CTRL+Left exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo -1%
-	bindsym m exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_14.2.analog-stereo toggle
-	bindsym Shift+Right exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo +50%
-	bindsym Shift+Left exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo -50%
+	bindsym Right exec --no-startup-id pactl set-sink-volume 1 +10%
+	bindsym Left exec --no-startup-id pactl set-sink-volume 1 -10%
+	bindsym Ctrl+Right exec --no-startup-id pactl set-sink-volume 1 +1%
+	bindsym CTRL+Left exec --no-startup-id pactl set-sink-volume 1 -1%
+	bindsym m exec --no-startup-id pactl set-sink-mute 1 toggle
+	bindsym Shift+Right exec --no-startup-id pactl set-sink-volume 1 +50%
+	bindsym Shift+Left exec --no-startup-id pactl set-sink-volume 1 -50%
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
