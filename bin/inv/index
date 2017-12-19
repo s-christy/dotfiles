@@ -42,7 +42,7 @@ desk.middle_drawer.small breathalyzer
 desk.middle_drawer.small breathalyzer nozzles x3
 desk.middle_drawer.fire extinguisher lighter and LED light
 desk.right_drawer.paracord bracelet
-desk.right_drawer.razers x2
+desk.right_drawer.razers x2 #checked out 1
 desk.right_drawer.red box knife
 desk.right_drawer.bubble blowing soap
 desk.right_drawer.black sharpie
@@ -98,7 +98,7 @@ bin 1.usb to microusb x3
 bin 1.ASUS laptop
 bin 1.ASUS laptop charger
 bin 1.TI-84 plus calculator
-bin 1.usb to usb x4 splitter
+bin 1.usb to usb x4 splitter #checked out
 bin 1.green watch
 bin 1.eclipse glasses
 bin 1.usb to usb-C cord
