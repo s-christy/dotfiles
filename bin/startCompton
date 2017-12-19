@@ -1,2 +1,4 @@
-
-compton --config ~/compton.conf &
+#old style
+#compton --config ~/compton.conf &
+#new style
+compton --backend glx --vsync opengl-swc &
