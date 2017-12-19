@@ -123,3 +123,8 @@ you can resize windows in i3 with the mouse by holding down mod and right click
 you can drag windows in i3 by holding down mod and left click
 
 g?? applies rot13 to a line. Use to weakly encrypt stuff?
+
+sensors command is part of the package lm-sensors
+
+bind -P
+
