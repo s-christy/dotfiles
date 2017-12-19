@@ -206,13 +206,25 @@ mode "wallpaper" {
 	bindsym Up exec --no-startup-id "echo $(((`cat /home/sam/s-christy/dotfiles/wallpaper/height`+1))) > /home/sam/s-christy/dotfiles/wallpaper/height; /home/sam/s-christy/dotfiles/wallpaper/do"
 	bindsym Down exec --no-startup-id "echo $(((`cat /home/sam/s-christy/dotfiles/wallpaper/height`-1))) > /home/sam/s-christy/dotfiles/wallpaper/height; /home/sam/s-christy/dotfiles/wallpaper/do"
 
-	#bindsym 0 exec --no-startup-id "echo 0 > /home/sam/s-christy/dotfiles/wallpaper/border; echo 3 > /home/sam/s-christy/dotfiles/wallpaper/height; /home/sam/s-christy/dotfiles/wallpaper/do"
-	#bindsym i exec --no-startup-id /home/sam/s-christy/dotfiles/bin/changeWallpaper 1
-	#bindsym u exec --no-startup-id "changeWallpaper 5"
+	bindsym 0 exec --no-startup-id "echo 0 > /home/sam/s-christy/dotfiles/wallpaper/border; echo 3 > /home/sam/s-christy/dotfiles/wallpaper/height; /home/sam/s-christy/dotfiles/wallpaper/do"
 
 	bindsym b exec --no-startup-id "/home/sam/s-christy/dotfiles/wallpaper/blur"
 	bindsym o exec --no-startup-id "feh --bg-center /home/sam/Downloads/bg.jpg"
 
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# this is for when using the laptop. Laptop uses 14.2 NOT 1b.0
+mode "volume" {
+	bindsym Right exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo +10%
+	bindsym Left exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo -10%
+	bindsym Ctrl+Right exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo +1%
+	bindsym CTRL+Left exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo -1%
+	bindsym m exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_14.2.analog-stereo toggle
+	bindsym Shift+Right exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo +50%
+	bindsym Shift+Left exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_14.2.analog-stereo -50%
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -235,6 +247,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+c mode "mouse"
 bindsym $mod+m mode "screen"
 bindsym $mod+n mode "wallpaper"
+bindsym $mod+Shift+v mode "volume"
 
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id xset -dpms
