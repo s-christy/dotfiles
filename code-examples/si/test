@@ -1,0 +1,15 @@
+#/bin/python
+
+f=open('preprocessing','r')
+a=[]
+for x in f:
+	if len(x)>100:
+		print x.split('<')[5].split('>')[1]
+		print x.split('<')[24].split('/')[1][0:9]
+	else:
+		y=x.split()[:-2]
+		if y[-1] == 'Exam':
+			print y[-2]
+		else:
+			print y[-1]
+
