@@ -152,3 +152,5 @@ thunar
 
 if you run passwd with sudo, it skips the complexity and length checks
 
+with the IdeaPad, if graphical installation doesn't work, try text installation
+
