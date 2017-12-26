@@ -128,3 +128,5 @@ sensors command is part of the package lm-sensors
 
 bind -P
 
+in urxvt, if you select text, it just copies it into the clipboard
+
