@@ -128,3 +128,5 @@ sensors command is part of the package lm-sensors
 
 bind -P
 
+use fbi to display images in the framebuffer
+
