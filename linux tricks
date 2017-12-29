@@ -128,10 +128,8 @@ sensors command is part of the package lm-sensors
 
 bind -P
 
-<<<<<<< HEAD
 use fbi to display images in the framebuffer
-=======
+
 in urxvt, if you select text, it just copies it into the clipboard
 ADDENDUM to the above: when pasting you must use middle click, no C-v
->>>>>>> 0a3fb37a83154a8a8a2a2dbd8b5d901670f8ad0b
 
