@@ -167,6 +167,7 @@ alias ...="cd ../..;ls"
 alias ....="cd ../../..;ls"
 alias .....="cd ../../../..;ls"
 alias r="ranger"
+alias htop="htop -d0"
 
 export PAGER="/usr/bin/most -s"
 
