@@ -133,3 +133,26 @@ use fbi to display images in the framebuffer
 in urxvt, if you select text, it just copies it into the clipboard
 ADDENDUM to the above: when pasting you must use middle click, no C-v
 
+you can set the default browser that xdg-open uses by using the gnome-control-center
+
+unp unpacks all kinds of archives
+
+cd - to go to $OLDPWD
+
+PS1='\n[\u@\h]: \w\n$?> '
+
+
+NORMAL="\[\033[0m\]"
+RED="\[\033[31;1m\]"
+PS1=${RED}$(pwd | sed 's/\/home\/sam/~/g')${NORMAL}$
+
+PS1="\e[0;32;40m$(pwd | sed 's/\/home\/sam/~/g')\e[0;330m$"
+
+sudo iftop -i wlp8s0
+watch ifconfig wlp8s0
+
+https://anons.wiki/
+
+https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#virtualenvs
+
+
