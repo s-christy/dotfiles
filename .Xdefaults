@@ -13,7 +13,9 @@ URxvt.scrollBar:	false
 URxvt.cursorColor:	white
 #URxvt.cursorColor:	magenta
 
-URxvt.perl-ext-common: default,resize-font
+URxvt.perl-ext-common: default,resize-font,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
 URxvt.resize-font.smaller:	C-Down
 URxvt.resize-font.bigger:	C-Up
