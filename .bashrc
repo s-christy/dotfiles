@@ -161,13 +161,30 @@ alias mcd="read $1;for x in 1..$1; do cd ..;done "
 alias temp="cd ~/tmp "
 alias downloads="cd ~/Downloads"
 alias fnd="ls | grep"
+alias mutt='mutt -e "set crypt_use_gpgme=no"'
+alias ..="cd ..;ls"
+alias ...="cd ../..;ls"
+alias ....="cd ../../..;ls"
+alias .....="cd ../../../..;ls"
+alias r="ranger"
 
+export PAGER="/usr/bin/most -s"
 
 PATH=$PATH:/home/sam/s-christy/dotfiles/bin
 xset b off 2> /dev/null
 
 xinput --set-prop "ETPS/2 Elantech Touchpad" 294 0 2> /dev/null
 
+BLACK="\e[0;30;40m"
+RED="\e[0;31;40m"
+GREEN="\e[0;32;40m"
+YELLOW="\e[0;33;40m"
+BLUE="\e[0;34;40m"
+PURPLE="\e[0;35;40m"
+LBLUE="\e[0;36;40m"
+WHITE="\e[0;37;40m"
+NORMAL="\e[0;38;40m"
+#To use these, use echo -e "${RED}"
 
 cd ~/s-christy/dotfiles
 
