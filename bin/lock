@@ -1,3 +1,5 @@
-/home/sam/s-christy/dotfiles/bin/lockoptions/blurlock
+#/home/sam/s-christy/dotfiles/bin/lockoptions/blurlock
+cd /home/sam/s-christy/dotfiles/bin/lockoptions
+scrot in.png;convert *.png -blur 5x5 out.png;i3lock -i out.png
 systemctl suspend
 rm /home/sam/s-christy/dotfiles/bin/lockoptions/*.png
