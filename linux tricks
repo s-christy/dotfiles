@@ -155,4 +155,15 @@ https://anons.wiki/
 
 https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#virtualenvs
 
+stress --cpu 2 --timeout 10
+
+yes is a command
+
+funk(){ echo asdf; };
+funk
+
+what is xargs?
+
+generate a cpu load with: sha1sum /dev/zero
+
 
