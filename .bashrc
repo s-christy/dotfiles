@@ -168,6 +168,8 @@ alias ....="cd ../../..;ls"
 alias .....="cd ../../../..;ls"
 alias r="ranger"
 alias htop="htop -d0"
+alias lsr="ls -R "
+alias dot="cd ~/s-christy/dotfiles "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
