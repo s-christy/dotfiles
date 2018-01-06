@@ -166,4 +166,4 @@ what is xargs?
 
 generate a cpu load with: sha1sum /dev/zero
 
-
+using l in mpv sets an A-B loopback
