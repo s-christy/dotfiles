@@ -130,6 +130,7 @@ alias push="git push "
 alias pull="git pull "
 alias commit="git commit -am "
 alias status="git status "
+alias gitdiff="git diff "
 #alias wc='printf " l    w   c\n";wc '
 alias espeak="espeak -a 50 "
 alias speak="xclip -o | espeak -a 2 "
