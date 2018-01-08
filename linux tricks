@@ -167,3 +167,41 @@ what is xargs?
 generate a cpu load with: sha1sum /dev/zero
 
 using l in mpv sets an A-B loopback
+
+ex command uses ex mode of vim
+
+apropos to search man
+
+grep "this|that" searches for both patterns
+grep -e this -e that accomplishes the same goal
+
+man hier
+
+/usr/share/man/manX has the list of all manpages in section X
+man man contains the names of each section, for example, man2 is system calls
+
+pstree
+
+typing "python" in bash is equivalent to typing
+env python or
+/usr/bin/env python or
+/usr/bin/env /usr/bin/python or
+
+compgen -c lists all possible commands. Also see the 'complete' command
+compgen -c run displays all commands starting with 'run'
+
+inxi -F
+
+why do all of my processors have different clock speeds?
+
+/proc/meminfo
+/proc/cpuinfo
+
+lshw
+
+https://superuser.com/questions/303981/what-is-the-linux-command-to-find-out-hardware-info#303985
+
+urxvt -pixmap ~/wallpaper/`ls ~/wallpaper/ | shuf -n1`
+find a way to set the image on the fly, also fix scaling
+
+
