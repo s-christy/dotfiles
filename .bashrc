@@ -172,7 +172,7 @@ alias htop="htop -d0"
 alias lsr="ls -R "
 alias dot="cd ~/s-christy/dotfiles "
 alias searchman="apropos "
-alias inxi="inxi -F "
+alias inxi="inxi -F ; neofetch "
 alias lsl="ls -l"
 
 #export PAGER="/usr/bin/most -s"
