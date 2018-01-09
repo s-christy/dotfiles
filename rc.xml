@@ -17,7 +17,7 @@
        under the mouse pointer. when followMouse is enabled -->
     <underMouse>no</underMouse>
     <!-- move focus under the mouse, even when the mouse is not moving -->
-    <focusDelay>200</focusDelay>
+    <focusDelay>0</focusDelay>
     <!-- when followMouse is enabled, the mouse must be inside the window for
        this many milliseconds (1000 = 1 sec) before moving focus to it -->
     <raiseOnFocus>no</raiseOnFocus>
@@ -43,7 +43,7 @@
   </placement>
   <theme>
     <name>Onyx</name>
-    <titleLayout>LIMC</titleLayout>
+    <titleLayout>LSMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -337,6 +337,7 @@
         <command>scrot</command>
       </action>
     </keybind>
+
     <keybind key="W-Return">
       <action name="Execute">
         <startupnotify>
@@ -346,13 +347,54 @@
         <command>urxvt</command>
       </action>
     </keybind>
+
+    <keybind key="W-S-i">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>browser</name>
+        </startupnotify>
+        <command>firefox</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-S-h">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>locker</name>
+        </startupnotify>
+        <command>lock</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>vup</name>
+        </startupnotify>
+        <command>pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +10%</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>vdn</name>
+        </startupnotify>
+        <command>pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -10%</command>
+      </action>
+    </keybind>
+
   </keyboard>
   <mouse>
-    <dragThreshold>1</dragThreshold>
+    <dragThreshold>2</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
     <doubleClickTime>500</doubleClickTime>
     <!-- in milliseconds (1000 = 1 second) -->
-    <screenEdgeWarpTime>400</screenEdgeWarpTime>
+    <screenEdgeWarpTime>0</screenEdgeWarpTime>
     <!-- Time before changing desktops when the pointer touches the edge of the
        screen while moving a window, in milliseconds (1000 = 1 second).
        Set this to 0 to disable warping -->
