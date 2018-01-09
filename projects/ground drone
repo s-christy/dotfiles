@@ -1,0 +1,7 @@
+RPI
+wifi
+camera
+3 motors, two on sides, one on back. back wheel is smooth and can slide like a sled over the ground. Works more like a helicopter's tail rudder than a wheel
+https://business.tutsplus.com/tutorials/controlling-dc-motors-using-python-with-a-raspberry-pi--cms-20051
+use the innards of a walkie talkie to make sound
+use an h-bridge to drive the motors
