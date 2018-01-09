@@ -204,4 +204,18 @@ https://superuser.com/questions/303981/what-is-the-linux-command-to-find-out-har
 urxvt -pixmap ~/wallpaper/`ls ~/wallpaper/ | shuf -n1`
 find a way to set the image on the fly, also fix scaling
 
+in openbox, you can hold alt and drag to resize windows
 
+random mouse motion
+xdotool mousemove_relative -- $(((`shuf -n1 -i 0-10` - 5))) $(((`shuf -n1 -i 0-10` - 5)))
+while true;do xdotool mousemove_relative -- $(((`shuf -n1 -i 0-2` - 1))) $(((`shuf -n1 -i 0-2` - 1))); done
+
+log into rpi: ssh -vvv pi@192.168.2.11
+
+to use netcat:
+make sure both machines are on the same wifi
+on the host: nc -lp 1234 HOST_IP
+on the client: nc HOST_IP 1234
+
+play webcam with this:
+mplayer tv:// /dev/video0
