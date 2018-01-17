@@ -174,6 +174,7 @@ alias dot="cd ~/s-christy/dotfiles "
 alias searchman="apropos "
 alias inxi="inxi -F ; neofetch "
 alias lsl="ls -l"
+alias 1tb="cd /media/sam/Sam\ 1TB/ "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
