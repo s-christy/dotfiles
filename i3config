@@ -248,6 +248,7 @@ bindsym $mod+c mode "mouse"
 bindsym $mod+m mode "screen"
 bindsym $mod+n mode "wallpaper"
 bindsym $mod+Shift+v mode "volume"
+bindsym $mod+Shift+p exec --no-startup-id "xclip -o | festival --tts "
 
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id xset -dpms
