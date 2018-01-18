@@ -248,11 +248,22 @@ bindsym $mod+c mode "mouse"
 bindsym $mod+m mode "screen"
 bindsym $mod+n mode "wallpaper"
 bindsym $mod+Shift+v mode "volume"
+bindsym $mod+Shift+p exec --no-startup-id "xclip -o | festival --tts "
+
+# colors                border  backgr. text    indicator child_border
+client.focused          #000000 #000000 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #222222 #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
 
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id startCompton
+#exec_always nm-applet
+#exec_always volumeicon
 new_window normal 0
 
 #remember to install the addon in firefox to get rid of scrollbars
