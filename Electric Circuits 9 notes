@@ -7,7 +7,27 @@ Memorize tables 1.1 and 1.2, they are SI units and derived units
 
 All electric charge is a multiple of 1.61*10-19 Coulombs
 
-voltage is energy created by the separation of positive and negative charges per charge carrier
+Voltage is energy created by the separation of positive and negative charges per charge carrier
 current is the flow of charge carriers
 
+V=IR
+P=VI
+P=IIR
+
+5 basic circuit elements
+	voltage sources
+	current sources
+	inductors
+	resistors
+	capacitors
+
+Current/voltage sources can be either dependent or independent
+
+Was the fact that George Simon Ohm has the same last name as a Greek letter just a happy coincidence?
+
+Siemens and mhos are the same thing
+
+short circuit vs open circuit
+
+Kirchoff's laws
 
