@@ -3,3 +3,6 @@ power usage counter
 motor controller that can be accessed anywhere
 use a wire as a linear potentiometer for printer?
 lab power supply
+pulse laser
+	metal will dissapate the heat of the laser, but anything on top of the metal like paint will be burned away
+touchless power meter
