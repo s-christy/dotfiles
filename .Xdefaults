@@ -22,7 +22,16 @@ URxvt.resize-font.bigger:	C-Up
 
 URxvt.colorUL:		#4682B4
 
+! in the future I want to change entire themes preferably by cycling with alt-tab, but if necessary by using C-#
 
+! change to red background
+URxvt.keysym.C-7: command:\033]11;#ff0000\007\033]10;yellow\007
+
+! change to light background
+URxvt.keysym.C-8: command:\033]11;#ffffff\007
+
+! change to dark gray background
+URxvt.keysym.C-9: command:\033]11;#777777\007
 
 #URxvt.perl-ext-common:	default,matcher,resize-font
 #URxvt.perl-lib:		$HOME/.config/Scripts
