@@ -6,3 +6,4 @@ lab power supply
 pulse laser
 	metal will dissapate the heat of the laser, but anything on top of the metal like paint will be burned away
 touchless power meter
+universal video adapter-Base it on an RPi and have DVI, HDMI, VGA etc...
