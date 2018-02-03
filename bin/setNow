@@ -1,1 +1,1 @@
-echo `date| cut -d' ' -f4` > ~/untilTime
+echo `date | sed 's/  / /g' | cut -d' ' -f4` > ~/untilTime
