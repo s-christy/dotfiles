@@ -1,2 +1,6 @@
+#urxvt -e htop -d0 &
+#sudo iftop -i enp0s25
 urxvt -e htop -d0 &
-sudo iftop -i enp0s25
+urxvt -e vi /home/sam/s-christy/dotfiles/i3config &
+urxvt -e du / && sleep 1 && urxvt -e du / && sleep 1 && #urxvt -e while :;do du /;done
+
