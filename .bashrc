@@ -178,6 +178,10 @@ alias lsl="ls -l"
 alias 1tb="cd /media/sam/Sam\ 1TB/ "
 alias qwed="cd ~/Downloads "
 alias qwet="cd ~/tmp "
+alias mpg="mpgrep "
+alias estatus="expressvpn status "
+alias econnect="expressvpn connect "
+alias edisconnect="expressvpn disconnect "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
@@ -208,6 +212,10 @@ NORMAL="\e[0;38;40m"
 
 cd ~/s-christy/dotfiles
 
+estatus
+echo
+nmcli | /bin/grep connected
+echo
 ping 8.8.4.4 -c1
 
 
