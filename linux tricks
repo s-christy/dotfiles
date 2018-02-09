@@ -231,4 +231,10 @@ urlview
 
 you can use the right click on your mouse to pause htop
 
+watch ls
+ctrl-z
+bg
+jobs
+disown %NUMBER_OF_JOB_TO_DESTROY
+
 
