@@ -119,7 +119,8 @@ export PATH=$PATH:/sbin
 export PATH=$PATH:/usr/sbin
 alias got="ps -aux | grep "
 alias get="ps -aux | grep --color=auto firefox | awk '{print $2}' "
-alias x="universal-open " #"xdg-open "
+#alias x="universal-open " #"xdg-open "
+alias x="xdg-open "
 alias s="systemctl suspend" #consider using i3lock;systemctl suspend
 alias 84="ping 8.8.4.4 "
 #alias traceroute="traceroute --resolve-hostnames "
@@ -182,6 +183,7 @@ alias mpg="mpgrep "
 alias estatus="expressvpn status "
 alias econnect="expressvpn connect "
 alias edisconnect="expressvpn disconnect "
+alias changelog="apt-get changelog "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
@@ -217,5 +219,6 @@ echo
 nmcli | /bin/grep connected
 echo
 ping 8.8.4.4 -c1
-
+echo
+status
 
