@@ -214,6 +214,8 @@ NORMAL="\e[0;38;40m"
 
 cd ~/s-christy/dotfiles
 
+routine
+echo
 estatus
 echo
 nmcli | /bin/grep connected
