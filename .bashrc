@@ -214,7 +214,10 @@ NORMAL="\e[0;38;40m"
 
 cd ~/s-christy/dotfiles
 
-routine
+echo -ne "\e[0;33;40m`routine`\n"
+echo ---------------------
+cat todo
+tput sgr0
 echo
 estatus
 echo
