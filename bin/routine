@@ -3,7 +3,7 @@
 #while read lines; do echo $lines; done < ~/s-christy/dotfiles/routine
 import datetime
 
-f=open("/home/sam/s-christy/dotfiles/routine")
+f=open("/home/sam/routine")
 r=f.readlines()
 
 time=datetime.datetime.now()
