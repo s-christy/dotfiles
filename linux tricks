@@ -238,3 +238,5 @@ jobs
 disown %NUMBER_OF_JOB_TO_DESTROY
 
 screen
+
+use mousepad instead of gedit
