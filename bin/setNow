@@ -1,1 +1,2 @@
+#echo `date +%s` sec >~/untilTime
 echo `date | sed 's/  / /g' | cut -d' ' -f4` > ~/untilTime
