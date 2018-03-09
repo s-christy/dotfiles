@@ -1,0 +1,2 @@
+wget -qO- $1 | /bin/grep "<title" | cut -d'>' -f2 | cut -d'<' -f1
+#echo `wget -qO- '$2' | perl -l -0777 -ne 'print $1 if /<title.*?>\s*(.*?)\s*<\/title/si'`
