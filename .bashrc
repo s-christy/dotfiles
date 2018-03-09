@@ -184,6 +184,8 @@ alias estatus="expressvpn status "
 alias econnect="expressvpn connect "
 alias edisconnect="expressvpn disconnect "
 alias changelog="apt-get changelog "
+alias nmgui="nm-connection-editor "
+alias rmr="rm -r "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
@@ -214,11 +216,16 @@ NORMAL="\e[0;38;40m"
 
 cd ~/s-christy/dotfiles
 
-echo -ne "\e[0;33;40m`routine`\n"
-echo ---------------------
-cat todo
-tput sgr0
+#echo -ne "\e[0;33;40m`routine`\n"
+#echo ---------------------
+#cat todo
+tput setf 6
+echo apply for jobs
+echo do taxes
+echo do SI
 echo
+tput sgr0
+#echo
 estatus
 echo
 nmcli | /bin/grep connected
