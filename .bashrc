@@ -186,6 +186,8 @@ alias edisconnect="expressvpn disconnect "
 alias changelog="apt-get changelog "
 alias nmgui="nm-connection-editor "
 alias rmr="rm -r "
+alias n="nautilus "
+alias newest="ls -t | head "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
