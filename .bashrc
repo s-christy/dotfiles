@@ -223,10 +223,10 @@ cd ~/s-christy/dotfiles
 #cat todo
 tput setf 6
 echo apply for jobs
-echo do taxes
-echo do SI
 echo https://ncees.org/engineering/#iowa
+
 echo
+
 tput sgr0
 #echo
 estatus
