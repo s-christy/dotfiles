@@ -89,7 +89,7 @@ set nowrap
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
-:noremap <F1> :echo "F2 set list! - F3 print time - F4 toggle wrap - F5 spellcheck - F6 insert filler text - F7 set ve - F8 show changes - F9 disable mouse select - F10 obscure file - F11 [ mapped to <Space> - F12 reload .vimrc"<Esc>
+:noremap <F1> :echo "F2 set list!\nF3 print time\nF4 toggle wrap\nF5 spellcheck\nF6 insert filler text\nF7 set ve\nF8 show changes\nF9 disable mouse select\nF10 obscure file\nF11 [ mapped to <Space>\nF12 reload .vimrc"<Esc>
 
 :map <Space><Space> <Esc>/<++><CR>xxxxi
 :map ;+ <Esc>i<++>
