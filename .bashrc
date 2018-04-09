@@ -225,6 +225,7 @@ cd ~/s-christy/dotfiles
 #echo ---------------------
 #cat todo
 tput setf 6
+countOpen
 echo apply for jobs
 echo https://ncees.org/engineering/#iowa
 
