@@ -255,4 +255,16 @@ info
 
 swarp 100 100
 
+wall asdf
 
+inotifywait -m ~/s-christy/
+
+echo "4*5" | bc
+
+control-r lets you search your history
+
+echo $0
+
+whereis grep vs which grep
+
+:13,18s/^/\t/g indents the lines 13 through 18
