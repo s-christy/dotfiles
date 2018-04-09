@@ -1,0 +1,6 @@
+echo nt for new ticket
+echo st to show tickets
+echo showOpen to list open tickets
+echo showClosed to list closed tickets
+echo countOpen to count open tickets
+echo countClosed to count closed tickets

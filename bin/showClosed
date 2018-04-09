@@ -1,0 +1,1 @@
+cd ~/ticket; head -n1 `/bin/grep -r "status: closed" | cut -d':' -f1`
