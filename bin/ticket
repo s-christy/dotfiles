@@ -1,6 +1,57 @@
-echo nt for new ticket
-echo st to show tickets
-echo showOpen to list open tickets
-echo showClosed to list closed tickets
-echo countOpen to count open tickets
-echo countClosed to count closed tickets
+#!/bin/bash
+
+
+#while getopts "hoc:" opt; do
+#	case ${opt} in
+#		h)
+
+#			echo nt for new ticket
+#			echo st to show tickets
+#			echo showOpen to list open tickets
+#			echo showClosed to list closed tickets
+#			echo countOpen to count open tickets
+#			echo countClosed to count closed tickets
+
+#			;;
+#		o)
+#			showOpen
+#			;;
+#		c)
+#			echo asdf
+#			;;
+#		?)
+#			echo "script usage: NONE"
+#			;;
+#	esac
+#done
+
+arg1=$1
+
+if [ "$arg1" == "" ]
+	then
+	arg1="help"
+fi
+
+if [ "$arg1" == "help" ]
+	then
+		echo new for new ticket
+		echo show to show tickets
+		echo open to list open tickets
+		echo closed to list closed tickets
+		echo count to count open and closed tickets
+elif [ "$arg1" == "new" ]
+	then
+	newTicket
+elif [ "$arg1" == "show" ]
+	then
+	showTickets
+elif [ "$arg1" == "open" ]
+	then
+	showOpen
+elif [ "$arg1" == "closed" ]
+	then
+	showClosed
+elif [ "$arg1" == "count" ]
+	then
+	echo "open: " `countOpen` ; echo "closed: " `countClosed`
+fi
