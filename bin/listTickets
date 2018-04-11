@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#for i in {0..30}; do tput setf $i; echo $i; done
+for i in ~/ticket/*
+do
+	val=`head -q -n1 $i| cut -c14-`
+	val2=`tail -q -n1 $i| cut -d' ' -f2`
+	val3=`head -q -n4 $i | tail -n1`
+	#priority 1 is highest, 3 is lowest
+	if [ "$val2" == "?" ]; then tput setf 8
+	elif [ "$val2" == "1" ]; then tput setf 10
+	elif [ "$val2" == "2" ]; then tput setf 11
+	elif [ "$val2" == "3" ]; then tput setf 9
+	fi
+	if [ "$val3" == "status: closed" ]; then tput setf 8
+	fi
+	if [ "$1" == "noDisplay" ]
+	then
+		if [ "$val3" != "status: closed" ]; then echo $val; fi
+	else
+		echo $val 2
+	fi
+done
+
+tput sgr0
+
