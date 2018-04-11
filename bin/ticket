@@ -54,4 +54,7 @@ elif [ "$arg1" == "closed" ]
 elif [ "$arg1" == "count" ]
 	then
 	echo "open: " `countOpen` ; echo "closed: " `countClosed`
+elif [ "$arg1" == "list" ]
+	then
+	listTickets noDisplay
 fi
