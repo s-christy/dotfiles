@@ -268,3 +268,7 @@ echo $0
 whereis grep vs which grep
 
 :13,18s/^/\t/g indents the lines 13 through 18
+
+for i in {1..5}; do tput setf $i; echo asdf; done
+
+
