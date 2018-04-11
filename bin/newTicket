@@ -1,4 +1,5 @@
 read -p "ticket name: " ret
+read -p "priority: " ret3
 read -p "description: " ret2
 
 filename=~/ticket/`date +%s`
@@ -9,4 +10,5 @@ echo ticket number: `ls ~/ticket | wc -l` >> $filename
 echo status: open >> $filename
 echo date: `date` >> $filename
 echo description: $ret2 >> $filename
+echo priority: $ret3 >> $filename
 
