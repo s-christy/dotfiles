@@ -224,20 +224,26 @@ cd ~/s-christy/dotfiles
 #echo -ne "\e[0;33;40m`routine`\n"
 #echo ---------------------
 #cat todo
-tput setf 6
-countOpen
-echo apply for jobs
-echo https://ncees.org/engineering/#iowa
 
-echo
-
-tput sgr0
+#tput setf 6
+#countOpen
 #echo
-estatus
+#tput sgr0
+
+#expressVPN
+estatus | head -n1
+tput sgr0
 echo
-nmcli | /bin/grep connected
+
+#todo list
+ticket list
 echo
-ping 8.8.4.4 -c1
-echo
+
+#nmcli | /bin/grep connected
+#echo
+#ping 8.8.4.4 -c1
+#echo
+
+#git
 status
 
