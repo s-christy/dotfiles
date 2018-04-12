@@ -260,7 +260,10 @@ bindsym $mod+Shift+Return "split toggle; exec --no-startup-id urxvt"
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] border pixel 20
 bindsym $mod+Shift+Ctrl+k exec --no-startup-id "urxvt -name dropdown -e R -q --no-save"
-#bindsym $mod+Shift+Ctrl+k exec --no-startup-id "urxvt -name dropdown -e python"
+
+for_window [instance="time"] floating enable
+for_window [instance="time"] border pixel 20
+bindsym $mod+Shift+Ctrl+t exec --no-startup-id "urxvt -name time -e watch -n0 date"
 
 # colors                border  backgr. text    indicator child_border
 client.focused          #000000 #000000 #ffffff #2e9ef4   #285577
