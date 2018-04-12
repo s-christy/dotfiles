@@ -1,3 +1,5 @@
+#!/bin/bash
+
 
 if [[ "$1" == "off" ]]; then
 echo off
@@ -6,17 +8,15 @@ fi
 
 diff=$1
 now=$(date +%s)
-future=$(date --date=$diff +%s)
-
-if [[ "$2" == "sec" ]]; then
-	future=$diff
-fi
+future=$diff
 #future=1505000000
 
 days=$((($future-$now)/(3600*24)))
 hours=$((($future-$now)/3600-$days*24))
 mins=$((($future-$now)/60-$days*24*60-$hours*60))
 secs=$((($future-$now)-$days*24*60*60-$hours*3600-$mins*60))
+
+diff=`date -d @$diff +"%H:%M:%S"`
 
 if [ $days -eq "0" ]; then
 if [ $hours -eq "0" ]; then
