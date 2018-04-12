@@ -1,0 +1,5 @@
+exec openbox-session
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s 3600 3600
+exec --no-startup-id xset s off
+exec --no-startup-id feh --bg-scale ~/wallpaper/DebianTribal.png
