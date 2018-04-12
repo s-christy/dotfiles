@@ -1,1 +1,1 @@
-echo $1 > ~/untilTime
+echo `date -d $1 +%s` > ~/untilTime
