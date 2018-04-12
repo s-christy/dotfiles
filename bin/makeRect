@@ -1,1 +1,0 @@
-convert -size 1920x1080 xc:#000000 black.png

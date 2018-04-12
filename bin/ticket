@@ -53,7 +53,8 @@ elif [ "$arg1" == "closed" ]
 	showClosed
 elif [ "$arg1" == "count" ]
 	then
-	echo "open: " `countOpen` ; echo "closed: " `countClosed`
+	echo "open:" `cd ~/ticket; \grep -r "status: open"|wc -l`
+	echo "closed:" `cd ~/ticket; \grep -r "status: closed"|wc -l`
 elif [ "$arg1" == "list" ]
 	then
 	listTickets noDisplay

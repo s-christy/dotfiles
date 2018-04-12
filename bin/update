@@ -1,4 +1,0 @@
-#!/bin/bash
-#sudo apt update;apt list --upgradeable; sudo apt upgrade
-((sudo apt update;apt list --upgradeable; sudo apt upgrade)2>/dev/null)|tee ~/update-history
-cat ~/update-history | ~/s-christy/dotfiles/bin/improved-apt

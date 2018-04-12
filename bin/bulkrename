@@ -1,5 +1,0 @@
-
-#rename an arbitrary amount of files easily
-#takes in a directory name and creates a file which can be edited in vim
-#then uses readlines and the mv command to rename everything
-

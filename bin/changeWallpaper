@@ -1,3 +1,0 @@
-
-cd /home/sam
-a=(echo wallpaper/*); feh --bg-scale ${a[$1]}

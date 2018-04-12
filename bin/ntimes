@@ -1,3 +1,0 @@
-
-#this is a program that can run any command n-number of times
-#should be able to use !! with it. Ex-ntimes 5 !! should run the last command 5 times

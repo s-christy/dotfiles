@@ -1,2 +1,0 @@
-echo "Do not use"
-#echo `xclip -o` `xprop | /bin/grep WM_NAME | head -n1` >> /home/sam/s-christy/dotfiles/music\ list ; cat /home/sam/s-christy/dotfiles/music\ list
