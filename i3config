@@ -30,13 +30,13 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec --no-startup-id urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -255,7 +255,7 @@ bindsym $mod+Shift+v mode "volume"
 bindsym $mod+Shift+p exec --no-startup-id "xclip -o | festival --tts "
 bindsym $mod+Shift+f exec --no-startup-id "fakeBusy"
 bindsym $mod+Shift+Ctrl+n exec --no-startup-id "setNow"
-bindsym $mod+Shift+Return "split toggle; exec urxvt"
+bindsym $mod+Shift+Return "split toggle; exec --no-startup-id urxvt"
 
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] border pixel 20
