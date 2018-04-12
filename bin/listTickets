@@ -16,9 +16,9 @@ do
 	fi
 	if [ "$1" == "noDisplay" ]
 	then
-		if [ "$val3" != "status: closed" ]; then echo $val; fi
+		if [ "$val3" == "status: open" ]; then echo $val; fi
 	else
-		echo $val 2
+		echo $val
 	fi
 done
 
