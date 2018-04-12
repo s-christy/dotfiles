@@ -1,4 +1,0 @@
-wget bay12games.com/dwarves/df_43_05_linux.tar.bz2
-tar -jxvf df_43_05_linux.tar.bz2
-vi df_linux/data/init/init.txt #change sound to off and mode to text only
-sudo apt-get install libsdl1.2debian libsdl-image1.2 libSDL-ttf2.0-0

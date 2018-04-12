@@ -1,6 +1,0 @@
-playback loopback 100%
-recording-loopback low
-output 100%
-input-rear microphone low
-config GM204 Digital stereo HDMI output unplugged
-Built-in Audio Analog stereo duplex
