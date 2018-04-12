@@ -1,0 +1,6 @@
+#if [[ `expr "$(ut $(cat ~/untilTime))" : "-"` -gt 0 ]]; then
+#echo "#FFFFFF"
+#else
+#echo "#FF00FF"
+#fi
+echo "#FFFFFF"

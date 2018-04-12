@@ -1,0 +1,3 @@
+echo $1 $(date) >> ~/s-christy/dotfiles/bin/drinks
+cat ~/s-christy/dotfiles/bin/drinks
+

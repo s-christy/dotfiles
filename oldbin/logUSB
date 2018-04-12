@@ -1,0 +1,3 @@
+
+while true; do lsusb > tmp3; diff tmp3 tmp2 >> tmp1; cp tmp3 tmp2; done
+

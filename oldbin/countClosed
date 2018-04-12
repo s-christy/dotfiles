@@ -1,0 +1,1 @@
+cd ~/ticket; \grep -r "status: closed" | wc -l

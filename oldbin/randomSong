@@ -1,0 +1,9 @@
+#firefox --private-window `cat music\ list |shuf -n1 | cut -d' ' -f1`
+#while :; do mpv --no-video `cat music\ list | shuf -n1 | cut -d' ' -f1`; done
+#mpv `cat music\ list | shuf -n1 | cut -d' ' -f1`
+
+cd ~/s-christy/dotfiles
+#music only
+#while :; do r=`cat music\ list | shuf -n1`;echo $r; mpv --no-video `echo $r|cut -d' ' -f1`;done
+#music+video
+while :; do r=`cat music\ list | shuf -n1`;echo $r; mpv `echo $r|cut -d' ' -f1`;done

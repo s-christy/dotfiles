@@ -1,0 +1,1 @@
+ls -a | ack --passthru $1

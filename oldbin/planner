@@ -1,0 +1,15 @@
+#make a thing that prints out the calendar and takes keyboard input to move the date around
+#the date you are currently on will display the current stuff you have to do that day
+#ex:
+#
+#   September 2017      things to do on the 15th:
+#Su Mo Tu We Th Fr Sa   go to the movies with sarah
+#                1  2   pick up clothes 
+# 3  4  5  6  7  8  9   call mom        
+#10 11 12 13 14 ██ 16   do homework     
+#17 18 19 20 21 22 23                   
+#24 25 26 27 28 29 30
+
+
+ncal -H 20`date +%y`-`date +%m`-`date +%d`
+
