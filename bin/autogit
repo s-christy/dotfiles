@@ -1,5 +1,5 @@
 for f in "$@"; do
   git add "$f"
 done
-git commit -m "`read p;echo $p`"
+git commit -m "`read -p "message: " p;echo $p`"
 git status
