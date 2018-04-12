@@ -257,6 +257,11 @@ bindsym $mod+Shift+f exec --no-startup-id "fakeBusy"
 bindsym $mod+Shift+Ctrl+n exec --no-startup-id "setNow"
 bindsym $mod+Shift+Return "split toggle; exec urxvt"
 
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] border pixel 20
+bindsym $mod+Shift+Ctrl+k exec --no-startup-id "urxvt -name dropdown -e R -q --no-save"
+#bindsym $mod+Shift+Ctrl+k exec --no-startup-id "urxvt -name dropdown -e python"
+
 # colors                border  backgr. text    indicator child_border
 client.focused          #000000 #000000 #ffffff #2e9ef4   #285577
 client.focused_inactive #333333 #222222 #888888 #484e50   #5f676a
