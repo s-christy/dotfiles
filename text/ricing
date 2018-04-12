@@ -1,0 +1,10 @@
+https://www.reddit.com/r/unixporn/comments/4rgcdq/openbox_i_herd_you_like_rice/
+try to build an openbox+conky for when you want to show off
+have a list of what things in the git repo have changed listed on the screen. Also have their diffs in smaller text
+you can select which .xinitrc you want to run by using startx /path/to/rc, but you probably have to specify the entire path or type ./myxinitrc
+make a winxp or win95 openbox
+make a frosted glass blur effect for i3lock?
+also a watter ripple effect?
+distance voyager has travelled in stats
+time in seconds since 1970 in stats
+hotkey that resizes and centers a window

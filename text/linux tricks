@@ -1,0 +1,274 @@
+sudo chmod -R 777 DIRECTORY will recursively set permissions to 777 for DIRECTORY
+sudo chown sam -R ~/DIRECTORY will make you the owner of the directory and of everything inside of it
+git add -A adds all changed files
+wc -l FILE counts the number of lines in the file
+" and ' are different in bash
+ls -R
+kill -l
+vim -r
+man -k SEARCH
+espeak "WORDS"
+sensors command
+import can capture a screenshot from a window'
+xprop
+ls -R
+pkill NAME
+ps -aux --sort=-pcpu | head
+replace substring:
+date | sed 's/  / /'
+convert tmp.png -paint 1 tmp2.png
+less -S turns text wrap off
+apt-cache search vlc
+sam@debian:~$ cat .bash_history |awk '{print $2}' |sort|uniq -c|sort -nr | head
+sam@debian:~$ cat /usr/share/dict/words | egrep ^..[rk] | wc -w
+10483
+sam@debian:~$ cat /usr/share/dict/words | egrep ^[rk] | wc -w
+5278
+youtube-dl can download entire channels
+uptime shows the load in the last 1 minute, 5 minutes, and 15 minutes
+https://unix.stackexchange.com/questions/177777/drawing-an-histogram-from-a-bash-command-output
+https://www.usenix.org/system/files/1311_05-08_mickens.pdf
+Unix Philosophy
+feh -w * will open all the image files in the directory in different windows instead of the usual single window
+in i3, press mod+a to select a parent container, then you can move the entire container to another workspace at once
+calendar is a thing
+all the calendar dates are stored in /usr/share/calendar including the lord of the rings dates
+enter replace mode in vim with 'R'
+
+to mount windows partition (should be on sda1, but you can check with gparted)
+sudo umount /dev/sda1
+mkdir /tmp/MyDrive
+sudo mount -o rw /dev/sda1 /tmp/MyDrive
+
+w3m is the best terminal browser
+
+du -h --max-depth=1 -c | grep G
+radare2 to edit ELF files
+http://sushant94.me/2015/05/31/Introduction_to_radare2/
+
+when cleaning up the filesystem, add the folders you don't need to inspect to the exclude
+du -h --max-depth=1 --exclude=.PlayOnLinux/wine
+
+ls | sort -R
+
+in konsole, ctrl-scroll to change font size
+nethogs
+watch ping -c1 8.8.4.4
+
+while true; do ping -c1 8.8.4.4 | head -n 2 | tail -n 1 | cut -d' ' -f7| cut -d'=' -f 2; done
+nmap
+
+w3m -dump https://....html to dump formatted text to stdout
+
+with a window with the following title:
+i3-msg '[title="COMMIT_EDITMSG"] floating enable'
+will make it float
+while true; do xdotool key space; done
+
+apparently, you can convert html to pdf in linux
+https://www.garron.me/en/go2linux/convert-html-pdf-linux.html
+
+this has an example of svg
+https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
+
+nmcli show connection
+
+capital D and capital T do the same things as d$ and c$
+to see the differences in words between american and british words, install wbritish, navigate to /usr/share/dict and type diff british-english american-english | less
+wamerican-small is also a thing
+https://packages.debian.org/sid/text/wbritish
+
+https://stackoverflow.com/questions/9244481/how-to-get-100-cpu-usage-from-a-c-program
+
+in xdotool, the -- is used to allow negative numbers. Is there a way to use this to my advantage for some programs?
+
+systemd-analyze blame is AWESOME
+systemd-analyze critical-chain is also good
+but systemd-analyze plot > tmp/plot.svg is even BETTER
+
+file * gets information about every file in the directory
+
+in mtpaint, you can enable mouse zoom in preferences
+also the bottom right shows the selection area
+
+gnuplot is good
+use shuf -i 1-100 -n100 to generate 100 random numbers from 1 to 100
+
+dialog
+
+you can use $mod+left mouse button+drag to move a floating window in i3
+dpkg-query --list | less
+while true; printf sam@debian:;do read -r; done
+
+download zork from http://www.infocom-if.org/downloads/downloads.html
+use frotz to run the zork1.dat file
+
+composite FILE1.png FILE2.png out.png will combine two images with transparancy
+
+: this is a comment
+: "this is a
+multiline comment"
+
+average of 10 shuffled numbers:
+a=0; for i in {1..10}; do a=$((($a + `shuf -i 1-100 -n1`))); done; echo $a
+for j in {1..10}; do a=0; for i in {1..10}; do a=$((($a + `shuf -i 1-100 -n1`))); done; echo $a; done;
+
+pick random song
+firefox --private-window `cat music\ list |shuf -n1 | cut -d' ' -f1`
+
+display two text files side by side
+pr -mt f1 f2
+
+you can resize windows in i3 with the mouse by holding down mod and right click
+you can drag windows in i3 by holding down mod and left click
+
+g?? applies rot13 to a line. Use to weakly encrypt stuff?
+
+sensors command is part of the package lm-sensors
+
+bind -P
+
+use fbi to display images in the framebuffer
+
+in urxvt, if you select text, it just copies it into the clipboard
+ADDENDUM to the above: when pasting you must use middle click, no C-v
+
+you can set the default browser that xdg-open uses by using the gnome-control-center
+
+unp unpacks all kinds of archives
+
+cd - to go to $OLDPWD
+
+PS1='\n[\u@\h]: \w\n$?> '
+
+
+NORMAL="\[\033[0m\]"
+RED="\[\033[31;1m\]"
+PS1=${RED}$(pwd | sed 's/\/home\/sam/~/g')${NORMAL}$
+
+PS1="\e[0;32;40m$(pwd | sed 's/\/home\/sam/~/g')\e[0;330m$"
+
+sudo iftop -i wlp8s0
+watch ifconfig wlp8s0
+
+https://anons.wiki/
+
+https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#virtualenvs
+
+stress --cpu 2 --timeout 10
+
+yes is a command
+
+funk(){ echo asdf; };
+funk
+
+what is xargs?
+
+generate a cpu load with: sha1sum /dev/zero
+
+using l in mpv sets an A-B loopback
+
+ex command uses ex mode of vim
+
+apropos to search man
+
+grep "this|that" searches for both patterns
+grep -e this -e that accomplishes the same goal
+
+man hier
+
+/usr/share/man/manX has the list of all manpages in section X
+man man contains the names of each section, for example, man2 is system calls
+
+pstree
+
+typing "python" in bash is equivalent to typing
+env python or
+/usr/bin/env python or
+/usr/bin/env /usr/bin/python or
+
+compgen -c lists all possible commands. Also see the 'complete' command
+compgen -c run displays all commands starting with 'run'
+
+inxi -F
+
+why do all of my processors have different clock speeds?
+
+/proc/meminfo
+/proc/cpuinfo
+
+lshw
+
+https://superuser.com/questions/303981/what-is-the-linux-command-to-find-out-hardware-info#303985
+
+urxvt -pixmap ~/wallpaper/`ls ~/wallpaper/ | shuf -n1`
+find a way to set the image on the fly, also fix scaling
+
+in openbox, you can hold alt and drag to resize windows
+
+random mouse motion
+xdotool mousemove_relative -- $(((`shuf -n1 -i 0-10` - 5))) $(((`shuf -n1 -i 0-10` - 5)))
+while true;do xdotool mousemove_relative -- $(((`shuf -n1 -i 0-2` - 1))) $(((`shuf -n1 -i 0-2` - 1))); done
+
+log into rpi: ssh -vvv pi@192.168.2.11
+
+to use netcat:
+make sure both machines are on the same wifi
+on the host: nc -lp 1234 HOST_IP
+on the client: nc HOST_IP 1234
+
+play webcam with this:
+mplayer tv:// /dev/video0
+
+build a NAS
+
+set the home page of your internet browser to
+https://en.wikipedia.org/wiki/Special:RandomInCategory/Featured_articles
+
+duplicate a tab in firefox by middle clicking the reload button
+
+urlview
+
+you can use the right click on your mouse to pause htop
+
+watch ls
+ctrl-z
+bg
+jobs
+disown %NUMBER_OF_JOB_TO_DESTROY
+
+screen
+
+use mousepad instead of gedit
+
+lsblk
+
+lxtask
+
+DMENU IS AMAZING
+
+grabc
+
+dmenu -i makes it case insensitive
+
+info
+
+swarp 100 100
+
+wall asdf
+
+inotifywait -m ~/s-christy/
+
+echo "4*5" | bc
+
+control-r lets you search your history
+
+echo $0
+
+whereis grep vs which grep
+
+:13,18s/^/\t/g indents the lines 13 through 18
+
+for i in {1..5}; do tput setf $i; echo asdf; done
+
+
