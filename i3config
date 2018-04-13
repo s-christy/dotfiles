@@ -265,6 +265,10 @@ for_window [instance="time"] floating enable
 for_window [instance="time"] border pixel 20
 bindsym $mod+Shift+Ctrl+t exec --no-startup-id "urxvt -name time -e watch -n0 date"
 
+for_window [instance="vim"] floating enable
+for_window [instance="vim"] border pixel 20
+bindsym $mod+Shift+Ctrl+v exec --no-startup-id "urxvt -name vim -e vim "
+
 # colors                border  backgr. text    indicator child_border
 client.focused          #000000 #000000 #ffffff #2e9ef4   #285577
 client.focused_inactive #333333 #222222 #888888 #484e50   #5f676a
