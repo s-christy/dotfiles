@@ -58,4 +58,14 @@ elif [ "$arg1" == "count" ]
 elif [ "$arg1" == "list" ]
 	then
 	listTickets noDisplay
+elif [ "$arg1" == "search" ]
+	then
+	#in vim you can use :bn and :bp to move between buffers
+	cd ~/ticket/
+	vi `grep -r $2 | cut -d":" -f1`
 fi
+
+
+
+
+
