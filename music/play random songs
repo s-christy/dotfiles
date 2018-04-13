@@ -1,0 +1,1 @@
+mpv `cat music\ list+names | shuf -n1 | cut -c -43`
