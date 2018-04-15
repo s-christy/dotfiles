@@ -271,4 +271,13 @@ whereis grep vs which grep
 
 for i in {1..5}; do tput setf $i; echo asdf; done
 
+cat <FILE> | grep "TEXT" -A 10 shows 10 lines after each instance of "TEXT"
+
+TKDIFF IS AWESOME
+
+hexdump -C file | rev
+rev reverses strings
+tac has a similar function
+
+
 
