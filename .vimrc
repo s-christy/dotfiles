@@ -57,9 +57,18 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-set nocompatible
+
+
+
+
+"Begin User written code
+
+
+
+
+
+:set nocompatible
 filetype plugin on
-":set rnu "THIS SLOWS VIM DOWN TOO MUCH
 :set nu
 highlight RED ctermbg=red guibg=red
 :let m=matchadd("RED","TODO")
