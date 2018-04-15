@@ -1,0 +1,42 @@
+mod+return start terminal
+mod+shift+q kill window
+mod+d run dmenu
+mod+[jkl;] focus direction
+mod+[arrow_keys] focus direction
+mod+shift+[jkl;] move direction
+mod+shift+[arrow keys] move direction
+mod+h split horizontally
+mod+v split vertically
+mod+f toggle fullscreen
+mod+[swe] change layout
+mod+shift+space toggle floating
+mod+space toggle focus between floating and nonfloating
+mod+a focus parent
+mod+[number] go to workspace
+mod+shift+[number] move to workspace
+mod+shift+c reload
+mod+shift+r restart
+mod+shift+e exit
+mod+shift+i start firefox
+mod+shift+ctrl+i start firefox in incognito mode
+mod+shift+s start steam
+volume button change volume 10%
+ctrl+volume button change volume 1%
+shift+volume button change volume 50%
+mute toggle volume
+mod+t toggle split orientation
+mod+shift+h lock
+print screenshot to ~/tmp/out.png
+mod+shift+t move workspace to right screen
+mod+r resize mode
+mod+c mouse mode
+mod+m screen mode
+mod+n wallpaper mode
+mod+shift+v volume mode
+mod+shift+p play the clipboard with tts
+mod+shift+f fakebusy
+mod+shift+ctrl+n setNow
+mod+shift+return start terminal and change toggle orientation
+mod+shift+ctrl+k calculator dropdown
+mod+shift+ctrl+t time dropdown
+mod+shift+ctrl+v vim dropdown
