@@ -111,6 +111,28 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+#https://github.com/kepkin/dev-shell-essentials/blob/master/highlight.sh
+function highlight() {
+	declare -A fg_color_map
+	fg_color_map[black]=30
+	fg_color_map[red]=31
+	fg_color_map[green]=32
+	fg_color_map[yellow]=33
+	fg_color_map[blue]=34
+	fg_color_map[magenta]=35
+	fg_color_map[cyan]=36
+
+	fg_c=$(echo -e "\e[1;${fg_color_map[$1]}m")
+	c_rs=$'\e[0m'
+	sed -u s"/$2/$fg_c\0$c_rs/g"
+}
+
+
+
+
+
 #figlet $(shuf -n 10 /usr/share/dict/words|/bin/grep -v "'"|head -n1)
 #HINT: use which to find the path to the command
 alias lsdef="/bin/ls --color=auto "
@@ -191,6 +213,7 @@ alias newest="ls -t | head "
 #alias catDmenu="cat `ls | dmenu` "
 alias st="showTickets "
 alias nt="newTicket "
+alias objdump="objdump -Mintel "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
