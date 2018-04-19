@@ -264,7 +264,7 @@ bindsym $mod+Shift+Ctrl+k exec --no-startup-id "urxvt -name dropdown -e R -q --n
 
 for_window [instance="time"] floating enable
 for_window [instance="time"] border pixel 20
-bindsym $mod+Shift+Ctrl+t exec --no-startup-id "urxvt -name time -e tty-clock -cs"
+bindsym $mod+Shift+Ctrl+t exec --no-startup-id "urxvt -name time -e tty-clock -cs -d0"
 
 for_window [instance="vim"] floating enable
 for_window [instance="vim"] border pixel 20
