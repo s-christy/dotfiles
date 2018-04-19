@@ -289,3 +289,6 @@ objdump -d cm7 | ack --passthru "call|nop|804878d"
 pukeskull
 https://raw.githubusercontent.com/stark/Color-Scripts/5b62ca334fd288669c097089f84343924feee329/color-scripts/pukeskull
 
+pstree
+
+
