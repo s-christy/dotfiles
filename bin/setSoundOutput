@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $1 -eq 1 ]; then
+	pactl list short sink-inputs | cut -f1 | while read stream; do pactl move-sink-input $stream alsa_output.pci-0000_00_1b.0.analog-stereo; done
+elif [ $1 -eq 0 ]; then
+	pactl list short sink-inputs | cut -f1 | while read stream; do pactl move-sink-input $stream alsa_output.usb-C-Media_Electronics_Inc._VTIN_VNPA081AB-00.analog-stereo; done
+else
+	pactl list short sink-inputs | cut -f2 | while read stream; do pactl set-sink-volume $stream $1; done
+fi
