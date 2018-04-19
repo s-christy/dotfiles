@@ -40,3 +40,4 @@ mod+shift+return start terminal and change toggle orientation
 mod+shift+ctrl+k calculator dropdown
 mod+shift+ctrl+t time dropdown
 mod+shift+ctrl+v vim dropdown
+mod+shift+ctrl+p pavucontrol

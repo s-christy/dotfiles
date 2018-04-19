@@ -279,5 +279,12 @@ hexdump -C file | rev
 rev reverses strings
 tac has a similar function
 
+\grep -r "status"| cut -d":" -f3 | sort | uniq
+use \grep to use vanilla grep, same as command grep
+uniq will sort out all the duplicates
+
+highlight certain keywords
+objdump -d cm7 | ack --passthru "call|nop|804878d"
+
 
 
