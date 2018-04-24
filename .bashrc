@@ -254,6 +254,7 @@ cd ~/s-christy/dotfiles
 #tput sgr0
 
 #expressVPN
+#curl -s http://wttr.in/50010 | head -n17 | tail -n16
 estatus | head -n1
 tput sgr0
 echo
