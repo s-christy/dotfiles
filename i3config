@@ -237,13 +237,23 @@ mode "volume" {
 bindsym $mod+Shift+i exec --no-startup-id newFirefox
 bindsym $mod+Shift+Ctrl+i exec --no-startup-id incognito
 bindsym $mod+Shift+s exec --no-startup-id steam
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -10%
-bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +1%
-bindsym CTRL+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -1%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +50%
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -50%
+
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +10%
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -10%
+#bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +1%
+#bindsym CTRL+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -1%
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
+#bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +50%
+#bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -50%
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id volume up
+bindsym XF86AudioLowerVolume exec --no-startup-id volume down
+bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id volume ups
+bindsym CTRL+XF86AudioLowerVolume exec --no-startup-id volume downs
+bindsym XF86AudioMute exec --no-startup-id volume mute
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id volume upl
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id volume downl
+
 bindsym $mod+t split toggle
 bindsym $mod+Shift+h exec --no-startup-id lock
 bindsym Print exec --no-startup-id scrot /home/sam/tmp/out.png
