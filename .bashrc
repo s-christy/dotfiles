@@ -214,6 +214,7 @@ alias newest="ls -t | head "
 alias st="showTickets "
 alias nt="newTicket "
 alias objdump="objdump -Mintel "
+alias lsgrep="ls| grep "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
