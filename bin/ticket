@@ -63,7 +63,7 @@ elif [ "$arg1" == "search" ]
 	then
 	#in vim you can use :bn and :bp to move between buffers
 	cd ~/ticket/
-	vi `grep -r $2 | cut -d":" -f1`
+	vi `grep -r "$2" | cut -d":" -f1`
 elif [ "$arg1" == "read" ]
 	then
 	ls ~/ticket | while read lines; do echo $lines `cat ~/ticket/$lines|\grep "^ticket name"`; done
