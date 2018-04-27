@@ -291,4 +291,6 @@ https://raw.githubusercontent.com/stark/Color-Scripts/5b62ca334fd288669c097089f8
 
 pstree
 
+ls ~/ticket | while read lines; do cat ~/ticket/$lines|\grep "^ticket name"; cat ~/ticket/$lines|\grep "^ticket number" ; done
+
 
