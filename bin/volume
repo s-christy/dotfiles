@@ -34,5 +34,10 @@ fi
 
 stream=`pactl list short sinks | \grep RUNNING | cut -f2 -d$'\t'`
 if [ "$arg1" == "get" ]; then
-	pactl list sinks | \grep -A10 $stream | head -n8 | tail -n1 | cut -d'/' -f2
+	pactl list sinks | \grep -A10 $stream | head -n8 | tail -n1 | cut -d'/' -f2 | sed "s/ //g"
+fi
+
+#this could be used for when the timer runs out
+if [ "$arg1" == "play" ]; then
+	mpv --no-video --volume 250 ~/tmp/sound/Metal\ Gear\ Alert\!\ Sound\ Effect-8yGfQak-q9M.webm &
 fi
