@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#if [[ "`date +%s`" == "$1" ]]; then
+	#cvlc --no-one-instance --volume 100 --quiet --no-loop --no-repeat --play-and-exit ~/tmp/sound/Metal\ Gear\ Alert\!\ Sound\ Effect-8yGfQak-q9M.webm &
+	#volume play &
+#fi
 
 if [[ "$1" == "off" ]]; then
 echo off
