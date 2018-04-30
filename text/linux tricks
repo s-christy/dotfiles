@@ -293,4 +293,4 @@ pstree
 
 ls ~/ticket | while read lines; do cat ~/ticket/$lines|\grep "^ticket name"; cat ~/ticket/$lines|\grep "^ticket number" ; done
 
-
+acpi shows battery level
