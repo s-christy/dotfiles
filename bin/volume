@@ -1,0 +1,43 @@
+#!/bin/bash
+arg1=$1
+pactl list short sinks | cut -f2 | while read stream; do
+	if [ "$arg1" == "" ]
+	then
+		echo no, just no.
+	elif [ "$arg1" == "up" ]; then
+		pactl set-sink-volume $stream +10%
+	elif [ "$arg1" == "down" ]; then
+		pactl set-sink-volume $stream -10%
+	elif [ "$arg1" == "ups" ]; then
+		pactl set-sink-volume $stream +1%
+	elif [ "$arg1" == "downs" ]; then
+		pactl set-sink-volume $stream -1%
+	elif [ "$arg1" == "mute" ]; then
+		pactl set-sink-mute $stream toggle
+	elif [ "$arg1" == "upl" ]; then
+		pactl set-sink-volume $stream +50%
+	elif [ "$arg1" == "downl" ]; then
+		pactl set-sink-volume $stream -50%
+	elif [ "$arg1" == "set" ]; then
+		pactl set-sink-volume $stream $2
+	fi
+done
+
+if [ "$arg1" == "output" ]; then
+	if [ "$2" == "" ]; then
+		pactl list short sinks
+	else
+		output=`pactl list short sinks | head -n$((($2+1))) | tail -n1 | cut -f2`
+		pactl list short sink-inputs | cut -f1 | while read stream; do pactl move-sink-input $stream $output; done
+	fi
+fi
+
+stream=`pactl list short sinks | \grep RUNNING | cut -f2 -d$'\t'`
+if [ "$arg1" == "get" ]; then
+	pactl list sinks | \grep -A10 $stream | head -n8 | tail -n1 | cut -d'/' -f2 | sed "s/ //g"
+fi
+
+#this could be used for when the timer runs out
+if [ "$arg1" == "play" ]; then
+	mpv --no-video --volume 250 ~/tmp/sound/Metal\ Gear\ Alert\!\ Sound\ Effect-8yGfQak-q9M.webm &
+fi

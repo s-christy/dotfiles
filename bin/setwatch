@@ -1,1 +1,2 @@
 echo `date -d $1 +%s` > ~/untilTime
+echo "volume play" | at $(date -d @`cat ~/untilTime` +"%H:%M")
