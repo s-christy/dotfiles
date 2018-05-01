@@ -1,2 +1,3 @@
 #curl -s http://wttr.in/50010 | head -n17 | tail -n16
-curl -s http://wttr.in/50010
+#curl -s http://wttr.in/50010
+curl -s http://wttr.in/~ames
