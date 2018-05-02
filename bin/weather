@@ -1,3 +1,8 @@
 #curl -s http://wttr.in/50010 | head -n17 | tail -n16
 #curl -s http://wttr.in/50010
-curl -s http://wttr.in/~ames
+if [ "$1" == "" ]
+	then
+	curl -s http://wttr.in/~ames
+else
+	curl -s http://wttr.in/$1
+fi
