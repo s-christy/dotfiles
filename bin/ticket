@@ -34,7 +34,8 @@ fi
 
 if [ "$arg1" == "help" ]
 	then
-		echo new show open closed count list search read
+		cat ~/s-christy/dotfiles/bin/ticket
+		#echo new show open closed count list search read
 	#	echo new for new ticket
 	#	echo show to show tickets
 	#	echo open to list open tickets
@@ -63,7 +64,8 @@ elif [ "$arg1" == "search" ]
 	then
 	#in vim you can use :bn and :bp to move between buffers
 	cd ~/ticket/
-	vi `grep -r "$2" | cut -d":" -f1`
+	#vi `grep -r "$2" | cut -d":" -f1`
+	vi `read -r a; \grep -r "$a" | cut -d':' -f1`
 elif [ "$arg1" == "read" ]
 	then
 	ls ~/ticket | while read lines; do echo $lines `cat ~/ticket/$lines|\grep "^ticket name"`; done
