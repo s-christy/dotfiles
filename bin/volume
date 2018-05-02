@@ -1,7 +1,11 @@
 #!/bin/bash
 arg1=$1
+if [ "$arg1" == "" ]
+	then
+	pygmentize -g ~/s-christy/dotfiles/bin/volume
+fi
 pactl list short sinks | cut -f2 | while read stream; do
-	if [ "$arg1" == "" ]
+	if [ "$arg1" == "no" ]
 	then
 		echo no, just no.
 	elif [ "$arg1" == "up" ]; then
