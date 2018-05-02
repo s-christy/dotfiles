@@ -35,7 +35,7 @@ mod+n wallpaper mode
 mod+shift+v volume mode
 mod+shift+p play the clipboard with tts
 mod+shift+f fakebusy
-mod+shift+ctrl+n setNow
+mod+shift+ctrl+n timer now
 mod+shift+return start terminal and change toggle orientation
 mod+shift+ctrl+k calculator dropdown
 mod+shift+ctrl+t time dropdown
