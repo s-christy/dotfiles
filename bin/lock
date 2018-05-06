@@ -1,8 +1,15 @@
-#/home/sam/s-christy/dotfiles/bin/lockoptions/blurlock
-cd /home/sam/s-christy/dotfiles/bin/lockoptions
-scrot in.png
-#convert *.png -blur 5x5 out.png
-convert -scale 10% -scale 1000% *.png out.png
-i3lock -i out.png
+##/home/sam/s-christy/dotfiles/bin/lockoptions/blurlock
+#cd /home/sam/s-christy/dotfiles/bin/lockoptions
+#scrot in.png
+##convert *.png -blur 5x5 out.png
+#convert -scale 10% -scale 1000% *.png out.png
+#i3lock -i out.png
+#systemctl suspend
+#rm /home/sam/s-christy/dotfiles/bin/lockoptions/*.png
+
+cd ~/tmp
+mkdir lock
+cd lock
+rm *.png
+scrot in.png;convert *.png -blur 5x5 out.png;i3lock -i out.png
 systemctl suspend
-rm /home/sam/s-christy/dotfiles/bin/lockoptions/*.png
