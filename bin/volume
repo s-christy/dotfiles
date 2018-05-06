@@ -27,13 +27,17 @@ pactl list short sinks | cut -f2 | while read stream; do
 	fi
 done
 
-if [ "$arg1" == "output" ]; then
+if [ "$arg1" == "deprec" ]; then
 	if [ "$2" == "" ]; then
 		pactl list short sinks
 	else
 		output=`pactl list short sinks | head -n$((($2+1))) | tail -n1 | cut -f2`
 		pactl list short sink-inputs | cut -f1 | while read stream; do pactl move-sink-input $stream $output; done
 	fi
+fi
+if [ "$arg1" == "output" ]; then
+	t2=`pactl list sinks short |\grep -i $2 | cut -f2 | tail -n1`
+	pactl list short sink-inputs | cut -f1 | while read test; do pactl move-sink-input $test $t2; done
 fi
 
 stream=`pactl list short sinks | \grep RUNNING | cut -f2 -d$'\t'`
