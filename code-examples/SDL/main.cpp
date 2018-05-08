@@ -38,21 +38,6 @@ bool init()
 	return success;
 }
 
-//bool loadSurface(std::string path, int num){
-//	//Loading success flag
-//	bool success = true;
-//
-//	//Load splash image
-//	gHelloWorld[num] = SDL_LoadBMP(path.c_str());
-//	if( gHelloWorld[num] == NULL )
-//	{
-//		printf( "Unable to load image %s! SDL Error: %s\n", "02_getting_an_image_on_the_screen/hello_world.bmp", SDL_GetError() );
-//		success = false;
-//	}
-//
-//	return success;
-//}
-
 SDL_Surface* loadSurface( std::string path )
 {
 	//The final optimized image
