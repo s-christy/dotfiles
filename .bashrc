@@ -136,7 +136,7 @@ function highlight() {
 #figlet $(shuf -n 10 /usr/share/dict/words|/bin/grep -v "'"|head -n1)
 #HINT: use which to find the path to the command
 alias lsdef="/bin/ls --color=auto "
-alias ls="ls --color=auto -A "
+alias ls="ls -a --color "
 export PATH=$PATH:/sbin
 export PATH=$PATH:/usr/sbin
 alias got="ps -aux | grep "
@@ -215,6 +215,7 @@ alias st="showTickets "
 alias nt="newTicket "
 alias objdump="objdump -Mintel "
 alias lsgrep="ls| grep "
+alias vo="volume output "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
