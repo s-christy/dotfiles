@@ -309,3 +309,5 @@ new_window normal 0
 #these don't seem to do anything
 #bindsym --release button2 kill
 #bindsym button3 floating toggle
+
+
