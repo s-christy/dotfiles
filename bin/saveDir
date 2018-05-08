@@ -1,1 +1,3 @@
-echo "cd $(pwd)" | xclip
+#echo cd `echo "$(pwd)" | sed "s/ /\\\ /g"` | xclip
+echo cd \"$(pwd)\" | xclip
+
