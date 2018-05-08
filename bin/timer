@@ -7,7 +7,7 @@ elif [ "$arg1" == "set" ]; then
 	echo $(((`date +%s`+60*$2))) > ~/untilTime
 elif [ "$arg1" == "watch" ]; then
 	echo `date -d $2 +%s` > ~/untilTime
-	echo "volume play" | at $(date -d @`cat ~/untilTime` +"%H:%M")
+	#echo "volume play" | at $(date -d @`cat ~/untilTime` +"%H:%M")
 elif [ "$arg1" == "now" ]; then
 	#echo `date +%s` sec >~/untilTime
 	#echo `date | sed 's/  / /g' | cut -d' ' -f4` > ~/untilTime
