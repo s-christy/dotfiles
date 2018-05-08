@@ -294,3 +294,8 @@ pstree
 ls ~/ticket | while read lines; do cat ~/ticket/$lines|\grep "^ticket name"; cat ~/ticket/$lines|\grep "^ticket number" ; done
 
 acpi shows battery level
+
+watch --color "ls -a1 --color"
+
+in vim, gg=G will autoindent
+
