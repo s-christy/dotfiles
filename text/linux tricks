@@ -299,3 +299,5 @@ watch --color "ls -a1 --color"
 
 in vim, gg=G will autoindent
 
+:read ~/bashrc (or any other file) inserts text
+use V instead of v in vim
