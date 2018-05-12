@@ -112,36 +112,6 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 "fullscreens the help window
 :set helpheight=120
 
-
-"fu! Dir(direction)
-"	:set ve=all
-"	"echo "a"
-"	if a:direction=="Up"
-"		:normal i│
-"		:normal k
-"	endif
-"	if a:direction=="Down"
-"		:normal i│
-"		:normal j
-"	endif
-"	if a:direction=="Left"
-"		:normal i─
-"		:normal h
-"	endif
-"	if a:direction=="Right"
-"		:normal i─
-"		:normal l
-"	endif
-""	:execute "normal! iasdf"
-"	:set ve=block
-"endfunction
-"
-":nmap <Up> :call Dir("Up")<CR><Esc>
-":nmap <Down> :call Dir("Down")<CR><Esc>
-":nmap <Left> :call Dir("Left")<CR><Esc>
-":nmap <Right> :call Dir("Right")<CR><Esc>
-"
-
 "fuck you java
 imap ;print System.out.println("");
 
