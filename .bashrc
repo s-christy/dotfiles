@@ -262,7 +262,7 @@ tput sgr0
 echo
 
 #todo list
-ticket list
+ticket list 2> /dev/null
 echo
 
 #nmcli | /bin/grep connected
