@@ -6,7 +6,8 @@
 *background:       #1b1918
 
 URxvt.intensityStyles:	false
-URxvt.background:       [80]#000000
+#URxvt.background:       [80]#000000
+URxvt.background:       [100]#000000
 URxvt.depth:		32
 URxvt.font: 		xft:monospace:size=9
 URxvt.scrollBar:	false
