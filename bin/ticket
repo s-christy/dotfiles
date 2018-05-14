@@ -69,6 +69,14 @@ elif [ "$arg1" == "search" ]
 elif [ "$arg1" == "read" ]
 	then
 	ls ~/ticket | while read lines; do echo $lines `cat ~/ticket/$lines|\grep "^ticket name"`; done
+elif [ "$arg1" == "close" ]
+	then
+	cd ~/ticket/
+	sed -i 's/status: open/status: closed/g' `read -r a; \grep -r "$a" | cut -d':' -f1`
+elif [ "$arg1" == "cancel" ]
+	then
+	cd ~/ticket/
+	sed -i 's/status: open/status: cancelled/g' `read -r a; \grep -r "$a" | cut -d':' -f1`
 else
 	echo new show open closed count list search read
 fi
