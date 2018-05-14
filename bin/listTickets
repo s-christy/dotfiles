@@ -16,6 +16,7 @@ do
 	fi
 	if [ "$1" == "noDisplay" ]
 	then
+		#index=`echo "${i##/*/}"`
 		if [ "$stat" == "status: open" ]; then echo $name; fi
 	else
 		echo $name
