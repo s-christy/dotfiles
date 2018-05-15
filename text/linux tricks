@@ -301,3 +301,5 @@ in vim, gg=G will autoindent
 
 :read ~/bashrc (or any other file) inserts text
 use V instead of v in vim
+
+to get the last field using cut, first pipe the output to rev, then cut it, then use rev again
