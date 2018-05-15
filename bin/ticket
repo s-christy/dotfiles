@@ -44,6 +44,7 @@ if [ "$arg1" == "help" ]
 elif [ "$arg1" == "new" ]
 	then
 	newTicket
+	listTickets noDisplay
 elif [ "$arg1" == "show" ]
 	then
 	showTickets
@@ -73,15 +74,15 @@ elif [ "$arg1" == "close" ]
 	then
 	cd ~/ticket/
 	sed -i 's/status: open/status: closed/g' `read -r a; \grep -r "$a" | cut -d':' -f1`
+	listTickets noDisplay
 elif [ "$arg1" == "cancel" ]
 	then
 	cd ~/ticket/
 	sed -i 's/status: open/status: cancelled/g' `read -r a; \grep -r "$a" | cut -d':' -f1`
+	listTickets noDisplay
 else
 	echo new show open closed count list search read
 fi
-
-
 
 
 
