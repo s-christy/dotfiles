@@ -1,0 +1,1 @@
+xdg-open ~/s-christy/dotfiles/resume/`ls ~/s-christy/dotfiles/resume/ | \grep odt | tail -n1`

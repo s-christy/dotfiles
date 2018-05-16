@@ -1,0 +1,1 @@
+evince ~/s-christy/dotfiles/resume/`ls ~/s-christy/dotfiles/resume/ | \grep pdf | tail -n1`
