@@ -303,3 +303,6 @@ in vim, gg=G will autoindent
 use V instead of v in vim
 
 to get the last field using cut, first pipe the output to rev, then cut it, then use rev again
+
+tree command
+
