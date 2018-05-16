@@ -306,3 +306,5 @@ to get the last field using cut, first pipe the output to rev, then cut it, then
 
 tree command
 
+wget http://www.gutenberg.org/cache/epub/29765/pg29765.txt -O Dictionary
+

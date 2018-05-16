@@ -216,6 +216,7 @@ alias nt="newTicket "
 alias objdump="objdump -Mintel "
 alias lsgrep="ls| grep "
 alias vo="volume output "
+alias lsa="ls * "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"

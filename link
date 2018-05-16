@@ -1,3 +1,0 @@
-cd ~/
-ln -sf /s-christy/dotfiles/.vimrc
-ln -sf /s-christy/dotfiles/.bashrc
