@@ -300,7 +300,7 @@ exec --no-startup-id startCompton
 #exec_always nm-applet
 #exec_always volumeicon
 new_window normal 0
-for_window [class="^.*"] border pixel 0
+#for_window [class="^.*"] border pixel 0
 
 #remember to install the addon in firefox to get rid of scrollbars
 
