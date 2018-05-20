@@ -122,5 +122,9 @@ set hlsearch
 noremap ; :
 
 
+set foldmethod=syntax
+
+"you can autocenter using :map j jzz and :map k kzz. This doesn't slow things
+"down apparently
 
 
