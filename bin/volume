@@ -2,7 +2,8 @@
 arg1=$1
 if [ "$arg1" == "" ]
 	then
-	pygmentize -g ~/s-christy/dotfiles/bin/volume
+	#pygmentize -g ~/s-christy/dotfiles/bin/volume
+	cat ~/s-christy/dotfiles/bin/volume
 fi
 pactl list short sinks | cut -f2 | while read stream; do
 	if [ "$arg1" == "no" ]
