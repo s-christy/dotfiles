@@ -310,4 +310,4 @@ wget http://www.gutenberg.org/cache/epub/29765/pg29765.txt -O Dictionary
 
 * in vim is powerful
 
-
+ctrl A and ctrl E move to beginning or end in bash
