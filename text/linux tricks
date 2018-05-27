@@ -315,5 +315,5 @@ ctrl A and ctrl E move to beginning or end in bash
 if evpn is acting up:
 sudo kill -9 `pgrep expressvpnd`
 
-
+sudo apt-file search "gl.h" finds the library for a header file. E.G. gl.h
 
