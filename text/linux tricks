@@ -317,3 +317,8 @@ sudo kill -9 `pgrep expressvpnd`
 
 sudo apt-file search "gl.h" finds the library for a header file. E.G. gl.h
 
+the -H option in gcc will print out the full path of every file it uses during compilation
+
+change timezone with
+dpkg-reconfigure tzdata
+
