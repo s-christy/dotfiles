@@ -2,12 +2,16 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+
 #include <GL/gl.h>
 #include <GL/glx.h>
 #include <GL/glxext.h>
+
 #include <X11/Xatom.h>
 #include <X11/extensions/Xrender.h>
 #include <X11/Xutil.h>
+
+#define numparts 10000
 
 int Xscreen;
 int numfbconfigs;
@@ -29,10 +33,32 @@ float light1_color[]={255./255.,220./255.,97./255.,1};
 float light2_dir[]={0,-1,0,0};
 float light2_color[]={31./255.,75./255.,16./255.,1};
 
-float worldRot=0;
-float worldRotVel=0;
-
 GLfloat verts[][8]={{-1.0,-1.0,1.0,0.0,0.0,1.0,0.0,0.0},{ 1.0,-1.0,1.0,0.0,0.0,1.0,1.0,0.0},{ 1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0},{-1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0},{ 1.0,-1.0,-1.0,0.0,0.0,-1.0,0.0,0.0},{-1.0,-1.0,-1.0,0.0,0.0,-1.0,1.0,0.0},{-1.0,1.0,-1.0,0.0,0.0,-1.0,1.0,1.0},{ 1.0,1.0,-1.0,0.0,0.0,-1.0,0.0,1.0},{-1.0,-1.0,-1.0,-1.0,0.0,0.0,0.0,0.0},{-1.0,-1.0,1.0,-1.0,0.0,0.0,1.0,0.0},{-1.0,1.0,1.0,-1.0,0.0,0.0,1.0,1.0},{-1.0,1.0,-1.0,-1.0,0.0,0.0,0.0,1.0},{ 1.0,-1.0,1.0,1.0,0.0,0.0,0.0,0.0},{ 1.0,-1.0,-1.0,1.0,0.0,0.0,1.0,0.0},{ 1.0,1.0,-1.0,1.0,0.0,0.0,1.0,1.0},{ 1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0},{-1.0,-1.0,-1.0,0.0,-1.0,0.0,0.0,0.0},{ 1.0,-1.0,-1.0,0.0,-1.0,0.0,1.0,0.0},{ 1.0,-1.0,1.0,0.0,-1.0,0.0,1.0,1.0},{-1.0,-1.0,1.0,0.0,-1.0,0.0,0.0,1.0},{-1.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0},{ 1.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0},{ 1.0,1.0,-1.0,0.0,1.0,0.0,1.0,1.0},{-1.0,1.0,-1.0,0.0,1.0,0.0,0.0,1.0},};
+
+struct vector{
+	double x,y,z;
+};
+
+struct obj{
+	struct vector xyz;
+	struct vector vel;
+};
+
+struct plane{
+	struct vector xyz;
+	struct vector dir;
+};
+
+struct planeSegment{
+	struct plane p;
+	struct vector xyz;
+	double w;
+	double d;
+};
+
+struct vector camPos;
+struct vector camRot;
+struct obj objectlist[numparts];
 
 Bool WaitForMapNotify(Display *d,XEvent *e,char *arg){
 	return d && e && arg && (e->type==MapNotify) && (e->xmap.window==*(Window*)arg);
@@ -93,7 +119,7 @@ void createTheWindow(){
 	textprop.format=8;
 	textprop.nitems=strlen(title);
 
-	XSetWMProperties(Xdisplay,window_handle,&textprop,&textprop,NULL,0,	NULL,NULL,NULL);
+	XSetWMProperties(Xdisplay,window_handle,&textprop,&textprop,NULL,0,NULL,NULL,NULL);
 	XMapWindow(Xdisplay,window_handle);
 	XIfEvent(Xdisplay,&event,WaitForMapNotify,(char*)&window_handle);
 	if ((del_atom=XInternAtom(Xdisplay,"WM_DELETE_WINDOW",0)) !=None) {
@@ -101,6 +127,15 @@ void createTheWindow(){
 	}
 	GLXContext render_context=glXCreateNewContext(Xdisplay,fbconfig,GLX_RGBA_TYPE,0,True);
 	glXMakeContextCurrent(Xdisplay,glX_window_handle,glX_window_handle,render_context);
+
+	for(int i=0;i<numparts;i++){
+		objectlist[i].xyz.x=(rand()%2000/50.-10)*1.;
+		objectlist[i].xyz.y=(rand()%2000/50.-10)*1.;
+		objectlist[i].xyz.z=(rand()%2000/50.-10)*1.;
+		objectlist[i].vel.x=0;
+		objectlist[i].vel.y=0;
+		objectlist[i].vel.z=0;
+	}
 }
 
 int handleEvents(){
@@ -109,12 +144,14 @@ int handleEvents(){
 	while (XPending(Xdisplay)){
 		XNextEvent(Xdisplay,&event);
 		switch (event.type){
+			case MotionNotify:
+				printf("%f",event.xmotion.x);
+				break;
 			case ClientMessage:
 				if (event.xclient.data.l[0]==del_atom){
 					return 0;
 				}
 				break;
-
 			case ConfigureNotify:
 				xc=&(event.xconfigure);
 				width=xc->width;
@@ -123,8 +160,11 @@ int handleEvents(){
 			case KeyPress:
 				XLookupString((XKeyEvent *)&event,NULL,0,&key,NULL);
 				switch (key){
+					case 'd':
+						camRot.y+=20;
+						break;
 					case 'a':
-						worldRotVel++;
+						camRot.y-=20;
 						break;
 					case 'q':
 						exit(0);
@@ -133,16 +173,16 @@ int handleEvents(){
 						printf("%d\n",key);
 						break;
 					case 65361:
-						worldRotVel--;
+						camPos.x+=20;
 						break;
 					case 65362:
-						worldRotVel++;
+						camPos.z+=20;
 						break;
 					case 65363:
-						worldRotVel++;
+						camPos.x-=20;
 						break;
 					case 65364:
-						worldRotVel--;
+						camPos.z-=20;
 						break;
 				}
 				//printf("%d\n",key);
@@ -152,8 +192,8 @@ int handleEvents(){
 	return 1;
 }
 
-void draw_cube(){
-	glColor4f(1.,1.,1.,1.);
+void draw_vert_array(){
+	glColor4f(1.,1.,1.,.7);
 
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
@@ -181,7 +221,18 @@ void light(){
 	glEnable(GL_LIGHTING);
 }
 
-void redrawTheWindow(){
+void draw(int i){
+	glTranslatef(1.*objectlist[i].xyz.x,1.*objectlist[i].xyz.y,1.*objectlist[i].xyz.z);
+	glScalef(.1,.1,.1);
+	glCullFace(GL_FRONT);
+	draw_vert_array();
+	glCullFace(GL_BACK);
+	draw_vert_array();
+	glScalef(10,10,10);
+	glTranslatef(-1.*objectlist[i].xyz.x,-1.*objectlist[i].xyz.y,-1.*objectlist[i].xyz.z);
+}
+
+void glSettings(){
 	float aspect=(float)width / (float)height;
 
 	glDrawBuffer(GL_BACK);
@@ -193,7 +244,7 @@ void redrawTheWindow(){
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glFrustum(-aspect,aspect,-1,1,2.5,20);//the 20 is the viewdistance
+	glFrustum(-aspect,aspect,-1,1,2.5,200);//the 200 is the viewdistance
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -206,34 +257,116 @@ void redrawTheWindow(){
 
 	glEnable(GL_COLOR_MATERIAL);
 	glColorMaterial(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE);
+}
 
+double absVec(struct vector v){
+	return sqrt(v.x*v.x+v.y*v.y+v.z*v.z);
+}
+
+double dotVec(struct vector a,struct vector b){
+	return a.x*b.x+a.y*b.y+a.z*b.z;
+}
+
+struct vector scaleVec(struct vector v,double s){
+	struct vector ret;
+	ret.x=v.x*s;
+	ret.y=v.y*s;
+	ret.z=v.z*s;
+	return ret;
+}
+
+struct vector normalize(struct vector v){
+	double a=absVec(v);
+	v.x=v.x/a;
+	v.y=v.y/a;
+	v.z=v.z/a;
+	return v;
+}
+
+struct vector addVec(struct vector a, struct vector b){
+	struct vector v;
+	v.x=a.x+b.x;
+	v.y=a.y+b.y;
+	v.z=a.z+b.z;
+	return v;
+}
+
+void printVec(struct vector v){
+	printf("%f %f %f ",v.x,v.y,v.z);
+}
+//
+void bounce(int i, struct planeSegment ps){
+	struct plane p=ps.p;
+	if(objectlist[i].xyz.x*p.dir.x+objectlist[i].xyz.y*p.dir.y+objectlist[i].xyz.z*p.dir.z<=p.xyz.y &&
+			objectlist[i].xyz.x<=p.xyz.x+ps.w+ps.xyz.x &&
+			objectlist[i].xyz.x>=p.xyz.x-ps.w-ps.xyz.x
+	  ){
+		struct vector d=objectlist[i].vel;
+		struct vector n=normalize(p.dir);
+		struct vector r;
+		double ddotn=dotVec(d,n);
+		//		//r=d-2(d.n)n
+		r.x=d.x-2.*ddotn*n.x;
+		r.y=d.y-2.*ddotn*n.y;
+		r.z=d.z-2.*ddotn*n.z;
+		r=scaleVec(r,.7);
+		struct vector randomVec;
+		//randomVec.x=rand();
+		//randomVec.y=rand();
+		//randomVec.z=rand();
+		//r=addVec(r,scaleVec(normalize(randomVec),absVec(r)*.01));
+		objectlist[i].vel=r;
+		if(absVec(r)<.1){
+			objectlist[i].vel.x=0;
+			objectlist[i].vel.y=0;
+			objectlist[i].vel.z=0;
+		}
+	}
+}
+//
+void physics(){
+	for(int i=0;i<numparts;i++){
+		objectlist[i].xyz.x+=objectlist[i].vel.x;
+		objectlist[i].xyz.y+=objectlist[i].vel.y;
+		objectlist[i].vel.y-=.1;
+		objectlist[i].xyz.z+=objectlist[i].vel.z;
+		draw(i);
+
+		struct planeSegment ps=(struct planeSegment){
+			ps.p=(struct plane){
+				(struct vector){0,-100,0},
+					(struct vector){1,5,1}
+			},
+				ps.xyz=(struct vector){0,0,0},
+				ps.w=3,
+				ps.d=2,
+		};
+
+		bounce(i,ps);
+		ps.p.xyz.y=-150;
+		ps.p.dir.x=-1;
+		ps.xyz.x=10;
+		//ps.w=100000;
+		bounce(i,ps);
+	}
+}
+//
+void redrawTheWindow(){
+	glSettings();
 	light();
-
-	glTranslatef(0.,0.,-10.);//move the world 10 units away from the camera
-	glRotatef(worldRot,0,1,0);//rotate along the y axis
-	worldRot+=worldRotVel;
-
-	//draw cube,translate,then draw another cube
-	glCullFace(GL_FRONT);
-	draw_cube();
-	glCullFace(GL_BACK);
-	draw_cube();
-
-	glTranslatef(0.,0.,-3.);
-
-	glCullFace(GL_FRONT);
-	draw_cube();
-	glCullFace(GL_BACK);
-	draw_cube();
-
+	glTranslatef(0.,0.,-150.);//move the world 50 units away from the camera
+	glTranslatef(camPos.x,camPos.y,camPos.z);
+	glRotatef(camRot.x,1,0,0);
+	glRotatef(camRot.y,0,1,0);
+	glRotatef(camRot.z,0,0,1);
+	//glRotatef(25.,1.,0.,0.);
+	for(int i=0;i<1;i++)physics();
 	//everything is done,show on screen
 	glXSwapBuffers(Xdisplay,glX_window_handle);
 }
 
 int main(int argc,char *argv[]){
 	createTheWindow();
-	while (handleEvents()) {
-		redrawTheWindow();
-	}
+	while (handleEvents())redrawTheWindow();
 	return 0;
 }
