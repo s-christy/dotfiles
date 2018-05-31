@@ -86,8 +86,10 @@ set nowrap
 :map <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 :map <F4> :set wrap!<CR><Esc>
 :map <F5> :setlocal spell! spelllang=en_us<CR>
-:map <F6> :r ~/s-christy/dotfiles/filler\ text<CR><Esc>
-:map <F7> :set ve=all<CR><Esc>:echo "ve set to all"<CR><Esc>
+":map <F6> :r ~/s-christy/dotfiles/filler\ text<CR><Esc>
+:map <F6> :!./do<CR>
+":map <F7> :set ve=all<CR><Esc>:echo "ve set to all"<CR><Esc>
+:map <F7> :map j jzz<CR> :map k kzz<CR>
 :map <F8> :changes<CR>
 :map <F9> :set mouse=""<CR>:set nu!<CR>
 :map <F10> ggVGg?
@@ -127,4 +129,8 @@ set foldmethod=syntax
 "you can autocenter using :map j jzz and :map k kzz. This doesn't slow things
 "down apparently
 
+imap ( ()<LEFT>
+imap [ []<LEFT>
+imap { {}<LEFT>
+"imap " ""<LEFT>
 
