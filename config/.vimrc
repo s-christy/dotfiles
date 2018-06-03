@@ -87,7 +87,7 @@ set nowrap
 :map <F4> :set wrap!<CR><Esc>
 :map <F5> :setlocal spell! spelllang=en_us<CR>
 ":map <F6> :r ~/s-christy/dotfiles/filler\ text<CR><Esc>
-:map <F6> :!./do<CR>
+:map <F6> :w<CR>:!./do<CR>
 ":map <F7> :set ve=all<CR><Esc>:echo "ve set to all"<CR><Esc>
 :map <F7> :map j jzz<CR> :map k kzz<CR>
 :map <F8> :changes<CR>
@@ -129,8 +129,8 @@ set foldmethod=syntax
 "you can autocenter using :map j jzz and :map k kzz. This doesn't slow things
 "down apparently
 
-imap ( ()<LEFT>
-imap [ []<LEFT>
-imap { {}<LEFT>
+"imap ( ()<LEFT>
+"imap [ []<LEFT>
+"imap { {}<LEFT>
 "imap " ""<LEFT>
 
