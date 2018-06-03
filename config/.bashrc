@@ -217,6 +217,7 @@ alias objdump="objdump -Mintel "
 alias lsgrep="ls| grep "
 alias vo="volume output "
 alias lsa="ls * "
+alias sd="saveDir "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
