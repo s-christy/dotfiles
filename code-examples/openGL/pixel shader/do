@@ -1,0 +1,1 @@
+gcc main.c -lGL -lGLU -lglut -lglfw -lGL -lGLEW; ./a.out ;rm a.out

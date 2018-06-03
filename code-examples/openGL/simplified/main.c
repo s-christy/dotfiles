@@ -13,25 +13,11 @@
 
 #define numparts 10000
 
-int Xscreen;
-int numfbconfigs;
 int width,height;
 
 Atom del_atom;
 Display *Xdisplay;
-GLXFBConfig *fbconfigs,fbconfig;
 GLXWindow glX_window_handle;
-Window Xroot,window_handle;
-XEvent event;
-XRenderPictFormat *pict_format;
-XVisualInfo *visual;
-
-float light0_dir[]={0,1,0,0};
-float light0_color[]={78./255.,80./255.,184./255.,1};
-float light1_dir[]={-1,1,1,0};
-float light1_color[]={255./255.,220./255.,97./255.,1};
-float light2_dir[]={0,-1,0,0};
-float light2_color[]={31./255.,75./255.,16./255.,1};
 
 GLfloat verts[][8]={{-1.0,-1.0,1.0,0.0,0.0,1.0,0.0,0.0},{ 1.0,-1.0,1.0,0.0,0.0,1.0,1.0,0.0},{ 1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0},{-1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0},{ 1.0,-1.0,-1.0,0.0,0.0,-1.0,0.0,0.0},{-1.0,-1.0,-1.0,0.0,0.0,-1.0,1.0,0.0},{-1.0,1.0,-1.0,0.0,0.0,-1.0,1.0,1.0},{ 1.0,1.0,-1.0,0.0,0.0,-1.0,0.0,1.0},{-1.0,-1.0,-1.0,-1.0,0.0,0.0,0.0,0.0},{-1.0,-1.0,1.0,-1.0,0.0,0.0,1.0,0.0},{-1.0,1.0,1.0,-1.0,0.0,0.0,1.0,1.0},{-1.0,1.0,-1.0,-1.0,0.0,0.0,0.0,1.0},{ 1.0,-1.0,1.0,1.0,0.0,0.0,0.0,0.0},{ 1.0,-1.0,-1.0,1.0,0.0,0.0,1.0,0.0},{ 1.0,1.0,-1.0,1.0,0.0,0.0,1.0,1.0},{ 1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0},{-1.0,-1.0,-1.0,0.0,-1.0,0.0,0.0,0.0},{ 1.0,-1.0,-1.0,0.0,-1.0,0.0,1.0,0.0},{ 1.0,-1.0,1.0,0.0,-1.0,0.0,1.0,1.0},{-1.0,-1.0,1.0,0.0,-1.0,0.0,0.0,1.0},{-1.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0},{ 1.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0},{ 1.0,1.0,-1.0,0.0,1.0,0.0,1.0,1.0},{-1.0,1.0,-1.0,0.0,1.0,0.0,0.0,1.0},};
 
@@ -65,10 +51,16 @@ Bool WaitForMapNotify(Display *d,XEvent *e,char *arg){
 }
 
 void createTheWindow(){
+	Window Xroot,window_handle;
+	GLXFBConfig *fbconfigs,fbconfig;
+	XRenderPictFormat *pict_format;
+	XVisualInfo *visual;
 	XSetWindowAttributes attr={0,};
 	Xdisplay=XOpenDisplay(NULL);
+	int Xscreen;
 	Xscreen=DefaultScreen(Xdisplay);
 	Xroot=RootWindow(Xdisplay,Xscreen);
+	int numfbconfigs;
 
 	fbconfigs=glXChooseFBConfig(Xdisplay,Xscreen,NULL,&numfbconfigs);
 	for(int i=0; i<numfbconfigs; i++) {
@@ -121,10 +113,7 @@ void createTheWindow(){
 
 	XSetWMProperties(Xdisplay,window_handle,&textprop,&textprop,NULL,0,NULL,NULL,NULL);
 	XMapWindow(Xdisplay,window_handle);
-	XIfEvent(Xdisplay,&event,WaitForMapNotify,(char*)&window_handle);
-	if ((del_atom=XInternAtom(Xdisplay,"WM_DELETE_WINDOW",0)) !=None) {
-		XSetWMProtocols(Xdisplay,window_handle,&del_atom,1);
-	}
+	XSetWMProtocols(Xdisplay,window_handle,&del_atom,1);
 	GLXContext render_context=glXCreateNewContext(Xdisplay,fbconfig,GLX_RGBA_TYPE,0,True);
 	glXMakeContextCurrent(Xdisplay,glX_window_handle,glX_window_handle,render_context);
 
@@ -139,6 +128,7 @@ void createTheWindow(){
 }
 
 int handleEvents(){
+	XEvent event;
 	XConfigureEvent *xc;
 	KeySym key;
 	while (XPending(Xdisplay)){
@@ -203,10 +193,19 @@ void draw_vert_array(){
 	glNormalPointer(GL_FLOAT,sizeof(GLfloat) * 8,&verts[0][3]);
 	glTexCoordPointer(2,GL_FLOAT,sizeof(GLfloat) * 8,&verts[0][6]);
 
-	glDrawArrays(GL_QUADS,0,24);
+	glDrawArrays(GL_TRIANGLES,0,3);
+	//glColor4f(.5,.5,.5,.5);
+	//glLineWidth(2.5);
+	//glDrawArrays(GL_LINES,0,1);
 }
 
 void light(){
+	float light0_dir[]={0,1,0,0};
+	float light0_color[]={78./255.,80./255.,184./255.,1};
+	float light1_dir[]={-1,1,1,0};
+	float light1_color[]={255./255.,220./255.,97./255.,1};
+	float light2_dir[]={0,-1,0,0};
+	float light2_color[]={31./255.,75./255.,16./255.,1};
 	glLightfv(GL_LIGHT0,GL_POSITION,light0_dir);
 	glLightfv(GL_LIGHT0,GL_DIFFUSE,light0_color);
 
@@ -223,12 +222,13 @@ void light(){
 
 void draw(int i){
 	glTranslatef(1.*objectlist[i].xyz.x,1.*objectlist[i].xyz.y,1.*objectlist[i].xyz.z);
-	glScalef(.1,.1,.1);
+	float scale=5;
+	glScalef(1/scale,1/scale,1/scale);
 	glCullFace(GL_FRONT);
 	draw_vert_array();
 	glCullFace(GL_BACK);
 	draw_vert_array();
-	glScalef(10,10,10);
+	glScalef(scale,scale,scale);
 	glTranslatef(-1.*objectlist[i].xyz.x,-1.*objectlist[i].xyz.y,-1.*objectlist[i].xyz.z);
 }
 

@@ -1,0 +1,1 @@
+ make; ./bin/Release/OpenGLTest ; rm -r bin obj

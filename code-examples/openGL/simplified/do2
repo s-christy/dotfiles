@@ -1,0 +1,1 @@
+gcc parser.c;head main.c -n22|tail -n1;echo;./a.out ;rm a.out
