@@ -1,3 +1,3 @@
 CPPFLAGS=-I/usr/include/SDL2
-LDLIBS=-lglut -lGLEW -lGL -lm -lSDL2
+LDLIBS=-lSDL2 -lGLEW -lGL
 all: main

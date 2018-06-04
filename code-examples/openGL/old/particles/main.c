@@ -11,6 +11,11 @@
 int width,height;
 float counter=0;
 
+struct particle{
+	float x,y,z;
+};
+struct particle p[100];
+
 Atom del_atom;
 Display *Xdisplay;
 GLXWindow glX_window_handle;
@@ -151,16 +156,24 @@ void glSettings(){
 	glColorMaterial(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE);
 }
 void init(){
+	for(int x=0;x<100;x++){
+		p[x]=(struct particle) {rand()%100/100.,rand()%100/100.,rand()%100/100.};
+	}
+}
+
+void drawParts(){
+	for(int x=0;x<100;x++){
+		//p[x]=(struct particle) {rand()%100/100.,rand()%100/100.,rand()%100/100.};
+		draw(p[x].x,p[x].y,p[x].z,.1);
+	}
 }
 
 void redrawTheWindow(){
 	glSettings();
 	counter++;
 	glTranslatef(0,0,-5);
-	glRotatef(counter,0,1,0);
-	for(float x=0;x<1.;x+=.01){
-		draw(rand()%100/100.,rand()%100/100.,rand()%100/100.,.01);
-	}
+	//glRotatef(counter,0,1,0);
+	drawParts();
 	glXSwapBuffers(Xdisplay,glX_window_handle);
 }
 

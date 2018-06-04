@@ -1,0 +1,4 @@
+https://en.wikibooks.org/wiki/OpenGL_Programming/Modern_OpenGL_Introduction
+use freeglut to create a window and a context
+glew to load opengl implementations
+
