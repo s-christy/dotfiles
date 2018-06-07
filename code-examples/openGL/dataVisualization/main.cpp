@@ -1,8 +1,4 @@
 //TODO make each part of the attractor colored by speed first calculate max speed and make it colored by a percentage of that
-//TODO add zoom via mouse scroll
-//TODO only draw a line when the point is far enough away to warrent it, the dist function doesn't seem to work
-//TODO centerData should scale the function so the max point touches a face of the 111 box
-//TODO centerdata should print out the offset and scale, and shouldn't modify the data.
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
