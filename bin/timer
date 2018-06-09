@@ -12,4 +12,6 @@ elif [ "$arg1" == "now" ]; then
 	#echo `date +%s` sec >~/untilTime
 	#echo `date | sed 's/  / /g' | cut -d' ' -f4` > ~/untilTime
 	echo `date +%s` > ~/untilTime
+elif [ "$arg1" == "brush" ]; then
+	echo `date +%s` > ~/brushTeeth
 fi

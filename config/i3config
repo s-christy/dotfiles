@@ -266,6 +266,7 @@ bindsym $mod+Shift+v mode "volume"
 #bindsym $mod+Shift+p exec --no-startup-id "xclip -o | festival --tts "
 bindsym $mod+Shift+f exec --no-startup-id "fakeBusy"
 bindsym $mod+Shift+Ctrl+n exec --no-startup-id "timer now"
+bindsym $mod+Shift+Ctrl+b exec --no-startup-id "timer brush"
 bindsym $mod+Shift+Return "split toggle; exec --no-startup-id urxvt"
 bindsym $mod+Shift+p "exec --no-startup-id pavucontrol"
 
