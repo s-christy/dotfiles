@@ -218,6 +218,8 @@ alias lsgrep="ls| grep "
 alias vo="volume output "
 alias lsa="ls * "
 alias sd="saveDir "
+alias openGL="cd ~/s-christy/dotfiles/code-examples/openGL "
+alias main="vi main.* "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
