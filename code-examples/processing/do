@@ -1,2 +1,3 @@
-/home/sam/Downloads/processing-3.3.7-linux64/processing-3.3.7/processing $1
+#/home/sam/Downloads/processing-3.3.7-linux64/processing-3.3.7/processing $(echo `$1$1|sed "s/.$//g"`.pde)
+/home/sam/Downloads/processing-3.3.7-linux64/processing-3.3.7/processing $1*
 
