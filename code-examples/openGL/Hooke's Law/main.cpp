@@ -172,11 +172,32 @@ void drawLine(glm::vec3 start,glm::vec3 end,float scale,int style){
 	glDisableVertexAttribArray(attribute_v_color);
 }
 
+glm::vec3 normalize(glm::vec3 v){
+	float scale=sqrt(v.x*v.x+v.y*v.y+v.z*v.z);
+	v.x/=scale;
+	v.y/=scale;
+	v.z/=scale;
+	return v;
+}
+
+glm::vec3 add(glm::vec3 a,glm::vec3 b){
+	glm::vec3 v=glm::vec3(0);
+	v.x=a.x+b.x;
+	v.y=a.y+b.y;
+	v.z=a.z+b.z;
+	return v;
+}
+
 struct mass hooke(struct mass m,glm::vec3 attractor){
-	float damping=.05;
-	for(int i=0;i<2;i++)m.acc[i]=.05*(attractor[i]-m.pos[i])-damping*m.vel[i];
-	for(int i=0;i<2;i++)m.vel[i]+=m.acc[i];
-	for(int i=0;i<2;i++)m.pos[i]+=m.vel[i];
+	float length=.005;
+	float damping=.05; //higher is less damping
+	//for(int i=0;i<3;i++)m.acc[i]=.1*(attractor[i]-m.pos[i])-damping*m.vel[i];//replace with better vector expressions
+	glm::vec3 unitVector=normalize(add(attractor,m.pos));
+	for(int i=0;i<3;i++)m.acc[i]=.1*(attractor[i]-m.pos[i]+length*unitVector[i])-damping*m.vel[i];//replace with better vector expressions
+	m.acc[1]-=.001; //gravity
+	for(int i=0;i<3;i++)m.vel[i]+=m.acc[i];
+	for(int i=0;i<3;i++)m.pos[i]+=m.vel[i];
+	drawLine(m.pos,attractor,globScale,GL_LINES);
 	return m;
 }
 
@@ -188,10 +209,38 @@ void render(SDL_Window* window) {
 		drawCube(masses[i].pos,glm::vec3(0,1,0),globScale/50.,GL_TRIANGLES);
 	}
 
-	drawLine(masses[4].pos,masses[3].pos,globScale,GL_LINES);
-	masses[4]=hooke(masses[4],masses[3].pos);
-	masses[5]=hooke(masses[5],masses[4].pos);
-	masses[4]=hooke(masses[4],masses[5].pos);
+
+	masses[2]=hooke(masses[2],masses[0].pos);
+	masses[9]=hooke(masses[9],masses[1].pos);
+
+	for(int x=0;x<10;x++){
+		for(int y=0;y<5;y++){
+			masses[x+y*10+2]=hooke(masses[x+y*10+2],masses[x+1+y*10+2].pos);//attach LR
+			masses[x+1+y*10+2]=hooke(masses[x+1+y*10+2],masses[x+y*10+2].pos);
+
+			masses[x+y*10+2]=hooke(masses[x+y*10+2],masses[x+(y+1)*10+2].pos);//attach UD
+			masses[x+(y+1)*10+2]=hooke(masses[x+(y+1)*10+2],masses[x+y*10+2].pos);
+		}
+	}
+
+
+
+
+//	masses[4]=hooke(masses[4],masses[3].pos);//attach 4 to 3
+//
+//	masses[5]=hooke(masses[5],masses[4].pos);//attach 4 and 5
+//	masses[4]=hooke(masses[4],masses[5].pos);
+//
+//	masses[6]=hooke(masses[6],masses[5].pos);//attach 5 and 6
+//	masses[5]=hooke(masses[5],masses[6].pos);
+//
+//	masses[6]=hooke(masses[6],masses[7].pos);//attach 6 and 7
+//
+//	masses[8]=hooke(masses[8],masses[3].pos);//attach 4 to 3
+//	masses[9]=hooke(masses[9],masses[4].pos);//attach 4 to 3
+//	masses[10]=hooke(masses[10],masses[5].pos);//attach 4 to 3
+//	masses[11]=hooke(masses[11],masses[6].pos);//attach 4 to 3
+//	masses[12]=hooke(masses[12],masses[7].pos);//attach 4 to 3
 
 	SDL_GL_SwapWindow(window);
 }
@@ -223,9 +272,13 @@ void mainLoop(SDL_Window* window) {
 			if (e.type == SDL_MOUSEMOTION){
 				//angle+=e.motion.xrel*.5;
 			}
-			if (e.type == SDL_MOUSEMOTION && e.button.button==SDL_BUTTON_LEFT){
-				masses[3].pos.x+=e.motion.xrel/500.;
-				masses[3].pos.y+=-e.motion.yrel/500.;
+			if (e.type == SDL_MOUSEMOTION && e.button.button==SDL_BUTTON(1)){
+				masses[0].pos.x+=e.motion.xrel/500.;
+				masses[0].pos.y+=-e.motion.yrel/500.;
+			}
+			if (e.type == SDL_MOUSEMOTION && e.button.button==SDL_BUTTON(3)){
+				masses[5].pos.z+=e.motion.xrel/500.;
+				masses[5].pos.y+=-e.motion.yrel/500.;
 			}
 			if (e.type == SDL_MOUSEWHEEL){
 				globScale+=.01;
@@ -240,10 +293,12 @@ void mainLoop(SDL_Window* window) {
 						return;
 						break;
 					case 97://a
+						angle+=10;
 						break;
 					case 115://s
 						break;
 					case 100://d
+						angle-=10;
 						break;
 					case 119://w
 						break;
