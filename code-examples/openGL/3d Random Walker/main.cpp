@@ -67,7 +67,7 @@ void init_resources(){
 	const char *fs_source =
 		"varying vec3 f_color;"
 		"void main(void) {"
-		"  gl_FragColor = vec4(f_color.r, f_color.g, f_color.b, .5);"
+		"  gl_FragColor = vec4(f_color.r, f_color.g, f_color.b, .3);"
 		"}";
 	glShaderSource(fs, 1, &fs_source, NULL);
 	glCompileShader(fs);
@@ -180,12 +180,14 @@ glm::vec3 add(glm::vec3 a,glm::vec3 b){
 void randomWalk(){
 	srand(0);
 	glm::vec3 pos=glm::vec3(0);
+	//pos.z=3;
 	for(int i=0;i<10000;i++){
 		//pos.x+=1./500.;
 		pos.x+=(float)(rand()%3-1)/50.;
 		pos.y+=(float)(rand()%3-1)/50.;
 		pos.z+=(float)(rand()%3-1)/50.;
-		drawCube(pos,glm::vec3(0,1,0),globScale/50.,GL_TRIANGLES);
+		//pos.z+=(float)(-rand()%2)/500.;
+		drawCube(pos,glm::vec3(0,1,0),globScale/100.,GL_TRIANGLES);
 	}
 }
 
@@ -264,7 +266,8 @@ int main(int argc, char* argv[]) {
 	glewInit();
 	init_resources();
 	glEnable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_NEVER);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	mainLoop(window);
 	free_resources();
