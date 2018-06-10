@@ -14,26 +14,54 @@ GLuint program;
 GLint attribute_coord3d, attribute_v_color;
 GLint uniform_mvp;
 float angle=0;
-const int cubeLen=100;
 float rotSpeed=15;
 
-struct cube{
-	glm::vec3 pos = glm::vec3(0);
-};
+char* file_read(const char* filename) {
+	SDL_RWops *rw = SDL_RWFromFile(filename, "rb");
+	if (rw == NULL) return NULL;
+	Sint64 res_size = SDL_RWsize(rw);
+	char* res = (char*)malloc(res_size + 1);
 
-struct cube cubeList[cubeLen];
+	Sint64 nb_read_total = 0, nb_read = 1;
+	char* buf = res;
+	while (nb_read_total < res_size && nb_read != 0) {
+		nb_read = SDL_RWread(rw, buf, 1, (res_size - nb_read_total));
+		nb_read_total += nb_read;
+		buf += nb_read;
+	}
+	SDL_RWclose(rw);
+	if (nb_read_total != res_size) {
+		free(res);
+		return NULL;
+	}
+	res[nb_read_total] = '\0';
+	return res;
+}
 
 void init_resources(){
-	for(int i=0;i<cubeLen;i++){
-		cubeList[i]=(struct cube){glm::vec3(rand()%2000/1000.-1.,rand()%2000/1000.-1.,rand()%2000/1000.-1.)};
-	}
 	GLfloat cube_vertices[]={-1.0,-1.0,1.0,1.0,-1.0,1.0,1.0,1.0,1.0,-1.0,1.0,1.0,-1.0,-1.0,-1.0,1.0,-1.0,-1.0,1.0,1.0,-1.0,-1.0,1.0,-1.0,};
 	glGenBuffers(1,&vbo_cube_vertices);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_cube_vertices);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(cube_vertices), cube_vertices, GL_STATIC_DRAW);
 
-	//GLfloat cube_colors[]={1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,};
-	GLfloat cube_colors[]={0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
+//	GLfloat cube_colors[]={1.0,0.0,0.0,
+//0.0,1.0,0.0,
+//0.0,0.0,1.0,
+//1.0,1.0,1.0,
+//1.0,0.0,0.0,
+//0.0,1.0,0.0,
+//0.0,0.0,1.0,
+//1.0,1.0,1.0,};
+	GLfloat cube_colors[]={
+0.0,0.0,0.0,
+0.0,0.0,0.0,
+0.5,0.5,0.5,
+0.5,0.5,0.5,
+0.0,0.0,0.0,
+0.0,0.0,0.0,
+0.5,0.5,0.5,
+0.5,0.5,0.5,};
+	//GLfloat cube_colors[]={.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5,.5};
 	glGenBuffers(1,&vbo_cube_colors);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_cube_colors);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(cube_colors), cube_colors, GL_STATIC_DRAW);
@@ -46,26 +74,13 @@ void init_resources(){
 	GLint compile_ok = GL_FALSE, link_ok = GL_FALSE;
 
 	GLuint vs = glCreateShader(GL_VERTEX_SHADER);
-	const char *vs_source =
-		"attribute vec3 coord3d;"
-		"attribute vec3 v_color;"
-		"uniform mat4 mvp;"
-		"varying vec3 f_color;"
-		""
-		"void main(void) {"
-		"  gl_Position = mvp * vec4(coord3d, 1.0);"
-		"  f_color = v_color;"
-		"}";
+	char *vs_source=file_read("shader.vs");
 	glShaderSource(vs, 1, &vs_source, NULL);
 	glCompileShader(vs);
 	glGetShaderiv(vs, GL_COMPILE_STATUS, &compile_ok);
 
 	GLuint fs = glCreateShader(GL_FRAGMENT_SHADER);
-	const char *fs_source =
-		"varying vec3 f_color;"
-		"void main(void) {"
-		"  gl_FragColor = vec4(f_color.r, f_color.g, f_color.b, .5);"
-		"}";
+	char *fs_source=file_read("shader.fs");
 	glShaderSource(fs, 1, &fs_source, NULL);
 	glCompileShader(fs);
 	glGetShaderiv(fs, GL_COMPILE_STATUS, &compile_ok);
@@ -116,9 +131,9 @@ void render(SDL_Window* window) {
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	drawCube(glm::vec3(0),glm::vec3(0,1,0),1,GL_LINES);
-	for(int i=0;i<cubeLen;i++){
-		drawCube(cubeList[i].pos,glm::vec3(0,1,0),.01,GL_TRIANGLES);
-	}
+	drawCube(glm::vec3(0,0,0),glm::vec3(0,1,0),.1,GL_TRIANGLES);
+	drawCube(glm::vec3(.2,0,0),glm::vec3(0,1,0),.1,GL_TRIANGLES);
+	drawCube(glm::vec3(.2,.2,0),glm::vec3(0,1,0),.1,GL_TRIANGLES);
 	SDL_GL_SwapWindow(window);
 }
 
@@ -180,6 +195,7 @@ int main(int argc, char* argv[]) {
 	init_resources();
 	glEnable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
+	//glDepthFunc(GL_NEVER);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	mainLoop(window);
 	free_resources();
