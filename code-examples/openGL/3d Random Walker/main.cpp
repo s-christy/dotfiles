@@ -31,7 +31,8 @@ void init_cube(){
 	glBufferData(GL_ARRAY_BUFFER, sizeof(cube_vertices), cube_vertices, GL_STATIC_DRAW);
 
 	//GLfloat cube_colors[]={1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,};
-	GLfloat cube_colors[]={0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
+	GLfloat cube_colors[]={0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.5,0.5,0.5,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.5,0.5,0.5,0.5,};
+	//GLfloat cube_colors[]={0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
 	glGenBuffers(1,&vbo_cube_colors);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_cube_colors);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(cube_colors), cube_colors, GL_STATIC_DRAW);
@@ -67,7 +68,7 @@ void init_resources(){
 	const char *fs_source =
 		"varying vec3 f_color;"
 		"void main(void) {"
-		"  gl_FragColor = vec4(f_color.r, f_color.g, f_color.b, .3);"
+		"  gl_FragColor = vec4(f_color.r, f_color.g, f_color.b, 1);"
 		"}";
 	glShaderSource(fs, 1, &fs_source, NULL);
 	glCompileShader(fs);
@@ -94,8 +95,8 @@ void drawCube(glm::vec3 pos,glm::vec3 axis,float scale,int style){
 	glm::mat4 model = glm::mat4(1.0f);
 	model= glm::translate(model, camPos);
 	model= glm::rotate(model, glm::radians(angle), axis);
-	model= glm::translate(model, pos);
 	model= glm::scale(model, glm::vec3(scale));
+	model= glm::translate(model, pos);
 	glm::mat4 view = glm::lookAt(glm::vec3(0.0, 2.0, 0.0), glm::vec3(0.0, 0.0, -4.0), glm::vec3(0.0, 1.0, 0.0));
 	glm::mat4 projection = glm::perspective(45.0f, 1.0f*screen_width/screen_height, 0.1f, 10.0f);
 	glm::mat4 mvp = projection * view * model;
@@ -183,11 +184,11 @@ void randomWalk(){
 	//pos.z=3;
 	for(int i=0;i<10000;i++){
 		//pos.x+=1./500.;
-		pos.x+=(float)(rand()%3-1)/50.;
-		pos.y+=(float)(rand()%3-1)/50.;
-		pos.z+=(float)(rand()%3-1)/50.;
+		pos.x+=(float)(rand()%3-1);
+		pos.y+=(float)(rand()%3-1);
+		pos.z+=(float)(rand()%3-1);
 		//pos.z+=(float)(-rand()%2)/500.;
-		drawCube(pos,glm::vec3(0,1,0),globScale/100.,GL_TRIANGLES);
+		drawCube(pos,glm::vec3(0,1,0),globScale*.01,GL_TRIANGLES);
 	}
 }
 
@@ -195,6 +196,7 @@ void render(SDL_Window* window) {
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	drawCube(glm::vec3(0),glm::vec3(0,1,0),globScale,GL_LINES);
+	//drawCube(glm::vec3(0),glm::vec3(0,1,0),globScale,GL_TRIANGLES);
 	randomWalk();
 	SDL_GL_SwapWindow(window);
 }
@@ -266,8 +268,8 @@ int main(int argc, char* argv[]) {
 	glewInit();
 	init_resources();
 	glEnable(GL_BLEND);
-	//glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_NEVER);
+	glEnable(GL_DEPTH_TEST);
+	//glDepthFunc(GL_NEVER);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	mainLoop(window);
 	free_resources();
