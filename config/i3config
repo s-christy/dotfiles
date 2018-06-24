@@ -269,6 +269,7 @@ bindsym $mod+Shift+Ctrl+n exec --no-startup-id "timer now"
 bindsym $mod+Shift+Ctrl+b exec --no-startup-id "timer brush"
 bindsym $mod+Shift+Return "split toggle; exec --no-startup-id urxvt"
 bindsym $mod+Shift+p "exec --no-startup-id pavucontrol"
+bindsym $mod+Shift+Ctrl+p "exec --no-startup-id pavucontrol"
 
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] border pixel 20
