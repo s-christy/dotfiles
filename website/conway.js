@@ -1,37 +1,42 @@
-sessionStorage.setItem("uniqueIdSessionStorage", "xyz");
-var barnsley = document.getElementById("conway");
-var barnsleyContext = barnsley.getContext("2d");
-var x=0;
-var y=0;
-var scale=40;
-var xoffset=barnsley.width/2;
-var yoffset=barnsley.height;
-barnsleyContext.fillStyle = "white";
-barnsleyContext.fillRect(0, 0, barnsley.width, barnsley.height);
-
-var main=setInterval(function(){
-	for(var i=0;i<1000;i++){
-		var xn=0;
-		var yn=0;
-		var r=Math.random()*100;
-		if(r<1){
-			xn=0;
-			yn=.16*y;
-		}else if(r<86){
-			xn=.85*x+.04*y;
-			yn=-.04*x+.85*y+1.6;
-		}else if(r<93){
-			xn=.2*x-.26*y;
-			yn=.23*x+.22*y+1.6;
-		}else{
-			xn=-.15*x+.28*y;
-			yn=.26*x+.24*y+.44;
-		}
-		x=xn;
-		y=yn;
-		barnsleyContext.fillStyle = "green";
-		barnsleyContext.fillRect(xoffset+x*scale,yoffset-y*scale,1,1);
+function setup(){
+	var c = document.getElementById("conway");
+	var ctx = c.getContext("2d");
+	ctx.fillStyle = "white";
+	ctx.fillRect(0, 0, c.width, c.height);
+	var board=[];
+	for (var i=0;i<c.width/10*c.height/10;i++){
+		board.push(Math.floor(Math.random()*2));
 	}
-	barnsleyContext.stroke();
-},1);
 
+	var main=setInterval(function(){
+		var nextBoard=board.slice(0);
+		for(var x=0;x<c.width/10;x++){
+			for(var y=0;y<c.height/10;y++){
+				ctx.fillStyle = "white";
+				if(board[x*c.width/10+y])ctx.fillStyle = "black";
+				ctx.fillRect(x*10,y*10,10,10);
+
+				neighbors=0;
+				if(board[(x+1)*c.width/10+y+1])neighbors++;
+				if(board[(x+1)*c.width/10+y+0])neighbors++;
+				if(board[(x+1)*c.width/10+y-1])neighbors++;
+				if(board[(x+0)*c.width/10+y+1])neighbors++;
+				if(board[(x+0)*c.width/10+y-1])neighbors++;
+				if(board[(x-1)*c.width/10+y+1])neighbors++;
+				if(board[(x-1)*c.width/10+y+0])neighbors++;
+				if(board[(x-1)*c.width/10+y-1])neighbors++;
+				if(nextBoard[(x)*c.width/10+y]){
+					if(neighbors<2)nextBoard[(x)*c.width/10+y]=0;
+					if(neighbors==2)nextBoard[(x)*c.width/10+y]=1;
+					if(neighbors==3)nextBoard[(x)*c.width/10+y]=1;
+					if(neighbors>3)nextBoard[(x)*c.width/10+y]=0;
+				}else{
+					if(neighbors==3)nextBoard[(x)*c.width/10+y]=1;
+				}
+			}
+		}
+		ctx.stroke();
+		board=nextBoard;
+	},1000/30);
+}
+setup();
