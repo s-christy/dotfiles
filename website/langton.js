@@ -23,7 +23,7 @@ function setup(){
 		ctx.fillStyle = "red";
 		ctx.fillRect(ax*res,ay*res,res,res);
 
-		for(var i=0;i<100;i++){
+		for(var i=0;i<1000;i++){
 			if(board[(ax+0)*c.width/res+ay+0]==0){
 				rot--;
 				board[(ax+0)*c.width/res+ay+0]=1;
@@ -34,12 +34,13 @@ function setup(){
 			if(rot==-1)rot=3;
 			if(rot==4)rot=0;
 			if(rot==0)ax++;
-			if(rot==1)ay++;
+			if(rot==1)ay--;
 			if(rot==2)ax--;
-			if(rot==3)ay--;
-		console.log(ax);
+			if(rot==3)ay++;
+			if(ax>c.width/res)ay-=c.width/res;
+			if(ay>c.height/res)ay-=c.height/res;
 		}
 		ctx.stroke();
-	},1000/30);
+	},33);
 }
 setup();

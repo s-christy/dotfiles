@@ -8,6 +8,7 @@ function setup(){
 		board.push(Math.floor(Math.random()*2));
 	}
 
+
 	var main=setInterval(function(){
 		var nextBoard=board.slice(0);
 		for(var x=0;x<c.width/10;x++){
