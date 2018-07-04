@@ -322,3 +322,7 @@ the -H option in gcc will print out the full path of every file it uses during c
 change timezone with
 dpkg-reconfigure tzdata
 
+fix flash drives with mkfs.vfat /dev/sdd1
+
+
+
