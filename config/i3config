@@ -45,7 +45,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+#bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -256,6 +256,7 @@ bindsym Shift+XF86AudioLowerVolume exec --no-startup-id volume downl
 
 bindsym $mod+t split toggle
 bindsym $mod+Shift+h exec --no-startup-id lock
+bindsym $mod+l exec --no-startup-id lock
 bindsym Print exec --no-startup-id scrot /home/sam/tmp/out.png
 bindsym $mod+Shift+t move workspace to output right
 bindsym $mod+r mode "resize"
