@@ -1,0 +1,5 @@
+open emacs with emacs -nw
+go to slime with m-x slime
+access bar with <F10>
+sbcl=steel bank common lisp
+sbcl --noinform --load main.lisp --eval '(progn (hello-world) (sb-ext:quit))'
