@@ -3,6 +3,7 @@ function setup(){
 	var ctx = c.getContext("2d");
 	ctx.fillStyle = "grey";
 	ctx.fillRect(0, 0, c.width, c.height);
+	ctx.globalAlpha=.2;
 
 	var scale=.05;
 	for(var i=0;i<100;i++){
