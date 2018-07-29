@@ -1,3 +1,4 @@
 #use <F6>
+for i in {1..100}; do echo; done
 gcc main.c -o out
-./out `pidof './a.out'`
+./out `pidof './process'`

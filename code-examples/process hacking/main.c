@@ -7,8 +7,11 @@
 #include <sys/types.h>
 #include <sys/user.h>
 #include <sys/wait.h>
+#include <string.h>
 
 int x=0;
+#define MEMSIZE 10000000
+long memory[MEMSIZE];
 
 void dumpRegs(int pid){
 	printf("------------------------\n");
@@ -47,36 +50,98 @@ void dumpRegs(int pid){
 	printf("rsp      | %016lx-Stack Pointer\n",regs.rsp);
 }
 
-void singleStep(int pid){
-	x++;
+void singleStep(int pid,int steps){
 	int status;
-	ptrace(PTRACE_SINGLESTEP,pid,NULL,NULL);
-	waitpid(pid,&status,0);
+	for(int i=0;i<steps;i++){
+		ptrace(PTRACE_SINGLESTEP,pid,NULL,NULL);
+		waitpid(pid,&status,0);
+		x++;
+	}
 	dumpRegs(pid);
 }
 
+void getMemoryRegions(int pid,long regions[17][2]){
+	//get file from pid
+	char pids[255];
+	char fName[255]="/proc/";
+	sprintf(pids,"%d",pid);
+	strcat(fName,pids);
+	strcat(fName,"/maps");
+	FILE* f=fopen(fName,"r");
+	//printf("%s\n",fName);
+
+	int length=0;
+
+	for(int i=0;i<17;i++){
+		//get line
+		char buf[255];
+		fgets(buf,255,f);
+
+		//get addresses
+		long a=strtol(buf,NULL,16);
+		long b=strtol(buf+13,NULL,16);
+		//printf("%lx-%lx\n",a,b);
+		regions[i][0]=a;
+		regions[i][1]=b;
+		//printf("%d\n",b-a);
+		length+=b-a;
+	}
+
+	printf("%d\n",length);
+	fclose(f);
+
+}
+
+int peekMemory(int pid,long regions[17][2]){
+	long start=regions[0][0];
+	long end=regions[0][1];
+	//for(int i=0;i<end-start;i++){
+	for(int i=0;i<10;i++){
+		long data=ptrace(PTRACE_PEEKDATA,pid,start+i,NULL);
+		printf("%016lx\n",data);
+	}
+}
+
+void loadMemory(int pid,long regions[17][2]){
+	int counter=0;
+	for(int x=0;x<17;x++){
+		printf("%lx-%lx\n",regions[x][0],regions[x][1]);
+		for(int y=regions[x][0];y<regions[x][1];y+=16){
+			ptrace(PTRACE_PEEKDATA,pid,y,NULL);
+			counter++;
+			//printf("%lx\n",data);
+		}
+	}
+	printf("DONE\n");
+}
+
 int main(int argc, char **argv){
-	printf("begin\n");
+	for(int i=0;i<MEMSIZE;i++)memory[i]=0;
+	//Attach
 	int pid=atoi(argv[1]);//the pid of the process
-	char c='_';
 	ptrace(PTRACE_ATTACH,pid);//attach to process
-	int status;
-	waitpid(pid,&status,0);
+	waitpid(pid,NULL,0);
 
-	do{
-		singleStep(pid);
-		c=getchar();
+	//Get memory regions
+	long regions[17][2];
+	getMemoryRegions(pid,regions);
+	//loadMemory(pid,regions);
+
+	//Mainloop
+	char c='s';
+	int running=1;
+	while(running==1){
+		char tmp=getchar();
+		if(tmp!='\n')c=tmp;
+		if(c=='s')singleStep(pid,100);
+		if(c=='m')peekMemory(pid,regions);
 		if(c=='k')kill(pid,9);
-	}while(c!='q');
+		if(c=='q')running=0;
+	}
 
+	//Detach
 	printf("%d",ptrace(PTRACE_CONT,pid,NULL,NULL));
 	ptrace(PTRACE_DETACH,pid);//attach to process
-	printf("end\n");
-
 	return 0;
 }
 
-/*NOTES
- * kill(pid,18); sigcont
- * kill(pid,9); sigkill
- */
