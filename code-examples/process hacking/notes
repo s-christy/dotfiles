@@ -2,6 +2,7 @@ gcc process.c
 ./a.out
 top -p `pidof './a.out'`
 man kill.2 gives the linux programmers manual for kill
+heap region contains variable values?
 
 
 

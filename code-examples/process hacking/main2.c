@@ -9,13 +9,14 @@
 #include <sys/wait.h>
 #include <string.h>
 
-int x=0;
-#define MEMSIZE 10000000
+int step=0;
+#define MEMSIZE 100000000
 long memory[MEMSIZE];
+
 
 void dumpRegs(int pid){
 	printf("------------------------\n");
-	printf("Step: %d\n",x);
+	printf("Step: %d\n",step);
 	struct user_regs_struct regs;
 	ptrace(PTRACE_GETREGS,pid,NULL, &regs);
 	printf("cs       | %016lx-Should be unused in x86-64\n",regs.cs);
@@ -50,58 +51,17 @@ void dumpRegs(int pid){
 	printf("rsp      | %016lx-Stack Pointer\n",regs.rsp);
 }
 
-void singleStep(int pid,int steps){
+void steps(int pid,int steps){
 	int status;
 	for(int i=0;i<steps;i++){
 		ptrace(PTRACE_SINGLESTEP,pid,NULL,NULL);
 		waitpid(pid,&status,0);
-		x++;
+		step++;
 	}
 	dumpRegs(pid);
 }
 
-void getMemoryRegions(int pid,long regions[17][2]){
-	//get file from pid
-	char pids[255];
-	char fName[255]="/proc/";
-	sprintf(pids,"%d",pid);
-	strcat(fName,pids);
-	strcat(fName,"/maps");
-	FILE* f=fopen(fName,"r");
-	//printf("%s\n",fName);
-
-	int length=0;
-
-	for(int i=0;i<17;i++){
-		//get line
-		char buf[255];
-		fgets(buf,255,f);
-
-		//get addresses
-		long a=strtol(buf,NULL,16);
-		long b=strtol(buf+13,NULL,16);
-		//printf("%lx-%lx\n",a,b);
-		regions[i][0]=a;
-		regions[i][1]=b;
-		//printf("%d\n",b-a);
-		length+=b-a;
-	}
-
-	printf("%d\n",length);
-	fclose(f);
-
-}
-
-int peekMemory(int pid,long regions[17][2]){
-	long start=regions[0][0];
-	long end=regions[0][1];
-	//for(int i=0;i<end-start;i++){
-	for(int i=0;i<10;i++){
-		long data=ptrace(PTRACE_PEEKDATA,pid,start+i,NULL);
-		printf("%016lx\n",data);
-	}
-}
-
+//For reference
 void loadMemory(int pid,long regions[17][2]){
 	int counter=0;
 	for(int j=0;j<17;j++){
@@ -126,32 +86,84 @@ void loadMemory(int pid,long regions[17][2]){
 	printf("DONE\n");
 }
 
+
+
+void findHeap(int pid,long *heapStart, long *heapEnd){
+	long addr=-1;
+	//get file from pid
+	char pids[255];
+	char fName[255]="/proc/";
+	sprintf(pids,"%d",pid);
+	strcat(fName,pids);
+	strcat(fName,"/maps");
+	FILE* f=fopen(fName,"r");
+	//printf("%s\n",fName);
+	for(int i=0;i<17;i++){
+		//get line
+		char buf[255];
+		fgets(buf,255,f);
+		//printf("%s\n",buf);
+		if(strstr(buf,"[stack]")!=NULL){
+			printf("%s\n",buf);
+			*heapStart=strtol(buf,NULL,16);
+			char * next=strstr(buf,"-");
+			*heapEnd=strtol(next+1,NULL,16);
+		}
+	}
+	fclose(f);
+}
+
+void find(int pid,long start,long end){
+	getchar();
+	char input[255];
+	fgets(input,255,stdin);
+	long counter=0;
+	for(long i=start;i<end;i++){
+		long data=ptrace(PTRACE_PEEKDATA,pid,i,NULL);
+		memory[counter]=data;
+		counter++;
+	}
+	for(int i=0;i<MEMSIZE;i++){
+		if(memory[i]!=0 && memory[i]!=-1){
+			if((memory[i] & 0xFFFF) == strtol(input,NULL,16)){
+				printf("DATA: %016lx-ADDRESS: %016lx\n",memory[i],i);
+			//printf("%016lx\n",memory[i] & 0xFFFF);
+			}
+		}
+	}
+	printf("DONE-%s\n",input);
+}
+
 int main(int argc, char **argv){
-	//char s[255];
-	//fgets(s,255,stdin);
 	for(int i=0;i<MEMSIZE;i++)memory[i]=0;
-	//Attach
 	int pid=atoi(argv[1]);//the pid of the process
 	ptrace(PTRACE_ATTACH,pid);//attach to process
 	waitpid(pid,NULL,0);
+	printf("PID IS %d\n",pid);
 
 	//Get memory regions
-	long regions[17][2];
-	getMemoryRegions(pid,regions);
-	//loadMemory(pid,regions);
+	long heapStart=0;
+	long heapEnd=0;
+	findHeap(pid,&heapStart,&heapEnd);
+	printf("HEAP LOCATED AT %lx\n",heapStart);
+	printf("GOES UNTIL %lx\n",heapEnd);
 
 	//Mainloop
 	char c='s';
+	int num=1;
 	int running=1;
 	while(running==1){
-		printf("(s)ingle step\tpeek (m)emory\t(l)oad memory region\t(k)ill process\t(q)uit\n");
 		char tmp=getchar();
 		if(tmp!='\n')c=tmp;
-		if(c=='k')kill(pid,9);
-		if(c=='l')loadMemory(pid,regions);
-		if(c=='m')peekMemory(pid,regions);
 		if(c=='q')running=0;
-		if(c=='s')singleStep(pid,100);
+		if(c=='k')kill(pid,9);
+		if(c=='s')steps(pid,num);
+		if(c=='f')find(pid,heapStart, heapEnd);
+		if(c=='n'){
+			char buf[255];
+			fgets(buf,255,stdin);
+			num=atoi(buf);
+		}
 	}
 
 	//Detach

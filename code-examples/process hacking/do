@@ -1,4 +1,5 @@
 #use <F6>
+#./process &
 for i in {1..100}; do echo; done
-gcc main.c -o out
+gcc main3.c -o out
 ./out `pidof './process'`
