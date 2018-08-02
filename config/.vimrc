@@ -126,6 +126,7 @@ noremap ; :
 
 
 set foldmethod=syntax
+set tabstop=4
 
 "you can autocenter using :map j jzz and :map k kzz. This doesn't slow things
 "down apparently
