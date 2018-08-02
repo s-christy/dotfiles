@@ -183,5 +183,6 @@ https://lwn.net/Articles/57135/
 +       if ((options == (__WCLONE|__WALL)) && (current->uid = 0))
 +                       retval = -EINVAL;
 
+https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html
 
 
