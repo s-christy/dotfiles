@@ -221,6 +221,7 @@ alias sd="saveDir "
 alias openGL="cd ~/s-christy/dotfiles/code-examples/openGL "
 alias main="vi main.* "
 alias processing="~/Downloads/processing-3.3.7-linux64/processing-3.3.7/processing "
+alias gcc="gcc -Wall "
 
 #export PAGER="/usr/bin/most -s"
 export PAGER="/usr/bin/less"
