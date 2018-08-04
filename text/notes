@@ -186,3 +186,7 @@ https://lwn.net/Articles/57135/
 https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html
 
 
+sudo apt install gcc-doc
+
+gcc -save-temps file.c
+
