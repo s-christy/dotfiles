@@ -12,6 +12,7 @@
 int pid;
 int status;
 int step=0;
+int stackRow=-1;
 struct user_regs_struct regs;
 
 void memoryRegions();
@@ -19,39 +20,100 @@ void printRegs();
 void child();
 void stepn(int n);
 long regions[100][2];
+unsigned long value_locations[1000]={ 0 };
+int targetValue=0x55;
 
-void lookForValue(int val){
+void lookForValue(){
 	int c=0;
+	int vloc=0;
+	char tv[255];
+	fgets(tv,255,stdin);
+	targetValue=strtol(tv,NULL,16);
+	printf("target is: %x\n",targetValue);
 	while(regions[c][0]!=0){
-		printf("%lx\n",regions[c][0]);
+		//printf("%lx-%lx\n",regions[c][0],regions[c][1]);
+		if(c==stackRow) //only look in stack
+		for(unsigned long i=regions[c][0];i<regions[c][1];i++){
+			unsigned long data=&i;
+			//printf("%016lx\n",data);
+			data=ptrace(PTRACE_PEEKDATA,pid,i,NULL);
+			int d=data;
+			if(d==targetValue){
+				printf("%08x-%016lx,%d",d,i,c);
+				if(c==stackRow)printf("\t[stack]\n");
+				else printf("\n");
+				value_locations[vloc]=i;
+				vloc++;
+			}
+		}
 		c++;
 	}
+	for(int i=0;i<1000;i++)
+		if(value_locations[i]!=0)
+			printf("%lx\n",value_locations[i]);
+	printf("done\n");
+}
+
+void pokeData(){
+	for(int i=0;i<1000;i++)
+		if(value_locations[i]!=0)
+			ptrace(PTRACE_POKEDATA,pid,value_locations[i],0x666);
 }
 
 void parent(){
 	memoryRegions();
-	if(ptrace(PTRACE_ATTACH,pid,NULL,NULL)==-1)printf("ATTACH ERROR\n");
+	if(ptrace(PTRACE_ATTACH,pid,NULL,NULL)==-1)perror("ERROR");
 	else printf("ATTACHED\n");
 
-	int n=1;
-	char c='_';
+
+	int c='_';
+	int n=10000;
 	while(c!='q'){
-		if(c=='r'){
-			if(ptrace(PTRACE_GETREGS,pid,NULL,&regs)==-1)printf("GETREGS ERROR\n");
-			else printRegs(regs);
-		}else if(c=='s'){
+		char entry[255];
+		fgets(entry,255,stdin);
+		if(entry[0]!='\n')c=entry[0];
+		if(c=='s'){
 			stepn(n);
+		}else if(c=='p'){
+			printf("%d\n",pid);
+		}else if(c=='o'){
+			pokeData();
+		}else if(c=='l'){
+			printf("look\n");
+			lookForValue();
 		}else if(c=='n'){
+			printf("Enter number: ");
 			char buf[255];
 			fgets(buf,255,stdin);
 			n=atoi(buf);
 			puts(buf);
 		}
-		char tmp=getchar();
-		if(tmp!='\n')c=tmp;
 	}
 
-	if(ptrace(PTRACE_DETACH,pid,NULL,NULL)==-1)printf("DETACH ERROR\n");
+	//int n=1;
+	//char c='_';
+	//while(c!='q'){
+	//	if(c=='r'){
+	//		if(ptrace(PTRACE_GETREGS,pid,NULL,&regs)==-1)perror("ERROR");
+	//		else printRegs(regs);
+	//	}else if(c=='s'){
+	//		stepn(n);
+	//	}else if(c=='l'){
+	//		printf("look\n");
+	//		lookForValue(0x55);
+	//	}else if(c=='n'){
+	//		char buf[255];
+	//		fgets(buf,255,stdin);
+	//		n=atoi(buf);
+	//		puts(buf);
+	//	}
+	//	char entry[255];
+	//	fgets(entry,255,stdin);
+	//	char tmp=getchar();
+	//	if(tmp!='\n')c=tmp;
+	//}
+
+	if(ptrace(PTRACE_DETACH,pid,NULL,NULL)==-1)perror("ERROR");
 	else printf("DETACHED\n");
 }
 
@@ -101,28 +163,29 @@ void printRegs(){
 
 void child(){
 	int x;
+	x=0x55;
 	while(1){
-		//printf("%x\n",x);
-		x=0x55;
+		x++;
+		printf("%x\n",x);
 		usleep(5);
-		x=0x85;
-		usleep(5);
-		x=0xa5;
-		usleep(5);
-		x=0x50;
-		usleep(5);
+		//x=0x85;
+		//usleep(5);
+		//x=0xa5;
+		//usleep(5);
+		//x=0x50;
+		//usleep(5);
 	}
 }
 
 void stepn(int n){
 	int i=0;
 	for(i=0;i<n;i++){
-		if(ptrace(PTRACE_SINGLESTEP,pid,NULL,NULL)==-1)printf("STEP ERROR\n");
+		if(ptrace(PTRACE_SINGLESTEP,pid,NULL,NULL)==-1)perror("ERROR");
 		waitpid(pid,&status,0);
 		step++;
 	}
-	if(ptrace(PTRACE_GETREGS,pid,NULL,&regs)==-1)printf("GETREGS ERROR\n");
-	else printRegs(regs);
+	//if(ptrace(PTRACE_GETREGS,pid,NULL,&regs)==-1)perror("ERROR");
+	//else printRegs(regs);
 }
 
 void memoryRegions(){
@@ -137,6 +200,7 @@ void memoryRegions(){
 	int count=0;
 	while(!feof(f)){
 		fgets(buf,255,f);
+		if(strstr(buf,"[stack]")!=NULL)stackRow=count;
 		long a=strtol(buf,NULL,16);
 		char *next=strstr(buf,"-");
 		long b=strtol(next+1,NULL,16);
