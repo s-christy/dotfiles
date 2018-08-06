@@ -2,7 +2,8 @@
 arg1=$1
 if [ "$arg1" == "" ]
 	then
-	pygmentize -g ~/s-christy/dotfiles/bin/timer
+	#pygmentize -g ~/s-christy/dotfiles/bin/timer
+	cat ~/s-christy/dotfiles/bin/timer
 elif [ "$arg1" == "set" ]; then
 	echo $(((`date +%s`+60*$2))) > ~/untilTime
 elif [ "$arg1" == "watch" ]; then
