@@ -1,52 +1,54 @@
-#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/ptrace.h>
-#include <sys/reg.h>
-#include <sys/types.h>
 #include <sys/user.h>
 #include <sys/wait.h>
 #include <unistd.h>
 
+//vars
 int pid;
+int stackRow=-1;
 int status;
 int step=0;
-int stackRow=-1;
-struct user_regs_struct regs;
-
-void memoryRegions();
-void printRegs();
-void child();
-void stepn(int n);
-long regions[100][2];
-unsigned long value_locations[1000]={ 0 };
 int targetValue=0x55;
+long regions[100][2];
+struct user_regs_struct regs;
+unsigned long value_locations[1000]={ 0 };
 
+//function declarations
+void child();
+void lookForValue();
+void memoryRegions();
+void parent();
+void pokeData();
+void printRegs();
+void stepn(int n);
+
+//Scans the process memory (optionally only the stack) for an int
+//entered by the user and puts the addresses it found the int at
+//in value_locations
 void lookForValue(){
-	int c=0;
-	int vloc=0;
-	char tv[255];
-	fgets(tv,255,stdin);
-	targetValue=strtol(tv,NULL,16);
+	int row_idx=0;
+	int value_addr=0;
+	char tgt_value_buffer[255];
+	fgets(tgt_value_buffer,255,stdin);
+	targetValue=strtol(tgt_value_buffer,NULL,16);
 	printf("target is: %x\n",targetValue);
-	while(regions[c][0]!=0){
-		//printf("%lx-%lx\n",regions[c][0],regions[c][1]);
-		if(c==stackRow) //only look in stack
-		for(unsigned long i=regions[c][0];i<regions[c][1];i++){
-			unsigned long data=&i;
-			//printf("%016lx\n",data);
-			data=ptrace(PTRACE_PEEKDATA,pid,i,NULL);
+	while(regions[row_idx][0]!=0){
+		if(row_idx==stackRow) //only look in stack
+		for(unsigned long i=regions[row_idx][0];i<regions[row_idx][1];i++){
+			unsigned long data=ptrace(PTRACE_PEEKDATA,pid,i,NULL);
 			int d=data;
 			if(d==targetValue){
-				printf("%08x-%016lx,%d",d,i,c);
-				if(c==stackRow)printf("\t[stack]\n");
+				printf("%08x-%016lx,%d",d,i,row_idx);
+				if(row_idx==stackRow)printf("\t[stack]\n");
 				else printf("\n");
-				value_locations[vloc]=i;
-				vloc++;
+				value_locations[value_addr]=i;
+				value_addr++;
 			}
 		}
-		c++;
+		row_idx++;
 	}
 	for(int i=0;i<1000;i++)
 		if(value_locations[i]!=0)
@@ -54,17 +56,21 @@ void lookForValue(){
 	printf("done\n");
 }
 
+//Enter a new value into the memory addresses found by lookForValue()
 void pokeData(){
+	char new_value_buffer[255];
+	fgets(new_value_buffer,255,stdin);
+	int newValue=strtol(new_value_buffer,NULL,16);
 	for(int i=0;i<1000;i++)
 		if(value_locations[i]!=0)
-			ptrace(PTRACE_POKEDATA,pid,value_locations[i],0x666);
+			ptrace(PTRACE_POKEDATA,pid,value_locations[i],newValue);
 }
 
+//Parent process, handles attach, detach and menuing
 void parent(){
 	memoryRegions();
 	if(ptrace(PTRACE_ATTACH,pid,NULL,NULL)==-1)perror("ERROR");
 	else printf("ATTACHED\n");
-
 
 	int c='_';
 	int n=10000;
@@ -74,6 +80,10 @@ void parent(){
 		if(entry[0]!='\n')c=entry[0];
 		if(c=='s'){
 			stepn(n);
+		}else if(c=='r'){
+			stepn(1);
+			if(ptrace(PTRACE_GETREGS,pid,NULL,&regs)==-1)perror("ERROR");
+			else printRegs(regs);
 		}else if(c=='p'){
 			printf("%d\n",pid);
 		}else if(c=='o'){
@@ -90,33 +100,11 @@ void parent(){
 		}
 	}
 
-	//int n=1;
-	//char c='_';
-	//while(c!='q'){
-	//	if(c=='r'){
-	//		if(ptrace(PTRACE_GETREGS,pid,NULL,&regs)==-1)perror("ERROR");
-	//		else printRegs(regs);
-	//	}else if(c=='s'){
-	//		stepn(n);
-	//	}else if(c=='l'){
-	//		printf("look\n");
-	//		lookForValue(0x55);
-	//	}else if(c=='n'){
-	//		char buf[255];
-	//		fgets(buf,255,stdin);
-	//		n=atoi(buf);
-	//		puts(buf);
-	//	}
-	//	char entry[255];
-	//	fgets(entry,255,stdin);
-	//	char tmp=getchar();
-	//	if(tmp!='\n')c=tmp;
-	//}
-
 	if(ptrace(PTRACE_DETACH,pid,NULL,NULL)==-1)perror("ERROR");
 	else printf("DETACHED\n");
 }
 
+//program entrypoint. Forks into parent and child processes
 int main(int argc, char *argv[]){
 	pid=fork();			//fork the process
 	if(pid==0)child();	//start the child
@@ -126,6 +114,7 @@ int main(int argc, char *argv[]){
 	exit(EXIT_SUCCESS);	//exit safely
 }
 
+//print the registers enumerated in user_regs_struct from sys/user.h
 void printRegs(){
 	printf("------------------------\n");
 	printf("Step: %d\n",step);
@@ -161,22 +150,18 @@ void printRegs(){
 	printf("rsp      | %016llx-Stack Pointer\n",regs.rsp);
 }
 
+//simple child process to be manipulated
 void child(){
 	int x;
 	x=0x55;
 	while(1){
 		x++;
 		printf("%x\n",x);
-		usleep(5);
-		//x=0x85;
-		//usleep(5);
-		//x=0xa5;
-		//usleep(5);
-		//x=0x50;
-		//usleep(5);
+		usleep(10);
 	}
 }
 
+//steps n times through the child process
 void stepn(int n){
 	int i=0;
 	for(i=0;i<n;i++){
@@ -188,6 +173,7 @@ void stepn(int n){
 	//else printRegs(regs);
 }
 
+//finds memory regions enumerated in /proc/<PID>/maps
 void memoryRegions(){
 	for(int i=0;i<100;i++){regions[i][0]=0;regions[i][1]=0;}
 	char pids[255];
