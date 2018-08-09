@@ -1,0 +1,1 @@
+date +%s >> /home/sam/s-christy/dateLog
