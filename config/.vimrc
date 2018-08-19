@@ -85,7 +85,7 @@ set nowrap
 :map <F2> :set list!<CR>
 :map <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 :map <F4> :set wrap!<CR><Esc>
-nnoremap <f5> :w<CR> :!python -Bi %<cr>
+nnoremap <f5> :w<CR> :!python3 -Bi %<cr>
 ":map <F5> :setlocal spell! spelllang=en_us<CR>
 ":map <F6> :r ~/s-christy/dotfiles/filler\ text<CR><Esc>
 :map <F6> :w<CR>:!./do<CR>
