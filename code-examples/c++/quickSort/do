@@ -1,0 +1,7 @@
+names="main.cpp quickSort.cpp"
+names=`echo $names`
+for i in {1..100}; do echo; done
+for i in {1..100}; do echo; done
+g++ $names
+./a.out
+rm a.out
